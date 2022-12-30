@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c358adff938f54d438cf38f5abef0772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefeb: {fileID: 0}
 --- !u!4 &468590052
 Transform:
   m_ObjectHideFlags: 0
@@ -259,6 +258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4237336259867220732, guid: 32cf738e41f6d8a419eaa2096be2bd2d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
     - target: {fileID: 4237336260213090614, guid: 32cf738e41f6d8a419eaa2096be2bd2d, type: 3}
       propertyPath: m_RootOrder
       value: 2

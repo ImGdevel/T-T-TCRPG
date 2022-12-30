@@ -12,23 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c1bf2c800a0ed4886501c4f936de1c, type: 3}
   m_Name: CardData
   m_EditorClassIdentifier: 
-  cards1:
-  - name: 
-    sprite: {fileID: 0}
-  - name: 
-    sprite: {fileID: 0}
-  - name: 
-    sprite: {fileID: 0}
-  cards2:
-  - name: 
-    sprite: {fileID: 0}
-    attackpoint: 0
-    sepllpoint: 0
-  - name: 
-    sprite: {fileID: 0}
-    attackpoint: 0
-    sepllpoint: 0
-  - name: 
-    sprite: {fileID: 0}
-    attackpoint: 0
-    sepllpoint: 0
+  cards1: []
+  cards: []

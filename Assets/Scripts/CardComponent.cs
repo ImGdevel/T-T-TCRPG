@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 
-public class Card : MonoBehaviour
+public class CardComponent : MonoBehaviour
 {
     [SerializeField] Renderer frontBackgroud;
     [SerializeField] Renderer backBackground;
