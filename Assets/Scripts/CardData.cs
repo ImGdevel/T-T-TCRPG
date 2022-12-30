@@ -11,7 +11,7 @@ public class Card
 }
 
 [System.Serializable]
-public class BattleCard : CardData
+public class BattleCard : Card
 {
     public Description description;
 }
@@ -27,7 +27,6 @@ public class Description
         return point + "Æ÷ÀÎÆ®";
     }
 }
-
 
 
 [CreateAssetMenu(fileName = "CardData", menuName = "Data/CardData")]
