@@ -10,11 +10,8 @@ public class SortingLayer : MonoBehaviour
     [SerializeField] Renderer[] middleRanderers;
     [SerializeField] Renderer[] backRanderers;
 
-    private void Start() {
-        SortingLayers();
-    }
 
-    public void SortingLayers(int order = 0) 
+    public void SortingLayers(int order) 
     {
         int orderPoint = (order*3) + 1;
 

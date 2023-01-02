@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: CardData
   m_EditorClassIdentifier: 
   cards1: []
-  cards: []
+  cards:
+  - name: vision arrow
+    sprite: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
+    cost: 0
+    description:
+      point: 0
+      data: 0
+      status: 
+  - name: servation eas
+    sprite: {fileID: 21300000, guid: cdec13907ffc75749ab2ed436bec6b14, type: 3}
+    cost: 0
+    description:
+      point: 0
+      data: 0
+      status: 
