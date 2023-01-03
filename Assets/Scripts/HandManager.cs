@@ -8,15 +8,14 @@ public class HandManager : MonoBehaviour
     [SerializeField] GameObject cardPrefeb;
     [SerializeField] DeckManager Mydeck;
 
-    // Hand Setting
-    [SerializeField] float handWidth; //핸드 너비
-    [SerializeField] int maxCard; //최대로 가질 수 있는 카드 갯수
+    [SerializeField] Transform deckPoint;
+    [SerializeField] Transform handsPoint;
 
     [SerializeField] List<Card> decks;
     [SerializeField] List<GameObject> hands;
 
-    [SerializeField] Transform deckPoint;
-    [SerializeField] Transform handsPoint;
+    // Hand Setting
+    [SerializeField] int maxCard; //최대로 가질 수 있는 카드 갯수
 
     int selected; //선택된 카드
 

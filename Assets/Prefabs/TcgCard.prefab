@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 4237336260213090617}
   - component: {fileID: 4237336260213090616}
   - component: {fileID: 4237336260213090615}
+  - component: {fileID: 4818998598823117497}
   m_Layer: 0
   m_Name: TcgCard
   m_TagString: Untagged
@@ -363,7 +364,7 @@ MonoBehaviour:
   cardImage: {fileID: 4237336259867220732}
   cardname: {fileID: 4237336259219694156}
   descriptcion: {fileID: 4237336260804321198}
-  originPRS:
+  originPosision:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0, z: 0}
@@ -389,6 +390,32 @@ MonoBehaviour:
   - {fileID: 4237336260213090617}
   backRanderers:
   - {fileID: 4237336259867220732}
+--- !u!61 &4818998598823117497
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4237336260213090619}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.14328569}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.7, y: 2.51}
+    newSize: {x: 1.7, y: 2.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7, y: 2.7965717}
+  m_EdgeRadius: 0
 --- !u!1 &4237336260347757787
 GameObject:
   m_ObjectHideFlags: 0

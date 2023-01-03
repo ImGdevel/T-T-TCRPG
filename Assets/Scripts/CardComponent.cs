@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UIElements;
 using DG.Tweening;
+using TMPro;
 
 public class CardComponent : MonoBehaviour
 {
@@ -15,16 +16,11 @@ public class CardComponent : MonoBehaviour
     [SerializeField] TMP_Text cardname;
     [SerializeField] TMP_Text descriptcion;
 
-    public PRS originPosision;
-
-    private void Start() {
-        
-    }
+    public PRS originPosision;    
 
     public void Setup(Card card) {
         this.cardname.text = card.name;
         this.cardImage.sprite = card.sprite;
-
     }
 
     public void SetOriginPosision(PRS origin) {
@@ -46,5 +42,20 @@ public class CardComponent : MonoBehaviour
             transform.rotation = rot;
             transform.localScale = scl;
         }
+    }
+
+    private void OnMouseEnter() {
+        Vector3 pos = new(transform.position.x,transform.parent.position.y+1, -5);
+        PRS prs = new(pos, Quaternion.identity, Vector3.one * 1.3f);
+        MoveTransform(prs, true, 0.1f);
+
+    }
+
+    private void OnMouseExit() {
+        MoveTransform(originPosision, true, 0.1f);
+    }
+
+    private void OnMouseDown() {
+        Debug.Log("!!!");
     }
 }
