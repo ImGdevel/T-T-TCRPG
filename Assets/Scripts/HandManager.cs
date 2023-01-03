@@ -12,8 +12,6 @@ public class HandManager : MonoBehaviour
     [SerializeField] float handWidth; //핸드 너비
     [SerializeField] int maxCard; //최대로 가질 수 있는 카드 갯수
 
-
-
     [SerializeField] List<Card> decks;
     [SerializeField] List<GameObject> hands;
 
@@ -61,40 +59,30 @@ public class HandManager : MonoBehaviour
         for(int i=0; i< hands.Count; i++) {
             var layerComponet = hands[i].GetComponent<SortingLayer>();
             var cardComponet = hands[i].GetComponent<CardComponent>();
-
-            cardComponet.MoveTransform(RadiansPRS(i), true, 0.5f);
+            var pos = RadiansPRS(i);
+            cardComponet.MoveTransform(pos, true, 0.5f);
+            cardComponet.SetOriginPosision(pos);
             layerComponet.SortingLayers(i);
-            
         }
     }
 
     PRS RadiansPRS(int number) {
         float gap = 1f;
-        float curve = 3f;
+        float slope = 1f;
+        float radius = 25f;
         float count = hands.Count;
+        float portion = 1 / count * number;
         float center = handsPoint.position.x;
-        float LPos = center - ((count - 1) / 2) * gap;
-        float RPos = center + ((count - 1) / 2) * gap;
-        
-        float LRot = ((count - 1) / 2) * curve;
+        float LPos = center - ((count-1) / 2  * gap);
 
-
-
-
-        float height = handWidth;
         float Xpos = LPos + number * gap;
+        float Ymin = (radius - Math.Base(radius, LPos)) / 2;
+        float Ypos = this.transform.position.y + Math.Base(radius, Xpos) - Math.Base(radius, LPos) - Ymin;
+        float LRot = count * slope;
 
-        float Ypos = this.transform.position.y + Math.Base(height, Xpos) - Math.Base(height, RPos);
+        var pos = new Vector3(Xpos, Ypos);
+        var rot = Quaternion.Slerp(Quaternion.Euler(0, 0, LRot), Quaternion.Euler(0, 0, -LRot), portion);
         
-        
-
-
-
-        float rot = LRot - number * curve;
-
-
-
-        PRS pos = new(new Vector3(Xpos,Ypos), Quaternion.Euler(0, 0, rot), Vector3.one);
-        return pos;
+        return new PRS(pos, rot, Vector3.one);
     }
 }

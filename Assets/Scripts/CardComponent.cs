@@ -15,7 +15,7 @@ public class CardComponent : MonoBehaviour
     [SerializeField] TMP_Text cardname;
     [SerializeField] TMP_Text descriptcion;
 
-    public Transform originPosision;
+    public PRS originPosision;
 
     private void Start() {
         
@@ -27,8 +27,8 @@ public class CardComponent : MonoBehaviour
 
     }
 
-    public void SetOriginPosision() {
-
+    public void SetOriginPosision(PRS origin) {
+        this.originPosision = origin;
     }
 
     public void MoveTransform(PRS movePoint, bool useDOTween, float time) {
