@@ -7,17 +7,18 @@ public class HandManager : MonoBehaviour
 {
     [SerializeField] GameObject cardPrefeb;
     [SerializeField] DeckManager Mydeck;
-
     [SerializeField] Transform deckPoint;
     [SerializeField] Transform handsPoint;
-
     [SerializeField] List<Card> decks;
     [SerializeField] List<GameObject> hands;
 
     // Hand Setting
     [SerializeField] int maxCard; //최대로 가질 수 있는 카드 갯수
 
-    int selected; //선택된 카드
+    // selcted HandCard
+    GameObject selectedCard;
+    public bool isCardSelected = false; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,48 +41,47 @@ public class HandManager : MonoBehaviour
         return card;
     }
 
-    // 카드 한장만 뽑기
     void DrowCard() {
         if (maxCard <= hands.Count) return;
 
-        //카드 인스턴스 생성
         var cardInstance = Instantiate(cardPrefeb, deckPoint.position, Quaternion.identity, this.transform);
-        var cardComponet = cardInstance.GetComponent<CardComponent>();
+        var cardComponet = cardInstance.GetComponent<HandCardComponent>();
         cardComponet.Setup(PopItem());
-        
-        //핸드에 카드 추가
+        cardComponet.SetParent(this);
         hands.Add(cardInstance);
         SortingCard();
     }
 
-    void SortingCard() {
+    public void SortingCard() {
+        Debug.Log("정렬");
         for(int i=0; i< hands.Count; i++) {
-            var layerComponet = hands[i].GetComponent<SortingLayer>();
-            var cardComponet = hands[i].GetComponent<CardComponent>();
+            var cardComponet = hands[i].GetComponent<HandCardComponent>();
             var pos = RadiansPRS(i);
             cardComponet.MoveTransform(pos, true, 0.5f);
             cardComponet.SetOriginPosision(pos);
-            layerComponet.SortingLayers(i);
+            cardComponet.SortingCardLayers(i);
+            cardComponet.SetOriginSortingLayer(i);
         }
     }
 
     PRS RadiansPRS(int number) {
-        float gap = 1f;
-        float slope = 1f;
-        float radius = 25f;
+        float gap = 1;
+        float slope = 1;
+        float radius = 25;
         float count = hands.Count;
-        float portion = 1 / count * number;
-        float center = handsPoint.position.x;
-        float LPos = center - ((count-1) / 2  * gap);
-
-        float Xpos = LPos + number * gap;
-        float Ymin = (radius - Math.Base(radius, LPos)) / 2;
-        float Ypos = this.transform.position.y + Math.Base(radius, Xpos) - Math.Base(radius, LPos) - Ymin;
-        float LRot = count * slope;
-
-        var pos = new Vector3(Xpos, Ypos);
-        var rot = Quaternion.Slerp(Quaternion.Euler(0, 0, LRot), Quaternion.Euler(0, 0, -LRot), portion);
+        float MaxWidth = handsPoint.position.x - ((count-1) / 2  * gap);
+        float Xpos = MaxWidth + number * gap;
+        float Ypos = this.transform.position.y + Math.Base(radius, Xpos) 
+                     - Math.Base(radius, MaxWidth) - (radius - Math.Base(radius, MaxWidth)) / 2;
+        var rot = Quaternion.Slerp(Quaternion.Euler(0, 0, count * slope), Quaternion.Euler(0, 0, -count * slope), 1 / count * number);
         
-        return new PRS(pos, rot, Vector3.one);
+        return new PRS(new Vector3(Xpos, Ypos), rot, Vector3.one);
     }
+
+    public void SelectCard(HandCardComponent card) {
+        if (isCardSelected) return;
+        isCardSelected = true;
+    }
+
+
 }

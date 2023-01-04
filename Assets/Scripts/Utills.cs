@@ -28,4 +28,14 @@ public class Math
 public class Utills
 {
     public static Quaternion QI => Quaternion.identity;
+
+    public static Vector3 MousePointer
+    {
+        get {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = -9;
+            return pos;
+        }
+    }
+
 }

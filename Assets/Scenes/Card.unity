@@ -341,6 +341,7 @@ MonoBehaviour:
   decks: []
   hands: []
   maxCard: 12
+  isCardSelected: 0
 --- !u!4 &2117600700
 Transform:
   m_ObjectHideFlags: 0
