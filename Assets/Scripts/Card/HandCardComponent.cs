@@ -58,11 +58,10 @@ public class HandCardComponent : CardComponent
         if (!isSelected && !handManager.isCardSelected) {
             isSelected = true;
             this.transform.localScale = Vector3.one;
-            handManager.SelectCard(this);
-            Debug.Log("Pick card");
+            handManager.SelectCard(this.gameObject);
         }
         else {
-            Debug.Log("card Use");
+            UseCard();
         }
     }
 
@@ -71,5 +70,12 @@ public class HandCardComponent : CardComponent
         handManager.isCardSelected = false;
         MoveTransform(originPosision, false);
         SortingCardLayers(originSortingLayer);
+    }
+
+    public void UseCard() {
+        Debug.Log("card Use");
+        isSelected = false;
+        handManager.isCardSelected = false;
+        handManager.UseCardRemove(this.gameObject);
     }
 }

@@ -13,7 +13,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] List<GameObject> hands;
 
     // Hand Setting
-    [SerializeField] int maxCard; //최대로 가질 수 있는 카드 갯수
+    [SerializeField] int maxCard; // maximum hand card
 
     // selcted HandCard
     GameObject selectedCard;
@@ -53,7 +53,6 @@ public class HandManager : MonoBehaviour
     }
 
     public void SortingCard() {
-        Debug.Log("정렬");
         for(int i=0; i< hands.Count; i++) {
             var cardComponet = hands[i].GetComponent<HandCardComponent>();
             var pos = RadiansPRS(i);
@@ -78,9 +77,17 @@ public class HandManager : MonoBehaviour
         return new PRS(new Vector3(Xpos, Ypos), rot, Vector3.one);
     }
 
-    public void SelectCard(HandCardComponent card) {
+    public void SelectCard(GameObject card) {
         if (isCardSelected) return;
         isCardSelected = true;
+    }
+
+   
+    public void UseCardRemove(GameObject card) {
+        Destroy(card, .1f);
+        hands.Remove(card);
+        
+        SortingCard();
     }
 
 
