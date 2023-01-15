@@ -70,8 +70,8 @@ public class HandManager : MonoBehaviour
         float count = hands.Count;
         float MaxWidth = handsPoint.position.x - ((count-1) / 2  * gap);
         float Xpos = MaxWidth + number * gap;
-        float Ypos = this.transform.position.y + Math.Base(radius, Xpos) 
-                     - Math.Base(radius, MaxWidth) - (radius - Math.Base(radius, MaxWidth)) / 2;
+        float Ypos = this.transform.position.y + UMath.Base(radius, Xpos) 
+                     - UMath.Base(radius, MaxWidth) - (radius - UMath.Base(radius, MaxWidth)) / 2;
         var rot = Quaternion.Slerp(Quaternion.Euler(0, 0, count * slope), Quaternion.Euler(0, 0, -count * slope), 1 / count * number);
         
         return new PRS(new Vector3(Xpos, Ypos), rot, Vector3.one);

@@ -18,7 +18,7 @@ public class PRS
 }
 
 
-public class Math
+public class UMath
 {
     public static float Base(float hypo, float under) {
         return (Mathf.Sqrt(Mathf.Pow(hypo, 2) - Mathf.Pow(under, 2)));
