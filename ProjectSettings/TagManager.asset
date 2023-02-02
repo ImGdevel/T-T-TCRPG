@@ -47,6 +47,9 @@ TagManager:
   - name: Hands
     uniqueID: 1189449801
     locked: 0
+  - name: Battle-UI
+    uniqueID: 2973057637
+    locked: 0
   - name: background
     uniqueID: 130242201
     locked: 0
