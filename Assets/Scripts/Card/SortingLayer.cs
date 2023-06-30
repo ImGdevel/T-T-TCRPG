@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SortingLayer : MonoBehaviour
 {
+    /*
     [SerializeField] string sortingLayerName = "default";
 
     [SerializeField] Renderer[] frontRanderers;
@@ -28,4 +29,5 @@ public class SortingLayer : MonoBehaviour
             render.sortingOrder = orderPoint - 1;
         }
     }
+    */
 }
