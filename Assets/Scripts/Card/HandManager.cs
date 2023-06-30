@@ -57,7 +57,7 @@ public class HandManager : MonoBehaviour
             var cardComponet = hands[i].GetComponent<HandCardComponent>();
             var pos = RadiansPRS(i);
             cardComponet.MoveTransform(pos, true, 0.5f);
-            cardComponet.SetOriginPosision(pos);
+            cardComponet.SetOriginPosition(pos);
             cardComponet.SortingCardLayers(i);
             cardComponet.SetOriginSortingLayer(i);
         }
