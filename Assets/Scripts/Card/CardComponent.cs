@@ -25,9 +25,9 @@ public abstract class CardComponent : MonoBehaviour
     public abstract void OnMouseDown();
 
     /// <summary>
-    /// Ä«µå Á¤º¸¸¦ ¼³Á¤ÇÕ´Ï´Ù.
+    /// Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
-    /// <param name="card">¼³Á¤ÇÒ Ä«µå Á¤º¸</param>
+    /// <param name="card">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
     public void Setup(Card card) {
         cardInfo = card;
         cardNameText.text = card.name;
@@ -35,11 +35,11 @@ public abstract class CardComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå¸¦ ÀÌµ¿½ÃÅµ´Ï´Ù.
+    /// Ä«ï¿½å¸¦ ï¿½Ìµï¿½ï¿½ï¿½Åµï¿½Ï´ï¿½.
     /// </summary>
-    /// <param name="movePoint">ÀÌµ¿ÇÒ À§Ä¡, È¸Àü, Å©±â Á¤º¸</param>
-    /// <param name="useDOTween">DOTweenÀ» »ç¿ëÇÏ¿© ¾Ö´Ï¸ÞÀÌ¼ÇÀ» ½ÇÇàÇÒÁö ¿©ºÎ</param>
-    /// <param name="time">¾Ö´Ï¸ÞÀÌ¼Ç¿¡ °É¸®´Â ½Ã°£</param>
+    /// <param name="movePoint">ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, È¸ï¿½ï¿½, Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="useDOTween">DOTweenï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="time">ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç¿ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½</param>
     public void MoveTransform(PRS movePoint, bool useDOTween, float time = 1) {
         var pos = movePoint.position;
         var rot = movePoint.rotation;
@@ -58,9 +58,9 @@ public abstract class CardComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// Ä«µå ·¹ÀÌ¾î ¼ø¼­¸¦ ÁöÁ¤ÇÕ´Ï´Ù.
+    /// Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
-    /// <param name="order"> Ä«µå °íÀ¯ ¼ø¼­ ¹øÈ£</param>
+    /// <param name="order"> Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£</param>
     public void SortingCardLayers(int order) {
         int orderPoint = (order * 3) + 1;
 
