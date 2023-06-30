@@ -243,7 +243,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cdec13907ffc75749ab2ed436bec6b14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -342001890, guid: 3d1377705347ee74e96ce04678f37adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -358,15 +358,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b2e7f7ddbd0fa4fa7e5be7a00966c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontBackgroud: {fileID: 4237336260213090617}
+  frontBackground: {fileID: 4237336260213090617}
   backBackground: {fileID: 4237336260213090617}
   cardSprite: {fileID: 4237336259867220732}
   cardNameText: {fileID: 4237336259219694156}
-  cardDescriptcionText: {fileID: 4237336260804321198}
-  cardRanderers:
-  - {fileID: 4237336260213090617}
+  cardDescriptionText: {fileID: 4237336260804321198}
+  cardRenderers:
+  - {fileID: 4237336259867220732}
   - {fileID: 4237336260878270850}
-  textRanderers:
+  textRenderers:
   - {fileID: 4237336259219694157}
   - {fileID: 4237336260804321199}
   - {fileID: 4237336260347757782}
@@ -812,7 +812,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: -789165332, guid: 3d1377705347ee74e96ce04678f37adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
