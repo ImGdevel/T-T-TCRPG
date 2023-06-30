@@ -26,7 +26,7 @@ public class HandCardComponent : CardComponent
             }
             else {
                 // 마우스 위치에 카드 이동
-                this.transform.position = Input.mousePosition;
+                this.transform.position = Utills.MousePointer;
             }
         }
     }
