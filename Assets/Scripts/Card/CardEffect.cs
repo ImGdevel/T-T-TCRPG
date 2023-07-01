@@ -8,7 +8,7 @@ public abstract class CardEffect : ScriptableObject
     public abstract void ApplyEffect();
 }
 
-[CreateAssetMenu(fileName = "New Damage Effect", menuName = "CardEffect/Damage Effect")]
+[CreateAssetMenu(fileName = "New Damage Effect", menuName = "Card/CardEffect/Damage Effect")]
 public class DamageEffect : CardEffect
 {
     public int damageAmount;
@@ -19,7 +19,7 @@ public class DamageEffect : CardEffect
 }
 
 
-[CreateAssetMenu(fileName = "New Buff Effect", menuName = "CardEffect/Buff Effect")]
+[CreateAssetMenu(fileName = "New Buff Effect", menuName = "Card/CardEffect/Buff Effect")]
 public class BuffEffect : CardEffect
 {
     public int buffAmount;
