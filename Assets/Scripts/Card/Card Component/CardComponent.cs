@@ -16,7 +16,8 @@ public abstract class CardComponent : MonoBehaviour
     [SerializeField] Renderer[] textRenderers;
 
     bool doAnimation;
-    Card cardInfo;
+    Card card;
+    protected Card Card { get {return card; }}
 
     public abstract void OnMouseEnter();
 
@@ -29,9 +30,9 @@ public abstract class CardComponent : MonoBehaviour
     /// </summary>
     /// <param name="card">설정할 카드 정보</param>
     public void Setup(Card card) {
-        cardInfo = card;
-        cardNameText.text = card.Name;
-        cardSprite.sprite = card.Sprite;
+        this.card = card;
+        this.cardNameText.text = card.Name;
+        this.cardSprite.sprite = card.Sprite;
     }
 
     /// <summary>
