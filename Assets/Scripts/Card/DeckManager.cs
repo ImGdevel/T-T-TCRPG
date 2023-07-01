@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     //덱을 생성하고 관리합니다.
-    public CardData datas;
+    public CardManager datas;
 
     // Start is called before the first frame update
     void Start() {

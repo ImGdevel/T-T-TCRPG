@@ -30,8 +30,8 @@ public abstract class CardComponent : MonoBehaviour
     /// <param name="card">설정할 카드 정보</param>
     public void Setup(Card card) {
         cardInfo = card;
-        cardNameText.text = card.name;
-        cardSprite.sprite = card.sprite;
+        cardNameText.text = card.Name;
+        cardSprite.sprite = card.Sprite;
     }
 
     /// <summary>

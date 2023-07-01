@@ -2,36 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Card
+
+public abstract class CardData : ScriptableObject
 {
-    public string name;
-    public Sprite sprite;
+    public string cardName;
+    public Sprite cardImage;
+    public string cardDescription;
+}
+
+
+[CreateAssetMenu(fileName = "New Battle Card", menuName = "Card/Battle Card")]
+public class BattleCardData : CardData
+{
     public int cost;
+    public CardEffect[] effects;
 }
 
-[System.Serializable]
-public class BattleCard : Card
+[CreateAssetMenu(fileName = "New Exploration Card", menuName = "Card/Exploration Card")]
+public class ExplorationCardData : CardData
 {
-    public Description description;
+    public int requiredSteps;
+    public CardEffect[] effects;
 }
 
-[System.Serializable]
-public class Description
+[CreateAssetMenu(fileName = "New Artifact Card", menuName = "Card/Artifact Card")]
+public class ArtifactCardData : CardData
 {
-    public int point;
-    public int data;
-    public string status;
-
-    public string printDescription() {
-        return point + "Æ÷ÀÎÆ®";
-    }
-}
-
-
-[CreateAssetMenu(fileName = "CardData", menuName = "Data/CardData")]
-public class CardData : ScriptableObject
-{
-    public Card[] cards1;
-    public BattleCard[] cards;
+    public CardEffect[] effects;
 }
