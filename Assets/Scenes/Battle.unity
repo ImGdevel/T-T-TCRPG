@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 597279483}
   - component: {fileID: 597279482}
   - component: {fileID: 597279481}
+  - component: {fileID: 597279484}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -393,8 +394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -880, y: -525}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -816.06915, y: -488.2516}
+  m_SizeDelta: {x: 227.9535, y: 59.0947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597279481
 MonoBehaviour:
@@ -440,8 +441,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1640152007}
-        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
+      - m_Target: {fileID: 597279484}
+        m_TargetAssemblyTypeName: TurnChangeButton, Assembly-CSharp
         m_MethodName: NextTurn
         m_Mode: 1
         m_Arguments:
@@ -490,6 +491,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597279479}
   m_CullTransparentMesh: 1
+--- !u!114 &597279484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597279479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bcb9da583c9a84db3792e6ba2f249f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnManager: {fileID: 0}
 --- !u!1001 &607523304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,13 +1089,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924132f9b56e9c640ad86a32675b5d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefeb: {fileID: 4237336260213090619, guid: 32cf738e41f6d8a419eaa2096be2bd2d, type: 3}
-  Mydeck: {fileID: 1142095165}
+  cardPrefab: {fileID: 0}
+  deckManager: {fileID: 0}
   deckPoint: {fileID: 1142095164}
-  handsPoint: {fileID: 1153247788}
-  decks: []
+  handPoint: {fileID: 0}
+  deck: []
   hands: []
-  maxCard: 12
+  maxHandSize: 0
   isCardSelected: 0
 --- !u!4 &1197711758 stripped
 Transform:
@@ -1146,7 +1160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Turn CHange
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1173,8 +1187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TurnChangeButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    [SerializeField] TurnManager turnManager;
+
+    private void Start() {
+        turnManager = TurnManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void NextTurn() {
+        this.turnManager.NextTurn();
+        // 턴 변경시 버튼 애니메이션 추가
     }
+
+
 }
