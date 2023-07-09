@@ -15,14 +15,15 @@ public abstract class CardComponent : MonoBehaviour
     [SerializeField] Renderer[] cardRenderers;
     [SerializeField] Renderer[] textRenderers;
 
-    bool doAnimation;
-    Card card;
+    private bool doAnimation;
+    private Card card;
     protected Card Card { get {return card; }}
 
+    public bool isMouseClick = true;
+    public bool isMouseOver = true;
+
     public abstract void OnMouseEnter();
-
     public abstract void OnMouseExit();
-
     public abstract void OnMouseDown();
 
     /// <summary>
