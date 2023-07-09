@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 덱을 생성하고 관리합니다.
+/// </summary>
 public class DeckManager : MonoBehaviour
 {
-    //덱을 생성하고 관리합니다.
+    public DeckManager Instance { get; private set; }
     public CardManager datas;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start() {
