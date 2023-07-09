@@ -18,14 +18,16 @@ public class DeckManager : MonoBehaviour
     }
 
     public List<Card> RandomDeck(int value) {
+        
         List<Card> cards = new();
-
+        /*
         foreach (var dat in datas.cards) {
             Card card = dat;
             for (int i = 0; i < value / datas.cards.Length; i++) {
                 cards.Add(card);
             }
         }
+        */
         return cards;
     }
 }
