@@ -16,7 +16,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] int maxHandSize; // maximum hand card
 
     // selcted HandCard
-    GameObject selectedCard;
+    private GameObject selectedCard;
     public bool isCardSelected = false; 
 
 
@@ -78,17 +78,38 @@ public class HandManager : MonoBehaviour
     }
 
     public void SelectCard(GameObject card) {
+        //현재 선택된 카드
         if (isCardSelected) return;
         isCardSelected = true;
     }
 
    
     public void UseCardRemove(GameObject card) {
+        //사용된 카드 핸드에서 삭제
         Destroy(card, .1f);
         hands.Remove(card);
         
         SortingCard();
     }
 
+    public void EnableAllCards() {
+        // 모든 카드 사용 활성화
+        for (int i = 0; i < hands.Count; i++) {
+            var cardComponet = hands[i].GetComponent<HandCardComponent>();
+            cardComponet.isMouseClick = true;
+        }
+    }
 
+    public void EnableCardsByCondition() {
+        // 조건에 맞는 카드만 활성화
+        // 인자로 카드 조건을 받고 조건이 성립하면 카드 활성화
+    }
+
+    public void DisableAllCards() {
+        // 모든 카드 사용 비활성화
+        for (int i = 0; i < hands.Count; i++) {
+            var cardComponet = hands[i].GetComponent<HandCardComponent>();
+            cardComponet.isMouseClick = false;
+        }
+    }
 }
