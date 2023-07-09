@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class HandManager : MonoBehaviour
 {
-    [SerializeField] GameObject cardPrefeb;
-    [SerializeField] DeckManager Mydeck;
+    [SerializeField] GameObject cardPrefab;
+    [SerializeField] DeckManager deckManager;
     [SerializeField] Transform deckPoint;
-    [SerializeField] Transform handsPoint;
-    [SerializeField] List<Card> decks;
+    [SerializeField] Transform handPoint;
+    [SerializeField] List<Card> deck;
     [SerializeField] List<GameObject> hands;
 
     // Hand 설정
@@ -20,8 +20,8 @@ public class HandManager : MonoBehaviour
     public bool isCardSelected = false;
 
     void Start() {
-        handsPoint = this.transform;
-        decks = Mydeck.RandomDeck(100); // 덱을 가져옵니다.
+        handPoint = this.transform;
+        deck = deckManager.RandomDeck(100); // 덱을 가져옵니다.
     }
 
     void Update() {
@@ -35,8 +35,8 @@ public class HandManager : MonoBehaviour
     /// </summary>
     /// <returns> 가져온 카드 </returns>
     Card PopItem() {
-        Card card = decks[0];
-        decks.RemoveAt(0);
+        Card card = deck[0];
+        deck.RemoveAt(0);
         return card;
     }
 
@@ -44,46 +44,54 @@ public class HandManager : MonoBehaviour
     /// 덱에서 카드를 뽑아 플레이어의 손에 추가합니다.
     /// </summary>
     void DrowCard() {
-        if (maxHandSize <= hands.Count) return;
+        if (maxHandSize <= hands.Count)
+            return;
 
-        var cardInstance = Instantiate(cardPrefeb, deckPoint.position, Quaternion.identity, this.transform);
-        var cardComponet = cardInstance.GetComponent<HandCardComponent>();
-        cardComponet.Setup(PopItem());
-        cardComponet.SetParent(this);
+        GameObject cardInstance = Instantiate(cardPrefab, deckPoint.position, Quaternion.identity, transform);
+        HandCardComponent cardComponent = cardInstance.GetComponent<HandCardComponent>();
+        cardComponent.Setup(PopItem());
+        cardComponent.SetParent(this);
         hands.Add(cardInstance);
-        SortingCard();
+        SortCards();
     }
 
     /// <summary>
     /// 플레이어의 손에 있는 카드를 정렬합니다.
     /// </summary>
-    public void SortingCard() {
+    public void SortCards() {
         for (int i = 0; i < hands.Count; i++) {
-            var cardComponet = hands[i].GetComponent<HandCardComponent>();
-            var pos = RadiansPRS(i);
-            cardComponet.MoveTransform(pos, true, 0.5f);
-            cardComponet.SetOriginPosition(pos);
-            cardComponet.SortingCardLayers(i);
-            cardComponet.SetOriginSortingLayer(i);
+            HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
+            PRS position = CalculateCardPosition(i);
+            cardComponent.MoveTransform(position, true, 0.5f);
+            cardComponent.SetOriginPosition(position);
+            cardComponent.SortingCardLayers(i);
+            cardComponent.SetOriginSortingLayer(i);
         }
     }
 
     /// <summary>
     /// 인덱스에 따라 플레이어의 손에 있는 카드의 위치, 회전 및 크기를 계산합니다.
     /// </summary>
-    /// <param name="number">카드의 인덱스 순서 번호</param>
+    /// <param name="index">카드의 인덱스 순서 번호</param>
     /// <returns>카드의 위치, 회전 및 크기 정보인 PRS(PRS(Position, Rotation, Scale)) 값</returns>
-    PRS RadiansPRS(int number) {
-        float gap = 1;
-        float slope = 1;
-        float radius = 25;
+    PRS CalculateCardPosition(int index) {
+        float gap = 1f;
+        float slope = 1f;
+        float radius = 25f;
         float count = hands.Count;
-        float MaxWidth = handsPoint.position.x - ((count - 1) / 2 * gap);
-        float Xpos = MaxWidth + number * gap;
-        float Ypos = this.transform.position.y + UMath.Base(radius, Xpos) - UMath.Base(radius, MaxWidth) - (radius - UMath.Base(radius, MaxWidth)) / 2;
-        var rot = Quaternion.Slerp(Quaternion.Euler(0, 0, count * slope), Quaternion.Euler(0, 0, -count * slope), 1 / count * number);
 
-        return new PRS(new Vector3(Xpos, Ypos), rot, Vector3.one);
+        float maxWidth = handPoint.position.x - ((count - 1f) / 2f * gap);
+        float xPos = maxWidth + index * gap;
+        float yPos = transform.position.y + UMath.Base(radius, xPos)
+                     - UMath.Base(radius, maxWidth) - (radius - UMath.Base(radius, maxWidth)) / 2f;
+
+        Quaternion rotation = Quaternion.Slerp(
+            Quaternion.Euler(0f, 0f, count * slope),
+            Quaternion.Euler(0f, 0f, -count * slope),
+            1f / (count * index)
+        );
+
+        return new PRS(new Vector3(xPos, yPos), rotation, Vector3.one);
     }
 
     /// <summary>
@@ -92,8 +100,9 @@ public class HandManager : MonoBehaviour
     /// <param name="card">선택된 카드 오브젝트</param>
     public void SelectCard(GameObject card) {
         // 이미 카드가 선택된 상태라면 무시합니다.
-        if (isCardSelected) return;
-
+        if (isCardSelected) { 
+            return; 
+        }
         isCardSelected = true;
     }
 
@@ -103,10 +112,9 @@ public class HandManager : MonoBehaviour
     /// <param name="card">제거할 카드</param>
     public void UseCardRemove(GameObject card) {
         // 사용된 카드를 손에서 제거합니다.
-        Destroy(card, .1f);
+        Destroy(card, 0.1f);
         hands.Remove(card);
-
-        SortingCard();
+        SortCards();
     }
 
     /// <summary>
@@ -115,8 +123,8 @@ public class HandManager : MonoBehaviour
     public void EnableAllCards() {
         // 모든 카드를 사용 가능하도록 활성화합니다.
         for (int i = 0; i < hands.Count; i++) {
-            var cardComponet = hands[i].GetComponent<HandCardComponent>();
-            cardComponet.isMouseClick = true;
+            HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
+            cardComponent.isMouseClick = true;
         }
     }
 
@@ -134,8 +142,8 @@ public class HandManager : MonoBehaviour
     public void DisableAllCards() {
         // 모든 카드를 사용 불가능하도록 비활성화합니다.
         for (int i = 0; i < hands.Count; i++) {
-            var cardComponet = hands[i].GetComponent<HandCardComponent>();
-            cardComponet.isMouseClick = false;
+            HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
+            cardComponent.isMouseClick = false;
         }
     }
 }
