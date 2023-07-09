@@ -13,7 +13,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] List<GameObject> hands;
 
     // Hand Setting
-    [SerializeField] int maxCard; // maximum hand card
+    [SerializeField] int maxHandSize; // maximum hand card
 
     // selcted HandCard
     GameObject selectedCard;
@@ -42,7 +42,7 @@ public class HandManager : MonoBehaviour
     }
 
     void DrowCard() {
-        if (maxCard <= hands.Count) return;
+        if (maxHandSize <= hands.Count) return;
 
         var cardInstance = Instantiate(cardPrefeb, deckPoint.position, Quaternion.identity, this.transform);
         var cardComponet = cardInstance.GetComponent<HandCardComponent>();
