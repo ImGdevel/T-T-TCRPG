@@ -6,16 +6,13 @@ public class EnergysComponet : MonoBehaviour
 {
     [SerializeField] EnergyToken[] energyTokens;
 
-    private int maxiToken;
-    private int currnetToken;
-
     private void Start() {
-        this.maxiToken = 6;
+
     }
 
-    public void UpdateStatus(int currnet_energy) {
-        currnetToken = currnet_energy;
-        for(int index = 0; index < maxiToken; index++) {
+    public void UpdateStatus(int currnet_energy, int max_energy) {
+
+        for (int index = 0; index < max_energy; index++) {
             if (index <= currnet_energy) {
                 energyTokens[index].UpdateStatus(true);
             }
