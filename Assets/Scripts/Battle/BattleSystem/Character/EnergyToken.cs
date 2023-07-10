@@ -9,15 +9,19 @@ public class EnergyToken : MonoBehaviour
     private bool active;
 
     private void Start() {
+        if (enegyToken == null) {
+            enegyToken = transform.GetComponentInChildren<Renderer>();
+        }
         active = false;
     }
 
-    public void Update(bool state) {
+    public void UpdateStatus(bool state) {
         active = state;
     }
 
-    public void Display() {
-        enegyToken.enabled = active;
+    public void DisplayStatus() {
+        if (enegyToken != null) {
+            enegyToken.enabled = active;
+        }
     }
-
 }
