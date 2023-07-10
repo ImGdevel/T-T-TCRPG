@@ -992,6 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   datas: {fileID: 11400000, guid: 8da2f6d7b163a3e4bbe1abff9e791a72, type: 2}
+  initialDeck: []
 --- !u!212 &1142095166
 SpriteRenderer:
   m_ObjectHideFlags: 0

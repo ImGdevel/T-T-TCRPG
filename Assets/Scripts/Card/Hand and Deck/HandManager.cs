@@ -21,7 +21,7 @@ public class HandManager : MonoBehaviour
 
     void Start() {
         handPoint = this.transform;
-        deck = deckManager.RandomDeck(100); // 덱을 가져옵니다.
+        //deck = deckManager.RandomDeck(100); // 덱을 가져옵니다.
     }
 
     void Update() {
