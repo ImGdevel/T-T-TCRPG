@@ -13,6 +13,24 @@ public class HpBarComponent : MonoBehaviour
     private float max = 1.0f;
     private float current = 1.0f;
 
+    public float Max
+    {
+        set {
+            if (value > 0) max = value;
+            else Debug.LogWarning("Max is zero");
+        }
+        get { return max; }
+    }
+
+    public float Value
+    {
+        set { 
+            if (value > 0) current = value; 
+            else current = 0;  
+        }
+        get { return current; }
+    }
+
     private void Start() {
         if (background == null || fill == null) {
             Debug.LogError("Background or fill GameObject is not assigned in HpBarComponent.");
@@ -24,23 +42,22 @@ public class HpBarComponent : MonoBehaviour
         barStartPoint = renderer.bounds.min;
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            current -= 0.1f;
-            UpdateStatus(current, 1.0f);
-        }
+    public void UpdateStatus(float current) {
+        Value = current;
+
+        DisplayStatus();
     }
 
-    public void UpdateStatus(float current, float max = 1.0f) {
-        this.current = current;
-        this.max = max;
+    public void UpdateStatus(float max, float current) {
+        Value = current;
+        Max = max;
 
         DisplayStatus();
     }
 
     public void DisplayStatus() {
         if (max == 0) {
-            Debug.LogWarning("Max HP is zero. Cannot display HP bar.");
+            Debug.LogWarning("Max is zero. Cannot display bar.");
             return;
         }
 
