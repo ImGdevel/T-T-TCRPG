@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using TMPro;
 
 
 [System.Serializable]
@@ -14,6 +16,19 @@ public class PRS
         this.position = pos;
         this.rotation = rot;
         this.scale = scale;
+    }
+}
+
+public class DoTweenAnimation
+{
+    static public void MoveTransform(Transform targetObject, PRS movePoint, float time = 1) {
+        targetObject.DOMove(movePoint.position, time);
+        targetObject.DORotateQuaternion(movePoint.rotation, time);
+        targetObject.DOScale(movePoint.scale, time);
+    }
+
+    static public void MoveTransform(Transform targetObject, Vector3 movePoint, float time = 1) {
+        targetObject.DOMove(movePoint, time);
     }
 }
 
