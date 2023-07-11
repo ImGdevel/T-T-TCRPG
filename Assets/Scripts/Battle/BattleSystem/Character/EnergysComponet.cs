@@ -10,7 +10,19 @@ public class EnergysComponent : MonoBehaviour
 
     }
 
-    public void UpdateStatus(int currnet_energy, int max_energy) {
+    public void UpdateStatus(int currnet_energy) {
+
+        for (int index = 0; index < energyTokens.Length; index++) {
+            if (index <= currnet_energy) {
+                energyTokens[index].UpdateStatus(true);
+            }
+            else {
+                energyTokens[index].UpdateStatus(false);
+            }
+        }
+    }
+
+    public void UpdateStatus(int max_energy, int currnet_energy) {
 
         for (int index = 0; index < max_energy; index++) {
             if (index <= currnet_energy) {

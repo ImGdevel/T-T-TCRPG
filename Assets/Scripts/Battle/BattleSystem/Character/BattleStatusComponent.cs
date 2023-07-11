@@ -22,8 +22,8 @@ public class BattleStatusComponent : MonoBehaviour
     /// <param name="character">캐릭터 정보</param>
     public void UpdateStatus(Character character) {
         //캐릭터 상태 업데이트
-
-        energysComponet.UpdateStatus(character.CurrentEnergy, character.MaxEnergy);
+        hpBarComponent.UpdateStatus(character.MaxHealth, character.CurrentHealth);
+        energysComponet.UpdateStatus(character.MaxEnergy, character.CurrentEnergy);
         DisplayStatus();
     }
 
