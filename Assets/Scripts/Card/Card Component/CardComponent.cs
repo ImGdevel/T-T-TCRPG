@@ -15,7 +15,6 @@ public abstract class CardComponent : MonoBehaviour
     [SerializeField] Renderer[] cardRenderers;
     [SerializeField] Renderer[] textRenderers;
 
-    private bool doAnimation;
     private Card card;
     protected Card Card { get {return card; }}
 
