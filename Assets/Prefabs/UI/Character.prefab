@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2328968568459200330}
   - component: {fileID: 2328968568459200329}
+  - component: {fileID: 588361666408895167}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -47,6 +48,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusComponet: {fileID: 2328968568020088954}
+--- !u!61 &588361666408895167
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328968568459200331}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &2328968568990815456
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3353168420736536397, guid: 581d071a259c8784e8a2d39be90d3c34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3353168420736536397, guid: 581d071a259c8784e8a2d39be90d3c34, type: 3}
       propertyPath: m_LocalPosition.z
