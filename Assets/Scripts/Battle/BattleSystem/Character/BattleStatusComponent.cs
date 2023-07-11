@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleStatusComponet : MonoBehaviour
+public class BattleStatusComponent : MonoBehaviour
 {
-    [SerializeField] EnergysComponet energysComponet;
+    [SerializeField] EnergysComponent energysComponet;
+    [SerializeField] HpBarComponent hpBarComponent;
 
     private void Start() {
         if (energysComponet == null) {
-            energysComponet = transform.GetComponentInChildren<EnergysComponet>();
+            energysComponet = transform.GetComponentInChildren<EnergysComponent>();
         }
-        
+        if (hpBarComponent == null) {
+            hpBarComponent = transform.GetComponentInChildren<HpBarComponent>();
+        }
     }
 
     /// <summary>
@@ -19,7 +22,7 @@ public class BattleStatusComponet : MonoBehaviour
     /// <param name="character">캐릭터 정보</param>
     public void UpdateStatus(Character character) {
         //캐릭터 상태 업데이트
-        
+
         energysComponet.UpdateStatus(character.CurrentEnergy, character.MaxEnergy);
         DisplayStatus();
     }
@@ -28,6 +31,7 @@ public class BattleStatusComponet : MonoBehaviour
     /// Status UI 출력
     /// </summary>
     public void DisplayStatus() {
+        hpBarComponent.DisplayStatus();
         energysComponet.DisplayStatus();
     }
 }

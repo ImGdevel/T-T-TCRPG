@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleCharacterComponet : MonoBehaviour
+public class BattleCharacterComponent : MonoBehaviour
 {
     protected Character character;
 
-    [SerializeField] BattleStatusComponet statusComponet;
+    [SerializeField] BattleStatusComponent statusComponet;
 
     private void Start() {
         if(statusComponet == null) {
-            statusComponet = transform.GetComponentInChildren<BattleStatusComponet>();
+            statusComponet = transform.GetComponentInChildren<BattleStatusComponent>();
         }
     }
 
