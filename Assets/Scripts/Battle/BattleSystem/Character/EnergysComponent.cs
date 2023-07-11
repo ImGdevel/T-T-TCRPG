@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergysComponent : MonoBehaviour
+public class EnergysComponet : MonoBehaviour
 {
     [SerializeField] EnergyToken[] energyTokens;
 
