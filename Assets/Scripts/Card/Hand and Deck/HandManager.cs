@@ -9,7 +9,6 @@ public class HandManager : MonoBehaviour
     [SerializeField] DeckManager deckManager;
     [SerializeField] Transform deckPoint;
     [SerializeField] Transform handPoint;
-    [SerializeField] List<Card> deck;
     [SerializeField] List<GameObject> hands;
 
     // Hand 설정
@@ -31,16 +30,6 @@ public class HandManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 덱에서 아이템(카드)을 가져옵니다.
-    /// </summary>
-    /// <returns> 가져온 카드 </returns>
-    Card PopItem() {
-        Card card = deck[0];
-        deck.RemoveAt(0);
-        return card;
-    }
-
-    /// <summary>
     /// 덱에서 카드를 뽑아 플레이어의 손에 추가합니다.
     /// </summary>
     void DrowCard() {
@@ -49,7 +38,8 @@ public class HandManager : MonoBehaviour
 
         GameObject cardInstance = Instantiate(cardPrefab, deckPoint.position, Quaternion.identity, transform);
         HandCardComponent cardComponent = cardInstance.GetComponent<HandCardComponent>();
-        cardComponent.Setup(PopItem());
+        Card drawCard = deckManager.DrawCard();
+        cardComponent.Setup(drawCard);
         cardComponent.SetParent(this);
         hands.Add(cardInstance);
         SortCards();
