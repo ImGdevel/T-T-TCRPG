@@ -49,12 +49,12 @@ public class TurnManager : MonoBehaviour
         if (isPlayerTurn) {
             Debug.Log("Player's Turn");
             // TODO: 플레이어 턴 처리
-
+            // 턴 변경 애니메이션
         }
         else {
             Debug.Log("Enemy's Turn");
             // TODO: 적 턴 처리
-
+            // 턴 변경 애니메이션
         }
 
         // TODO: 필요한 경우 추가적인 로직을 구현합니다.

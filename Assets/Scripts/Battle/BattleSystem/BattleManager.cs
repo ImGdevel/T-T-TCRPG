@@ -32,7 +32,6 @@ public class BattleManager : MonoBehaviour
             Debug.Log("플레이어 턴입니다.");
             // 플레이어의 턴에 대한 추가 동작 수행
 
-            // 턴 시작 애니메이션 출력
             // 턴 종료 버튼 비활성화 
             // 카드 비활성화 = HnadManager에서
 
@@ -41,10 +40,8 @@ public class BattleManager : MonoBehaviour
             Debug.Log("적 턴입니다.");
             // 적의 턴에 대한 추가 동작 수행
 
-            // 턴 종료 애니메이션 출력
             // 턴 종료 버튼 비활성화
             // 카드 활성화 = HnadManager에서 
-            // 
 
             // 적 턴 로직 시작...
         }
