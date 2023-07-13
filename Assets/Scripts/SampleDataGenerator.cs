@@ -5,25 +5,27 @@ using UnityEngine;
 public class SampleDataGenerator
 {
 
+    public static List<Character> SAMPLE_CHARACTER {
+        get {
+            List<Character> sample = new();
 
-    public List<Character> SAMPLE_CHARACTER() {
+            sample.Add(new Warrior("Tain", 3, 50, 10));
+            sample.Add(new Mage("Rora", 4, 30, 20));
 
-        List<Character> sample = new();
-
-        sample.Add(new Warrior("Tain",3,50,10));
-        sample.Add(new Mage("Rora", 4, 30, 20));
-
-        return sample;
+            return sample;
+        }
+        
     }
 
-    public List<Character> SAMPLE_ENEMY() {
+    public static List<Character> SAMPLE_ENEMY {
+        get {
+            List<Character> sample = new();
 
-        List<Character> sample = new();
+            sample.Add(new Enemy("Gole", EnemyClassType.Undead, 50, 10));
+            sample.Add(new Enemy("Ghoul", EnemyClassType.Undead, 30, 20));
 
-        sample.Add(new Enemy("Gole", EnemyClassType.Undead, 50, 10));
-        sample.Add(new Enemy("Ghoul", EnemyClassType.Undead, 30, 20));
-
-        return sample;
+            return sample;
+        }
     }
 
 }
