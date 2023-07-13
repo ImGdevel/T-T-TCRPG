@@ -6,5 +6,5 @@ using UnityEngine;
 public class CardManager : ScriptableObject
 {
     public Card[] cards1;
-    public BattleCard[] cards;
+    public BattleCardData[] cards;
 }
