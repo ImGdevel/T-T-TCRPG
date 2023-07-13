@@ -18,4 +18,8 @@ public class Mage : Hero
         // Mage의 방어 로직 구현
         // 예: 방어막 생성
     }
+
+     public override Character Clone() {
+        return new Mage(name, level, maxHealth, attackPower);
+    }
 }

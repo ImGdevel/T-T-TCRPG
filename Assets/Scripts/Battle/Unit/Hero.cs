@@ -72,4 +72,6 @@ public abstract class Hero : Character
         // 사망에 대한 동작 처리
         // 예: 메시지 출력, 리스폰 처리 등
     }
+
+    public abstract override Character Clone();
 }

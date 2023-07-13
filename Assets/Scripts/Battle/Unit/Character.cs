@@ -25,4 +25,5 @@ public abstract class Character
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
     public abstract void Die();
+    public abstract Character Clone();
 }

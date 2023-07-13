@@ -43,4 +43,8 @@ public class Enemy : Character
     public override void Die() {
         // 荤噶 贸府 肺流 备泅
     }
+
+    public override Character Clone() {
+        return new Enemy(name, enemyClassType, maxHealth, attackPower);
+    }
 }
