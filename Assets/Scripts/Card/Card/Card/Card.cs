@@ -16,8 +16,8 @@ public abstract class Card : MonoBehaviour
 
 public class BattleCard : Card
 {
-    protected int cost;
-    public int Cost { get { return Cost; } }
+    protected new BattleCardData cardData;
+    public int Cost { get { return cardData.cardCost; } }
 
     public override void UseCard() {
         // 전투 카드를 사용하는 로직을 작성합니다.
@@ -26,7 +26,6 @@ public class BattleCard : Card
     public override Card Clone() {
         BattleCard clone = new();
         clone.cardData = this.cardData;
-        clone.cost = this.cost;
         return clone;
     }
 
@@ -34,7 +33,8 @@ public class BattleCard : Card
 
 public class ExplorationCard : Card
 {
-    public int requiredSteps;
+    protected new ExplorationCardData cardData;
+    public int Cost { get { return cardData.requiredSteps; } }
 
     public override void UseCard() {
         // 탐험 카드를 사용하는 로직을 작성합니다.
