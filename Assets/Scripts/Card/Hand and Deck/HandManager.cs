@@ -78,7 +78,7 @@ public class HandManager : MonoBehaviour
         Quaternion rotation = Quaternion.Slerp(
             Quaternion.Euler(0f, 0f, count * slope),
             Quaternion.Euler(0f, 0f, -count * slope),
-            1f / (count * index)
+            1f / count * index
         );
 
         return new PRS(new Vector3(xPos, yPos), rotation, Vector3.one);
