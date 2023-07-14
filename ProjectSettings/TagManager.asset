@@ -38,15 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 130242201
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: card
-    uniqueID: 274739411
     locked: 0
   - name: Hands
     uniqueID: 1189449801
     locked: 0
-  - name: background
-    uniqueID: 130242201
+  - name: units
+    uniqueID: 3567293573
+    locked: 0
+  - name: Battle-UI
+    uniqueID: 2973057637
+    locked: 0
+  - name: card
+    uniqueID: 274739411
     locked: 0
