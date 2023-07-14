@@ -146,13 +146,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777999659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1160701885}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &794643231
 GameObject:
@@ -351,10 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589f361ee1177994ea62a1761c8952ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDeck:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  sampleCards: {fileID: 11400000, guid: dec61d92fe344df429767181776f8ac6, type: 2}
 --- !u!212 &1142095166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -438,7 +435,7 @@ Transform:
   m_Children:
   - {fileID: 1142095164}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1153247789
 MonoBehaviour:
@@ -489,8 +486,9 @@ Transform:
   m_Children:
   - {fileID: 794643234}
   - {fileID: 1640152006}
+  - {fileID: 777999660}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473813501
 GameObject:
@@ -574,7 +572,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1640152005
 GameObject:
@@ -663,7 +661,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2132694845
 MonoBehaviour:
