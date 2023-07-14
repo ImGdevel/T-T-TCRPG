@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d713c52d3395bfc4ba83080aa9b1c9c6, type: 3}
   m_Name: CardDatas
   m_EditorClassIdentifier: 
-  cards1:
-  - {fileID: 0}
-  - {fileID: 0}
   cards:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7a83762792c42f44599e08e284f1ed13, type: 2}
+  - {fileID: 11400000, guid: 7a83762792c42f44599e08e284f1ed13, type: 2}
+  - {fileID: 11400000, guid: 7a83762792c42f44599e08e284f1ed13, type: 2}
+  - {fileID: 11400000, guid: 7a83762792c42f44599e08e284f1ed13, type: 2}
+  - {fileID: 11400000, guid: 7a83762792c42f44599e08e284f1ed13, type: 2}
