@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0f5d2874c862d439f99e94b63cce13, type: 3}
-  m_Name: Mage-Magic Missile
+  m_Script: {fileID: 11500000, guid: c8a058d47de8fc2469ca037c2c286ae3, type: 3}
+  m_Name: Damage 05
   m_EditorClassIdentifier: 
-  cardName: Magic Missile
-  cardImage: {fileID: 0}
-  cardDescription: 
-  cardCost: 1
-  effects:
-  - {fileID: 11400000, guid: baad277e0b3aa864ca1ba802ccb007d7, type: 2}
+  damageAmount: 0
