@@ -19,7 +19,8 @@ public class HandCardComponent : CardComponent
     } // 카드 활성화 여부
 
     private void Start() {
-        IsCardEnabled = false;
+        isMouseOver = true;
+        IsCardEnabled = true;
     }
 
     private void Update() {
@@ -114,7 +115,6 @@ public class HandCardComponent : CardComponent
     /// 카드 사용
     /// </summary>
     public void UseCard() {
-        Debug.Log("카드 사용");
         isSelected = false;
         handManager.isCardSelected = false;
         handManager.UseCardRemove(this.gameObject);
