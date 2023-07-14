@@ -37,7 +37,6 @@ public class TurnManager : MonoBehaviour
 
     private IEnumerator ChangeTurn() {
         yield return new WaitForSeconds(TurnChangeDelay); // 턴 변경 시간 지연
-        Debug.Log("턴 변경 로직 작동");
 
         // 턴 변경
         isPlayerTurn = !isPlayerTurn;

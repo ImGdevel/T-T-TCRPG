@@ -26,10 +26,7 @@ public class BattleManager : MonoBehaviour
 
     private void HandleTurnChange(bool isPlayerTurn) {
 
-        Debug.Log("턴 변경 배틀 로직 작동");
-
         if (isPlayerTurn) {
-            Debug.Log("플레이어 턴입니다.");
             // 플레이어의 턴에 대한 추가 동작 수행
 
             // 턴 종료 버튼 비활성화 
@@ -37,7 +34,6 @@ public class BattleManager : MonoBehaviour
 
         }
         else {
-            Debug.Log("적 턴입니다.");
             // 적의 턴에 대한 추가 동작 수행
 
             // 턴 종료 버튼 비활성화
