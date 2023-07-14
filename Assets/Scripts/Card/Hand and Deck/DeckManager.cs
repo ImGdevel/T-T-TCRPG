@@ -19,8 +19,7 @@ public class DeckManager : MonoBehaviour
     }
 
     private void Start() {
-        deck = new Deck(sampleDeckGenerate());
-        deck.Shuffle();
+        SetDeck();
     }
 
     public List<Card> sampleDeckGenerate() {
@@ -33,7 +32,17 @@ public class DeckManager : MonoBehaviour
         return cards;
     }
 
+    public void SetDeck() {
+        deck = new Deck(sampleDeckGenerate());
+        deck.Shuffle();
+    }
+
     public Card DrawCard() {
-        return deck.PopCard();
+        Card drawingCard = deck.PopCard();
+        if (drawingCard == null) {
+            SetDeck();
+            drawingCard = deck.PopCard();
+        }
+        return drawingCard;
     }
 }
