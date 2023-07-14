@@ -8,7 +8,7 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     public DeckManager Instance { get; private set; }
-    [SerializeField] List<Card> initialDeck;
+    public CardList sampleCards;
     private Deck deck;
 
     private void Awake() {
@@ -18,11 +18,19 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-
-
     private void Start() {
-        deck = new Deck(initialDeck);
+        deck = new Deck(sampleDeckGenerate());
         deck.Shuffle();
+    }
+
+    public List<Card> sampleDeckGenerate() {
+        List<Card> cards = new();
+        foreach (BattleCardData data in sampleCards.cards) {
+            Card newCard = new BattleCard(data);
+            cards.Add(newCard);
+        }
+
+        return cards;
     }
 
     public Card DrawCard() {
