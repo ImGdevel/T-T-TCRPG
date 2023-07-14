@@ -8,7 +8,6 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     public DeckManager Instance { get; private set; }
-    public CardManager datas;
     [SerializeField] List<Card> initialDeck;
     private Deck deck;
 

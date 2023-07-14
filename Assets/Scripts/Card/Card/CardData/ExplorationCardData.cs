@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Exploration Card", menuName = "Card/Exploration Card")]
+[CreateAssetMenu(fileName = "New Exploration Card", menuName = "Card/Exploration Card")]
 public class ExplorationCardData : CardData
 {
     public int requiredSteps;

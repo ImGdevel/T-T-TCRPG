@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardDatas", menuName = "Card/Cards")]
-public class CardManager : ScriptableObject
+[CreateAssetMenu(fileName = "New Card List", menuName = "Card/Card List")]
+public class CardList : ScriptableObject
 {
     public BattleCardData[] cards;
 }
