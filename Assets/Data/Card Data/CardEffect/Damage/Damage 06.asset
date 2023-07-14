@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a058d47de8fc2469ca037c2c286ae3, type: 3}
   m_Name: Damage 06
   m_EditorClassIdentifier: 
-  damageAmount: 0
+  damageAmount: 6
