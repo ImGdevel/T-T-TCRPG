@@ -81,9 +81,8 @@ public class HandCardComponent : CardComponent
     public override void OnMouseExit() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
-        SortingCardLayers(originSortingLayer);
         MoveTransform(originPosition, true, 0.1f);
-        
+        SortingCardLayers(originSortingLayer);
     }
 
     /// <summary>
@@ -93,11 +92,13 @@ public class HandCardComponent : CardComponent
         if (!isMouseClick) return;
 
         if (!isSelected && !handManager.isCardSelected) {
+            // 핸드에서 선택 
             isSelected = true;
             this.transform.localScale = Vector3.one;
             handManager.SelectCard(this.gameObject);
         }
         else {
+            // 카드사용
             UseCard();
         }
     }
@@ -108,7 +109,7 @@ public class HandCardComponent : CardComponent
     public void UnselectCard() {
         isSelected = false;
         handManager.isCardSelected = false;
-        MoveTransform(originPosition, false);
+        MoveTransform(originPosition, true, 0.1f);
         SortingCardLayers(originSortingLayer);
     }
 
@@ -136,9 +137,4 @@ public class HandCardComponent : CardComponent
         IsCardEnabled = false;
         // 카드 사용 비 활성화 애니메이션
     }
-
-    ///////////////////////////////////////////////////////////////////////////////
-    ///
-
-
 }
