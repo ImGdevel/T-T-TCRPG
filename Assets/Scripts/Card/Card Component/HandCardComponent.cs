@@ -68,7 +68,7 @@ public class HandCardComponent : CardComponent
     /// </summary>
     public override void OnMouseEnter() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
-        Debug.Log(Card.Name + "올림");
+
         Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y + 1, -5);
         PRS prs = new PRS(pos, Quaternion.identity, Vector3.one * 1.3f);
         MoveTransform(prs, true, 0.1f);
@@ -81,7 +81,6 @@ public class HandCardComponent : CardComponent
     public override void OnMouseExit() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
-        Debug.Log(Card.Name + "나감");
         SortingCardLayers(originSortingLayer);
         MoveTransform(originPosition, true, 0.1f);
         
@@ -137,5 +136,9 @@ public class HandCardComponent : CardComponent
         IsCardEnabled = false;
         // 카드 사용 비 활성화 애니메이션
     }
+
+    ///////////////////////////////////////////////////////////////////////////////
+    ///
+
 
 }
