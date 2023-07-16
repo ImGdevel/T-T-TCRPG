@@ -13,6 +13,8 @@ public class HandCardComponent : CardComponent
     private bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
     private bool isSelected = false; // 카드 선택 여부
 
+    public bool IsSelected { get { return isSelected; } }
+
     public bool IsCardEnabled {
         set { isMouseClick = value; }
         get { return isMouseClick; }
@@ -21,6 +23,7 @@ public class HandCardComponent : CardComponent
     private void Start() {
         isMouseOver = true;
         IsCardEnabled = true;
+        isSelected = false;
     }
 
     private void Update() {

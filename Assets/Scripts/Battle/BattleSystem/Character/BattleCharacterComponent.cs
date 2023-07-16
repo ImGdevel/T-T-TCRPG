@@ -8,14 +8,10 @@ public class BattleCharacterComponent : MonoBehaviour
 
     [SerializeField] BattleStatusComponent statusComponet;
 
-    private Rigidbody2D rb; // Rigidbody2D 컴포넌트 추가
-
     private void Start() {
         if (statusComponet == null) {
             statusComponet = transform.GetComponentInChildren<BattleStatusComponent>();
         }
-
-        rb = GetComponent<Rigidbody2D>(); // Rigidbody2D 컴포넌트 할당
     }
 
     public void SetCharacter(Character character) {
@@ -30,15 +26,33 @@ public class BattleCharacterComponent : MonoBehaviour
         statusComponet.UpdateStatus(character);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Card") {
-            Debug.Log("캐릭터가 닿았습니다.");
-        }
-        
+    private bool isMouseOver = false;
+
+    private void OnMouseEnter() {
+        isMouseOver = true;
+        StartCoroutine(ShowCharacterStateAfterDelay(2f));
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
-        // 충돌 상태가 유지되는 동안 호출됩니다.
+    private void OnMouseExit() {
+        isMouseOver = false;
+    }
+
+    private System.Collections.IEnumerator ShowCharacterStateAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+
+        if (isMouseOver) {
+            // 캐릭터 상태를 보여주는 동작을 수행합니다.
+            Debug.Log("캐릭터 상태 보이기");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Card") {
+            HandCardComponent cardComponent = other.transform.GetComponent<HandCardComponent>();
+            if (cardComponent.IsSelected) {
+                Debug.Log("캐릭터에게 닿았습니다.");
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
