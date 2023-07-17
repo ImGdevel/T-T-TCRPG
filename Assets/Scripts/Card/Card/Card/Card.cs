@@ -8,7 +8,6 @@ public abstract class Card
 
     public string Name { get { return cardData.cardName; } }
     public Sprite Sprite { get { return cardData.cardImage; } }
-    public string Description { get { return cardData.cardDescription; } }
 
     public Card(CardData data) {
         this.cardData = data;
