@@ -21,6 +21,7 @@ public class BattleCard : Card
 {
     protected new BattleCardData cardData;
     public int Cost { get { return cardData.cardCost; } }
+    public Target Target { get { return cardData.cardTarget; } }
 
     public BattleCard(BattleCardData data) 
         : base(data) { }

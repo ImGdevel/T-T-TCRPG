@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
+/*
 public class Target
 {
     [SerializeField] 
@@ -10,11 +11,11 @@ public class Target
     }
 
 }
-
-public enum TargetType
+*/
+public enum Target
 {
-    IndividualFriendly,
-    AllFriendly,
     IndividualEnemy,
     AllEnemy,
+    IndividualFriendly,
+    AllFriendly,
 }
