@@ -132,19 +132,7 @@ public class BattleCharacterManager : MonoBehaviour
         foreach (CardEffect effect in cardEffect) {
             Target targeting = effect.target;
 
-            if(targeting == Target.AllFriendly) {
-                foreach (Character characterP in playerList) {
-                    // 효과를 실제로 전부 적용
-                    // 효과 적용에 대한 애니메이션 출력 (데미지나 버프)
-                }
-            }
 
-            if (targeting == Target.AllEnemy) {
-                foreach (Character characterE in enemyList) {
-                    // 효과를 실제로 전부 적용
-                    // 효과 적용에 대한 애니메이션 출력 (데미지나 버프)
-                }
-            }
 
             
         }
