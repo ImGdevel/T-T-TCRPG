@@ -152,22 +152,23 @@ public class HandCardComponent : CardComponent
             // 카드를 사용할 캐릭터 지정.
             // 카드에 저장된 타겟에 따라 적절한 대상인지 판별
 
-            BattleCard BCardData = (BattleCard)CardData;
-            BattleCharacterComponent character = other.transform.GetComponent<BattleCharacterComponent>();
-
+            //BattleCard BCardData = (BattleCard)CardData;
+            //BattleCharacterComponent character = other.transform.GetComponent<BattleCharacterComponent>();
+            /*
             if (BCardData.Target == character.characterType) {
 
             }
             else {
                 // 맞지 않다면 아무 일 없음
             }
+            */
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         // 충돌이 끝날 때 호출됩니다.
         // TriggerEnter2D에서 했던 모든 상태 초기화 
-        UnselectCard();
+        //UnselectCard();
     }
 
 }

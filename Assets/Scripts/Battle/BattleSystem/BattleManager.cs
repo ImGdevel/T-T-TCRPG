@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    // 전투 시스템에 대한 관리자 입니다.
-    // 전투 관리자는 다음 사항을 관리합니다.
-    // 1. 전투 턴 변경시 동작
-    // 2.
     [SerializeField] BattleCharacterManager battleCharacterManager;
     [SerializeField] HandManager handManager;
-    
 
-
-    // TurnManager 싱글톤
+    // BattleManager 싱글톤
     private static BattleManager instance;
     public static BattleManager Instance { get { return instance; } }
 
@@ -33,6 +27,7 @@ public class BattleManager : MonoBehaviour
         TurnManager.OnTurnChange += HandleTurnChange;
 
         if(battleCharacterManager == null) {
+            Debug.LogError("battleCharacterManager is null");
             battleCharacterManager = BattleCharacterManager.Instance;
         }
     }
@@ -40,6 +35,10 @@ public class BattleManager : MonoBehaviour
     private void OnDestroy() {
         // TurnManager의 턴 변경 이벤트에서 구독 해지
         TurnManager.OnTurnChange -= HandleTurnChange;
+    }
+
+    private void CardUse() {
+
     }
 
     private void HandleTurnChange(bool isPlayerTurn) {
@@ -61,7 +60,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-
+   
 
 
 }
@@ -82,6 +81,7 @@ public class BattleManager : MonoBehaviour
   2.5 카드에서는 카드 사용가능 및 불가능 만 저장해두고, 어떤 카드가 사용가능한지는 HnadManager에서 관리한다. 어떤가?
   2.6 사용 불가능한 카드도 있을 것이다. (이거가 베스트 인듯)
 
+// 카드 이펙트가 모두 이것을 구독한다면?
  
  */
 
