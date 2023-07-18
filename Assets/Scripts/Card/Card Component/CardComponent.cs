@@ -16,7 +16,7 @@ public abstract class CardComponent : MonoBehaviour
     [SerializeField] Renderer[] textRenderers;
 
     private Card card;
-    protected Card Card { get {return card; }}
+    protected Card CardData { get {return card; }}
 
     public bool isMouseClick = true;
     public bool isMouseOver = true;
