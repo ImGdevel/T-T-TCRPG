@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
-    
+    Character[] friendly;
+    Character[] enemy;
 
 
 

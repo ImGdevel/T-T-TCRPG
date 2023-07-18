@@ -23,6 +23,19 @@ public class BattleCharacterManager : MonoBehaviour
     [SerializeField] float heightAdjustment;
     [SerializeField] float fieldSpacing;
 
+    private static BattleCharacterManager instance;
+    public static BattleCharacterManager Instance { get { return instance; } }
+
+    private void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        }
+        else {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
     void Start() {
         if (playerField == null) {
             playerField = CreateCharacterField("Player Field");
@@ -107,4 +120,34 @@ public class BattleCharacterManager : MonoBehaviour
             xPos += characterFrameWidth + positionOffset;
         }
     }
+
+    // 해당 캐릭터에게 적용함수
+    public void ApplyCardEffectToCharacter(BattleCard card) {
+        // 카드 정보를 받고  
+        // 카드의 이펙트를 모두 꺼낸다.
+        // 타겟들에게 이펙트를 모두 적용한다.
+        CardEffect[] cardEffect = card.Effects;
+
+        foreach (CardEffect effect in cardEffect) {
+            Target targeting = effect.target;
+
+            if(targeting == Target.AllFriendly) {
+                foreach (Character characterP in playerList) {
+                    // 효과를 실제로 전부 적용
+                    // 효과 적용에 대한 애니메이션 출력 (데미지나 버프)
+                }
+            }
+
+            if (targeting == Target.AllEnemy) {
+                foreach (Character characterE in enemyList) {
+                    // 효과를 실제로 전부 적용
+                    // 효과 적용에 대한 애니메이션 출력 (데미지나 버프)
+                }
+            }
+
+            
+        }
+
+    }
+    // 
 }

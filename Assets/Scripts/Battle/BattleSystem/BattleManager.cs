@@ -7,16 +7,34 @@ public class BattleManager : MonoBehaviour
     // 전투 시스템에 대한 관리자 입니다.
     // 전투 관리자는 다음 사항을 관리합니다.
     // 1. 전투 턴 변경시 동작
-    // 2. 
+    // 2.
+    [SerializeField] BattleCharacterManager battleCharacterManager;
+    [SerializeField] HandManager handManager;
     
-    HandManager handManager;
 
 
+    // TurnManager 싱글톤
+    private static BattleManager instance;
+    public static BattleManager Instance { get { return instance; } }
+
+    private void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        }
+        else {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
 
     // TrunManager와 연결하고 TrunManager가 호출시 자동으로 호출되겠다 선언
     private void Start() {
         // TurnManager의 턴 변경 이벤트에 구독
         TurnManager.OnTurnChange += HandleTurnChange;
+
+        if(battleCharacterManager == null) {
+            battleCharacterManager = BattleCharacterManager.Instance;
+        }
     }
 
     private void OnDestroy() {
@@ -42,11 +60,18 @@ public class BattleManager : MonoBehaviour
             // 적 턴 로직 시작...
         }
     }
+
+
+
+
 }
 
 // Comment
 /*
  턴 메니저와 배틀 메니저는 무엇을 관리하는가?
+
+=> 배틀 매니저를 "중재자"로서 만든다.
+
 1. 플레이어 턴에서는 플레이가 동작 할 수 있도록 해야한다.
 2. 적에 턴에서는 일부 플레이를 금지 시켜야한다. (카드 사용)
   2.1. 논점: 무엇을 금지하고 무엇을 가능하게 할 것 인가?
