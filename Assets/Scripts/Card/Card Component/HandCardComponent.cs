@@ -12,8 +12,10 @@ public class HandCardComponent : CardComponent
     private int originSortingLayer; // 원래 카드 번호
     private bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
     private bool isSelected = false; // 카드 선택 여부
+    private bool isUseable = false;
 
     public bool IsSelected { get { return isSelected; } }
+    public bool IsUsable { get { return isUseable; } }
 
     public bool IsCardEnabled {
         set { isMouseClick = value; }
@@ -100,6 +102,10 @@ public class HandCardComponent : CardComponent
             this.transform.localScale = Vector3.one;
             handManager.SelectCard(this.gameObject);
         }
+        else if(!isUseable) {
+            // 비사용
+            UnselectCard();
+        }
         else {
             // 카드사용
             UseCard();
@@ -121,8 +127,6 @@ public class HandCardComponent : CardComponent
     /// </summary>
     public void UseCard() {
         // 지정된 타겟에게 효과를 부여한다.
-
-
 
         isSelected = false;
         handManager.isCardSelected = false;
@@ -151,24 +155,14 @@ public class HandCardComponent : CardComponent
             Debug.Log("카드가 닿았습니다.");
             // 카드를 사용할 캐릭터 지정.
             // 카드에 저장된 타겟에 따라 적절한 대상인지 판별
-
-            //BattleCard BCardData = (BattleCard)CardData;
-            //BattleCharacterComponent character = other.transform.GetComponent<BattleCharacterComponent>();
-            /*
-            if (BCardData.Target == character.characterType) {
-
-            }
-            else {
-                // 맞지 않다면 아무 일 없음
-            }
-            */
+            isUseable = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         // 충돌이 끝날 때 호출됩니다.
         // TriggerEnter2D에서 했던 모든 상태 초기화 
-        //UnselectCard();
+        isUseable = false;
     }
 
 }
