@@ -23,6 +23,7 @@ public class BattleCharacterManager : MonoBehaviour
     [SerializeField] float heightAdjustment;
     [SerializeField] float fieldSpacing;
 
+    // BattleCharacterManager ΩÃ±€≈Ê
     private static BattleCharacterManager instance;
     public static BattleCharacterManager Instance { get { return instance; } }
 
