@@ -58,6 +58,14 @@ public abstract class Hero : Character
     }
 
     /// <summary>
+    /// 영웅이 버프를 받을 때 호출되는 함수입니다.
+    /// </summary>
+    /// <param name="buff">받는 버프</param>
+    public override void TakeBuff(Buff buff) {
+
+    }
+
+    /// <summary>
     /// 영웅이 빈사 상태할 때 호출되는 함수입니다.
     /// </summary>
     public void EnterMoribundState() {
@@ -72,6 +80,8 @@ public abstract class Hero : Character
         // 사망에 대한 동작 처리
         // 예: 메시지 출력, 리스폰 처리 등
     }
+
+    
 
     public abstract override Character Clone();
 }

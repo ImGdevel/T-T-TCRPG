@@ -24,6 +24,7 @@ public abstract class Character
     public abstract void Attack();
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
+    public abstract void TakeBuff(Buff buff);
     public abstract void Die();
     public abstract Character Clone();
 }
