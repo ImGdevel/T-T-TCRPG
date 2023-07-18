@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    [SerializeField] BattleCharacterManager battleCharacterManager;
+    [SerializeField] TurnManager turnManager;
     [SerializeField] HandManager handManager;
+    [SerializeField] BattleCharacterManager battleCharacterManager;
+
 
     // BattleManager 싱글톤
     private static BattleManager instance;
@@ -30,15 +32,19 @@ public class BattleManager : MonoBehaviour
             Debug.LogError("battleCharacterManager is null");
             battleCharacterManager = BattleCharacterManager.Instance;
         }
+        if (turnManager == null) {
+            Debug.LogError("turnManager is null");
+            turnManager = TurnManager.Instance;
+        }
+        if(handManager == null) {
+            Debug.LogError("handManager is null");
+        }
+
     }
 
     private void OnDestroy() {
         // TurnManager의 턴 변경 이벤트에서 구독 해지
         TurnManager.OnTurnChange -= HandleTurnChange;
-    }
-
-    private void CardUse() {
-
     }
 
     private void HandleTurnChange(bool isPlayerTurn) {
@@ -59,10 +65,6 @@ public class BattleManager : MonoBehaviour
             // 적 턴 로직 시작...
         }
     }
-
-   
-
-
 }
 
 // Comment
