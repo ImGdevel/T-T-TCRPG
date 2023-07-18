@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleCharacterComponent : MonoBehaviour
 {
     protected Character character;
+    public Target characterType;
 
     [SerializeField] BattleStatusComponent statusComponet;
 
