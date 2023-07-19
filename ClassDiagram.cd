@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MoveBackground" Collapsed="true">
+    <Position X="19.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAACAAAAAAAAAAAAAAAAAAAQAAAABAAAEAAAA=</HashCode>
+      <FileName>Assets\Assets\Free Pixel Art Hills\Demo\MoveBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterMotion" Collapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\CharacterMotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Follow" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\Follow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkinnedMeshCombiner" Collapsed="true">
+    <Position X="28" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CABgACAAACAAAAAAAAIAAAAAAAAAAAAABAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SkinnedMeshCombiner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteCycle" Collapsed="true">
+    <Position X="21" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAACAAAAEAKAAAAAAAAAAAAAAAAAAAAkA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SpriteCycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteCycleParallax" Collapsed="true">
+    <Position X="22.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAiAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SpriteCycleParallax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleCharacterManager" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YACAgAAAGCAAACAAAAAAFAAiJAAAACABABAAAIAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\BattleCharacterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleManager" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABABAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\BattleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleCharacterComponent" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\BattleCharacterComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleStatusComponent" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAEACAAAAAAAAAAAAAAAAAAQAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\BattleStatusComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergysComponet" Collapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\EnergysComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergysComponent" Collapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\EnergysComponet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnergyToken" Collapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\EnergyToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HpBarComponent" Collapsed="true">
+    <Position X="28" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAEADAAAAAAAAAEAAAAgAAAAAAgAAggAAAAIEA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Character\HpBarComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnChangeButton" Collapsed="true">
+    <Position X="17.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Turn\TurnChangeButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnManager" Collapsed="true">
+    <Position X="19.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIAAAAAIAAAAGAAABAAAgAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Battle\BattleSystem\Turn\TurnManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetManager" Collapsed="true">
+    <Position X="15.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\TargetManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Buff" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAgAAQAAAAAAAAAAYAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttributeBuff" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAgAACAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StatusChangeBuff" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAgAACAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurnEndBuff" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CrowdControlBuff" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuffManager" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAQAAAAAAAAEAAgAAAEAAAAAAAEAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\BuffManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAACAEgAQABCAUAAIAEAAAEAAAAjAAAQBA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAgABAAAAAAAIAAAAAAAAAAgAAAQBA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAARAAAAAAAAAAgAAAAAAAFAIEAAAABAAAAgAAAQFQ=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Hero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mage" Collapsed="true">
+    <Position X="8.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAQBA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Heros\Mage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Warrior" Collapsed="true">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAQBA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Heros\Warrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAgAAAAQAAAAAAAEABA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleCard" Collapsed="true">
+    <Position X="0.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorationCard" Collapsed="true">
+    <Position X="3" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAgAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtifactCard" Collapsed="true">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardDescription" Collapsed="true">
+    <Position X="28" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\CardDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardList" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\Card\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtifactCardData" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\CardData\ArtifactCardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleCardData" Collapsed="true">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\CardData\BattleCardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardData" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\CardData\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplorationCardData" Collapsed="true">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card\CardData\ExplorationCardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardComponent" Collapsed="true">
+    <Position X="10.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABAAAQASGAAAAAAAUBgAAAAEAAAAAAAIAQCAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card Component\CardComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HandCardComponent" Collapsed="true">
+    <Position X="10.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABAQBCAAABAAGADAAAgAEAAACAQAIEAAAAAEABA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card Component\HandCardComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuffEffect" Collapsed="true">
+    <Position X="5.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card Effect\BuffEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardEffect" Collapsed="true">
+    <Position X="6.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card Effect\CardEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageEffect" Collapsed="true">
+    <Position X="7.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Card Effect\DamageEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleDeck" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Hand and Deck\Deck\BattleDeck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Deck" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAACAAAgAAAAAAAAAAAAAAACAAAAAEBA=</HashCode>
+      <FileName>Assets\Scripts\Card\Hand and Deck\Deck\Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeckManager" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAEAAAAEAAQAEAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Card\Hand and Deck\DeckManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HandManager" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAACAUAAIACAAAAAMAGgAAAACAAIIAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Card\Hand and Deck\HandManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cursor" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Others\Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Others\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SampleDataGenerator" Collapsed="true">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Others\SampleDataGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PRS" Collapsed="true">
+    <Position X="24.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAIAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Others\Utills.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoTweenAnimation" Collapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Others\Utills.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMath" Collapsed="true">
+    <Position X="21" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Others\Utills.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utills" Collapsed="true">
+    <Position X="22.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\Others\Utills.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DungeonMove" Collapsed="true">
+    <Position X="28" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Unit\DungeonMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityChan.SpringBone" Collapsed="true">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACCAAAKCAAAAAAAAAAxBAAACBQACAAEABEEAAAAEA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SpringBone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityChan.SpringCollider" Collapsed="true">
+    <Position X="17.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SpringCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityChan.SpringManager" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAACAAAAAQAAAAKAAAAAAAAAAAAADEAAAAAFA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Examples\Scripts\SpringManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.Bone2D" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAVAEAAAEAAAIAAAECgIBAAAAoQCACSAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\Bone2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.Control" Collapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAQYAAAAAAAAACAAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\Control.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.EditorUpdaterProxy" Collapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAIQAAABAAAAEA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\EditorUpdaterProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.Ik2D" Collapsed="true">
+    <Position X="1.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASEQAQgADagAAABMAUAIAAIAAAACAEgIAQAAAGAgAE=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\Ik2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkCCD2D" Collapsed="true">
+    <Position X="2.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAgIAAAAAAAAABAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkCCD2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkGroup" Collapsed="true">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkLimb2D" Collapsed="true">
+    <Position X="0.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAKgAAAAAQEAAAAAAAAABAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkLimb2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkSolver2D" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAIAhAACSABABQAAgAAAAAAAAAgAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkSolver2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkSolver2DCCD" Collapsed="true">
+    <Position X="8.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAABAgIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkSolver2DCCD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.IkSolver2DLimb" Collapsed="true">
+    <Position X="10.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\IkSolver2DLimb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.MathUtils" Collapsed="true">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAEBUDDKAAAIACgAAAIAAAAAAAUAIAAAAEAAAgA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\MathUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.Pose" Collapsed="true">
+    <Position X="21" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\Pose.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.PoseManager" Collapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\PoseManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.SpriteMesh" Collapsed="true">
+    <Position X="24.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAABAgABAAAAAAAAAAQACAABA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\SpriteMesh.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.SpriteMeshAnimation" Collapsed="true">
+    <Position X="26.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAEIMAAAAAAAAAABAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\SpriteMeshAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Anima2D.SpriteMeshInstance" Collapsed="true">
+    <Position X="28" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KIEnEgAAAAAIABggAAAEIBuIAAAFAACABAAQWApAAsA=</HashCode>
+      <FileName>Assets\Package\Anima2D\Scripts\SpriteMeshInstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleAudio" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAIAAEAEgAAAAAAAAAACCBIAEghQ=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModulePhysics" Collapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAGBBAAAQAACAAAAEAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModulePhysics2D" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAGBAAAAAAACAAAAEAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleSprite" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUI" Collapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAIQABAAAAgAgKAgAEAIAAQCLQEFAABAQAABBQAAAAg=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUnityVersion" Collapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAAAEAIACAAAAgAgAQAAAAAAQEAUCAACAAAAABA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenCYInstruction" Collapsed="true">
+    <Position X="28" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUtils" Collapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACABCAAAAAAA=</HashCode>
+      <FileName>Assets\Package\Dotoween\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="BuffType" Collapsed="true">
+    <Position X="17.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AttributeType" Collapsed="true">
+    <Position X="15.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAgAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="StatusType" Collapsed="true">
+    <Position X="24.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CrowdControlType" Collapsed="true">
+    <Position X="19.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Buff.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EnemyClassType" Collapsed="true">
+    <Position X="21" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HeroClassType" Collapsed="true">
+    <Position X="22.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Battle\Unit\Hero.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
