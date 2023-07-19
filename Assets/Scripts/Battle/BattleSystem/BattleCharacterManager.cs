@@ -127,16 +127,21 @@ public class BattleCharacterManager : MonoBehaviour
         // 카드 정보를 받고  
         // 카드의 이펙트를 모두 꺼낸다.
         // 타겟들에게 이펙트를 모두 적용한다.
-        CardEffect[] cardEffect = card.Effects;
-
+        int cardEffect = card.Effects.Length;
+        /*
         foreach (CardEffect effect in cardEffect) {
             Target targeting = effect.target;
-
-
-
             
         }
-
+        */
     }
-    // 
+
+    public List<Character> GetPlayerCharacters() {
+        return playerList;
+    }
+
+    public List<Character> GetEnemyCharacters() {
+        return enemyList;
+    }
+
 }
