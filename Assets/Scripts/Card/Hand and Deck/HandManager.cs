@@ -40,7 +40,7 @@ public class HandManager : MonoBehaviour
         Card drawCard = deckManager.DrawCard();
         cardComponent.Setup(drawCard);
         cardComponent.SetParent(this);
-        hands.Add(cardInstance);
+        hands.Insert(0, cardInstance);
         SortCards();
     }
 
@@ -117,10 +117,12 @@ public class HandManager : MonoBehaviour
     /// <param name="index">카드의 인덱스 순서 번호</param>
     /// <returns>카드의 위치, 회전 및 크기 정보인 PRS(PRS(Position, Rotation, Scale)) 값</returns>
     private PRS CalculateCardPosition(int index) {
-        float gap = 1f;
         float slope = 1f;
         float radius = 25f;
         float count = hands.Count;
+        float gapPoint = Mathf.Log(count) * 2f;
+        float gap = (10f - gapPoint) / 6f;
+
 
         float maxWidth = handPoint.position.x - ((count - 1f) / 2f * gap);
         float xPos = maxWidth + index * gap;
