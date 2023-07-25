@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using DG.Tweening;
-using TMPro;
+
 
 public class HandCardComponent : CardComponent
 {
     private HandManager handManager; // 핸드 메니저
     private PRS originPosition; // 원래 Transform 위치
     private int originSortingLayer; // 원래 카드 번호
-    private bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
-    private bool isSelected = false; // 카드 선택 여부
-    private bool isUseable = false;
+
+    protected bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
+    protected bool isSelected = false; // 카드 선택 여부
+    protected bool isUseable = false;
 
     public bool IsSelected { get { return isSelected; } }
     public bool IsUsable { get { return isUseable; } }
@@ -147,22 +146,6 @@ public class HandCardComponent : CardComponent
     public void DisableCard() {
         IsCardEnabled = false;
         // 카드 사용 비 활성화 애니메이션
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (isSelected && other.tag == "Character") {
-            Debug.Log("카드가 닿았습니다.");
-            // 카드를 사용할 캐릭터 지정.
-            // 카드에 저장된 타겟에 따라 적절한 대상인지 판별
-            isUseable = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        // 충돌이 끝날 때 호출됩니다.
-        // TriggerEnter2D에서 했던 모든 상태 초기화 
-        isUseable = false;
     }
 
 }
