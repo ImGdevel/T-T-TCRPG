@@ -51,7 +51,7 @@ public class HandManager : MonoBehaviour
         for (int i = 0; i < hands.Count; i++) {
             HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
             PRS position = CalculateCardPosition(i);
-            cardComponent.MoveTransform(position, true, 0.5f);
+            cardComponent.MoveTransform(position, true, 0.3f);
             cardComponent.SetOriginPosition(position);
             cardComponent.SortingCardLayers(i);
             cardComponent.SetOriginSortingLayer(i);
