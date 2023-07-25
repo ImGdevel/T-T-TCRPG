@@ -70,19 +70,16 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 마우스가 카드에 들어갈 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseEnter() {
+    protected override void OnMouseEnter() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
-        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y + 1, -5);
-        PRS prs = new PRS(pos, Quaternion.identity, Vector3.one * 1.3f);
-        MoveTransform(prs, true, 0.1f);
-        SortingCardLayers(100);
+        ZoomCard();
     }
 
     /// <summary>
     /// 마우스가 카드에서 벗어날 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseExit() {
+    protected override void OnMouseExit() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
         MoveTransform(originPosition, true, 0.1f);
@@ -92,29 +89,39 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 마우스로 카드를 클릭했을 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseDown() {
+    protected override void OnMouseDown() {
         if (!isMouseClick) return;
 
         if (!isSelected && !handManager.isCardSelected) {
-            // 핸드에서 선택 
+            // 핸드에서 선택
             isSelected = true;
             this.transform.localScale = Vector3.one;
             handManager.SelectCard(this.gameObject);
-        }
-        else if(!isUseable) {
-            // 비사용
-            UnselectCard();
-        }
-        else {
+        } else if(isUseable) {
             // 카드사용
             UseCard();
+        }
+        else {
+            //카드 미사용
+            UnselectCard();
         }
     }
 
     /// <summary>
+    /// 카드를 확대합니다.
+    /// </summary>
+    protected void ZoomCard() {
+        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y + 1, -5);
+        PRS prs = new PRS(pos, Quaternion.identity, Vector3.one * 1.3f);
+        MoveTransform(prs, true, 0.1f);
+        SortingCardLayers(100);
+    }
+
+
+    /// <summary>
     /// 카드 선택 해제
     /// </summary>
-    public void UnselectCard() {
+    protected virtual void UnselectCard() {
         isSelected = false;
         handManager.isCardSelected = false;
         MoveTransform(originPosition, true, 0.1f);
@@ -124,9 +131,8 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 카드 사용
     /// </summary>
-    public void UseCard() {
+    protected virtual void UseCard() {
         // 지정된 타겟에게 효과를 부여한다.
-
         isSelected = false;
         handManager.isCardSelected = false;
         handManager.UseCardRemove(this.gameObject);
