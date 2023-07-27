@@ -31,7 +31,7 @@ public class HpBarComponent : MonoBehaviour
         get { return current; }
     }
 
-    private void Start() {
+    private void Awake() {
         if (background == null || fill == null) {
             Debug.LogError("Background or fill GameObject is not assigned in HpBarComponent.");
             return;
@@ -49,7 +49,6 @@ public class HpBarComponent : MonoBehaviour
     public void UpdateStatus(float current) {
         Value = current;
 
-        DisplayStatus();
     }
 
 
@@ -62,7 +61,6 @@ public class HpBarComponent : MonoBehaviour
         Value = current;
         Max = max;
 
-        DisplayStatus();
     }
 
     /// <summary>

@@ -17,6 +17,7 @@ public class BattleCharacterComponent : MonoBehaviour
 
     public void SetCharacter(Character character) {
         this.character = character;
+        UpdateStatus();
     }
 
     public void UpdateStatus() {
@@ -43,7 +44,7 @@ public class BattleCharacterComponent : MonoBehaviour
 
         if (isMouseOver) {
             // 캐릭터 상태를 보여주는 동작을 수행합니다.
-            Debug.Log("캐릭터 상태 보이기");
+            Debug.Log("캐릭터 상태: " + character.Name + " ( " + character.CurrentHealth + "/" + character.CurrentEnergy + ")");
         }
     }
 
