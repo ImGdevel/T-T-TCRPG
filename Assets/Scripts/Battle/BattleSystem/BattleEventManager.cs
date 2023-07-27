@@ -7,6 +7,8 @@ public class BattleEventManager : MonoBehaviour
     List<Character> friendly;
     List<Character> enemy;
 
+    Character CardUser;
+
     // 싱글톤
     private static BattleEventManager instance;
     public static BattleEventManager Instance { get { return instance; } }
@@ -35,7 +37,21 @@ public class BattleEventManager : MonoBehaviour
         this.isPlayerTurn = isPlayerTurn;
     }
 
-    
+    public void SetCardUser(Character user) {
+        // 카드를 사용하는 캐릭터 주체를 지정합니다.
+
+        // 플레이턴과 적의 턴을 따로 설정해야함
+
+        if (isPlayerTurn) {
+            // 플레이어 턴인경우
+
+            // 해당 사용자에 따라 사용할 수 있는 카드 지정
+            
+
+        }
+
+
+    }
 
     public void CardUseEvent(BattleCard battleCard) {
         Debug.Log("카드 이벤트 적용");
