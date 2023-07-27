@@ -20,6 +20,6 @@ public class Warrior : Hero
     }
 
     public override Character Clone() {
-        return new Warrior(name, level, maxHealth, maxHealth, attackPower);
+        return new Warrior(name, level, maxHealth, maxEnergy, attackPower);
     }
 }
