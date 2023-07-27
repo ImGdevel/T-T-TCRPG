@@ -117,6 +117,8 @@ public class HandCardComponent : CardComponent
         SortingCardLayers(100);
     }
 
+    
+
 
     /// <summary>
     /// 카드 선택 해제
@@ -152,6 +154,11 @@ public class HandCardComponent : CardComponent
     public void DisableCard() {
         IsCardEnabled = false;
         // 카드 사용 비 활성화 애니메이션
+
+        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y - -0.5f, transform.position.z);
+        PRS prs = new PRS(pos, transform.rotation, transform.localScale);
+        MoveTransform(prs, true, 0.1f);
+        SortingCardLayers(100);
     }
 
 }
