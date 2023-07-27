@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleCardComponent : HandCardComponent
 {
     protected new BattleCard card;
-    protected new BattleCard CardData { get { return card; } }
+    public new BattleCard CardData { get { return card; } }
 
     protected override void UseCard() {
         BattleEventManager.Instance.CardUseEvent(CardData);
