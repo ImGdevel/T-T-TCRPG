@@ -14,12 +14,14 @@ public abstract class Hero : Character
     protected int level; // 영웅의 레벨
     protected bool isMoribund; // 빈사 상태 여부
 
-    public Hero(string name, HeroClassType classType, int level, int maxHealth, int attackPower) {
+    public Hero(string name, HeroClassType classType, int level, int maxHealth, int maxEnergy, int attackPower) {
         this.name = name;
         this.classType = classType;
         this.level = level;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
+        this.maxEnergy = maxEnergy;
+        this.currentEnergy = maxEnergy;
         this.attackPower = attackPower;
         this.isMoribund = false;
         this.buffManager = new BuffManager();

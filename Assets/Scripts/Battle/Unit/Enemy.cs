@@ -13,11 +13,13 @@ public class Enemy : Character
 {
     private EnemyClassType enemyClassType;
 
-    public Enemy(string name, EnemyClassType enemyClassType, int maxHealth, int attackPower) {
+    public Enemy(string name, EnemyClassType enemyClassType, int maxHealth, int maxEnergy, int attackPower) {
         this.name = name;
         this.enemyClassType = enemyClassType;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
+        this.maxEnergy = maxEnergy;
+        this.currentEnergy = maxEnergy;
         this.attackPower = attackPower;
         buffManager = new BuffManager();
     }
@@ -60,6 +62,6 @@ public class Enemy : Character
     }
 
     public override Character Clone() {
-        return new Enemy(name, enemyClassType, maxHealth, attackPower);
+        return new Enemy(name, enemyClassType, maxHealth, maxEnergy, attackPower);
     }
 }

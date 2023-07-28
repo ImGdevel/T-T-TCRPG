@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Warrior : Hero
 {
-    public Warrior(string name, int level, int maxHealth, int attackPower)
-        : base(name, HeroClassType.Warrior, level, maxHealth, attackPower) {
+    public Warrior(string name, int level, int maxHealth, int maxEnergy, int attackPower)
+        : base(name, HeroClassType.Warrior, level, maxHealth, maxEnergy, attackPower) {
         // 추가적인 초기화 코드
     }
 
@@ -20,6 +20,6 @@ public class Warrior : Hero
     }
 
     public override Character Clone() {
-        return new Warrior(name, level, maxHealth, attackPower);
+        return new Warrior(name, level, maxHealth, maxEnergy, attackPower);
     }
 }

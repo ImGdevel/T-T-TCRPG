@@ -579,9 +579,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1640152005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb25a8cfc1a6544880831231775b147, type: 3}
+  m_Script: {fileID: 11500000, guid: 0044ce4e97c4b884e8406c08716e3376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerTurn: 0
 --- !u!1 &2132694843
 GameObject:
   m_ObjectHideFlags: 0

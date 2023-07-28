@@ -9,10 +9,12 @@ public class HandManager : MonoBehaviour
     [SerializeField] DeckManager deckManager;
     [SerializeField] Transform deckPoint;
     [SerializeField] Transform handPoint;
-    [SerializeField] List<GameObject> hands;
 
-    // Hand 설정
-    [SerializeField] int maxHandSize; // 최대 손 카드 개수
+    
+    protected List<GameObject> hands;//핸드
+    
+    [SerializeField] 
+    int maxHandSize; // 최대 손 카드 개수
 
     // 선택된 Hand 카드
     private GameObject selectedCard;
@@ -20,6 +22,7 @@ public class HandManager : MonoBehaviour
 
     void Start() {
         handPoint = this.transform;
+        hands = new();
     }
 
     void Update() {
@@ -51,7 +54,7 @@ public class HandManager : MonoBehaviour
         for (int i = 0; i < hands.Count; i++) {
             HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
             PRS position = CalculateCardPosition(i);
-            cardComponent.MoveTransform(position, true, 0.5f);
+            cardComponent.MoveTransform(position, true, 0.3f);
             cardComponent.SetOriginPosition(position);
             cardComponent.SortingCardLayers(i);
             cardComponent.SetOriginSortingLayer(i);
