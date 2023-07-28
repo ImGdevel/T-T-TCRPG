@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy Damage 10
   m_EditorClassIdentifier: 
   target:
-    targetType: 0
+    targetType: 1
     targetRange: 0
   damageAmount: 10
