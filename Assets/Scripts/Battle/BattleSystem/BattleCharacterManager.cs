@@ -101,6 +101,7 @@ public class BattleCharacterManager : MonoBehaviour
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, playerField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
             characterComponent.SetCharacter(player);
+            characterComponent.SetCharacterType(TargetType.Friendly);
             playerCharacterFrameList.Add(characterFrameObj);
             xPos -= characterFrameWidth + positionOffset;
         }
@@ -117,6 +118,7 @@ public class BattleCharacterManager : MonoBehaviour
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, enemyField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
             characterComponent.SetCharacter(enemy);
+            characterComponent.SetCharacterType(TargetType.Enemy);
             enemyCharacterFrameList.Add(characterFrameObj);
             xPos += characterFrameWidth + positionOffset;
         }

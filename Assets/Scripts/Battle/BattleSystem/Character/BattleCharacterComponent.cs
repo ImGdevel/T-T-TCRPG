@@ -5,7 +5,9 @@ using UnityEngine;
 public class BattleCharacterComponent : MonoBehaviour
 {
     protected Character character;
-    public Target characterType;
+    private TargetType characterType;
+
+    public TargetType CharacterType { get { return characterType; } }
 
     [SerializeField] BattleStatusComponent statusComponet;
 
@@ -18,6 +20,10 @@ public class BattleCharacterComponent : MonoBehaviour
     public void SetCharacter(Character character) {
         this.character = character;
         UpdateStatus();
+    }
+
+    public void SetCharacterType(TargetType targetType) {
+        this.characterType = targetType;
     }
 
     public void UpdateStatus() {
