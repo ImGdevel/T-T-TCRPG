@@ -8,6 +8,7 @@ public class BattleEventManager : MonoBehaviour
     List<Character> enemy;
 
     Character CardUser;
+    Character Target;
 
     // 싱글톤
     private static BattleEventManager instance;
@@ -37,7 +38,25 @@ public class BattleEventManager : MonoBehaviour
         this.isPlayerTurn = isPlayerTurn;
     }
 
-    public void SetCardUser(Character user) {
+    public void SetTarget(BattleCharacterComponent target) {
+
+        if (isPlayerTurn) {
+
+        }
+
+    }
+
+    public bool IsFriendly(TargetType target) {
+        if (isPlayerTurn) {
+            return (TargetType.Friendly == target);
+        }
+        else {
+            return (TargetType.Enemy == target);
+        }
+    }
+
+
+    public void SetCardUser(BattleCharacterComponent user) {
         // 카드를 사용하는 캐릭터 주체를 지정합니다.
 
         // 플레이턴과 적의 턴을 따로 설정해야함
@@ -65,6 +84,8 @@ public class BattleEventManager : MonoBehaviour
         // 4. 피격 대상이 적군인 경우 피격 애니메이션 출력
         // -> 애니메에션 출력은 애니메이션 매니저에서? 아니면 효과 출력 단계에서?
         // -> 이후 효과 적용
+
+
 
 
     }

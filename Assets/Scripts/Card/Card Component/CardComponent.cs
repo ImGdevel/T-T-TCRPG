@@ -16,7 +16,7 @@ public abstract class CardComponent : MonoBehaviour
     [SerializeField] Renderer[] textRenderers;
 
     protected Card card;
-    protected Card CardData { get {return card; }}
+    public Card CardData { get {return card; }}
 
     public bool isMouseClick = true;
     public bool isMouseOver = true;
@@ -29,7 +29,7 @@ public abstract class CardComponent : MonoBehaviour
     /// 카드 정보를 설정합니다.
     /// </summary>
     /// <param name="card">설정할 카드 정보</param>
-    public void Setup(Card card) {
+    public virtual void Setup(Card card) {
         this.card = card;
         this.cardNameText.text = card.Name;
         this.cardSprite.sprite = card.Sprite;

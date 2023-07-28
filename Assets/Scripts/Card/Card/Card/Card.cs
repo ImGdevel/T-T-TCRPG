@@ -19,12 +19,11 @@ public abstract class Card
 
 public class BattleCard : Card
 {
-    protected new BattleCardData cardData;
-    public int Cost { get { return cardData.cardCost; } }
-    public Target Target { get { return cardData.cardTarget; } }
-    public CardEffect[] Effects { get { return cardData.effects; } }
+    public int Cost { get { return ((BattleCardData)cardData).cardCost; } }
+    public Target Target { get { return ((BattleCardData)cardData).cardTarget; } }
+    public CardEffect[] Effects { get { return ((BattleCardData)cardData).effects; } }
 
-    public BattleCard(BattleCardData data) 
+    public BattleCard(BattleCardData data)
         : base(data) { }
 
     public override void UseCard() {
@@ -32,18 +31,16 @@ public class BattleCard : Card
     }
 
     public override Card Clone() {
-        BattleCard clone = new(this.cardData);
+        BattleCard clone = new BattleCard((BattleCardData)this.cardData);
         return clone;
     }
-
 }
 
 public class ExplorationCard : Card
 {
-    protected new ExplorationCardData cardData;
-    public int Cost { get { return cardData.requiredSteps; } }
+    public int Cost { get { return ((ExplorationCardData)cardData).requiredSteps; } }
 
-    public ExplorationCard(ExplorationCardData data) 
+    public ExplorationCard(ExplorationCardData data)
         : base(data) { }
 
     public override void UseCard() {
@@ -51,16 +48,14 @@ public class ExplorationCard : Card
     }
 
     public override Card Clone() {
-        ExplorationCard clone = new(this.cardData);
+        ExplorationCard clone = new ExplorationCard((ExplorationCardData)this.cardData);
         return clone;
     }
 }
 
 public class ArtifactCard : Card
 {
-    protected new ArtifactCardData cardData;
-
-    public ArtifactCard(ArtifactCardData data) 
+    public ArtifactCard(ArtifactCardData data)
         : base(data) { }
 
     public override void UseCard() {
@@ -68,7 +63,7 @@ public class ArtifactCard : Card
     }
 
     public override Card Clone() {
-        ArtifactCard clone = new(this.cardData);
+        ArtifactCard clone = new ArtifactCard((ArtifactCardData)this.cardData);
         return clone;
     }
 }

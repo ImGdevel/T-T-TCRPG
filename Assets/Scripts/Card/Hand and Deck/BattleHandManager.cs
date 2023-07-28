@@ -18,7 +18,7 @@ public class BattleHandManager : HandManager
 
         foreach (GameObject item in hands) {
             BattleCardComponent card = item.transform.GetComponent<BattleCardComponent>();
-            BattleCard battleCard = card.CardData;
+            BattleCard battleCard = (BattleCard)(card.CardData);
             int requiredCost = battleCard.Cost;
 
             if (character.CurrentEnergy < requiredCost) {
