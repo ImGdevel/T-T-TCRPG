@@ -124,6 +124,38 @@ public class BattleCharacterManager : MonoBehaviour
         }
     }
 
+    public void SelectChracter(BattleCharacterComponent selectedTarget, TargetRange rangeType) {
+
+        switch (rangeType) {
+            case TargetRange.Single:
+                selectedTarget.SetTargetedByEnemy();
+                break;
+
+            case TargetRange.All:
+                switch (selectedTarget.CharacterType) {
+                    case TargetType.Friendly:
+                        foreach (var item in playerCharacterFrameList) {
+                            BattleCharacterComponent target = item.GetComponent<BattleCharacterComponent>();
+                            target.SetTargetedByEnemy();
+                        }
+                        break;
+                    case TargetType.Enemy:
+                        foreach (var item in enemyCharacterFrameList) {
+                            BattleCharacterComponent target = item.GetComponent<BattleCharacterComponent>();
+                            target.SetTargetedByEnemy();
+                        }
+                        break;
+                }
+                break;
+            case TargetRange.Multiple:
+                // 카드마다 다름
+                Debug.LogError("This feature is not yet implemented.");
+                break;
+            default:
+                break;
+        }
+    }
+
     // 해당 캐릭터에게 적용함수
     public void ApplyCardEffectToCharacter(BattleCard card) {
         // 카드 정보를 받고  
@@ -137,6 +169,8 @@ public class BattleCharacterManager : MonoBehaviour
         }
         */
     }
+
+    
 
     public List<Character> GetPlayerCharacters() {
         return playerList;

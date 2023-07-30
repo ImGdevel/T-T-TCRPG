@@ -66,6 +66,19 @@ public class BattleCharacterComponent : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         // 충돌이 끝날 때 호출됩니다.
     }
+
+    public void SetTargetedByEnemy() {
+        //캐릭터가 선택된것을 보여줄 UI처리
+        Debug.Log("현 컴포넌트가 선택 중 입니다.");
+        SpriteRenderer shader = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        shader.enabled = true;
+    }
+
+    public void UnsetTargetedByEnemy() {
+        SpriteRenderer shader = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        shader.enabled = false;
+
+    }
 }
 
 
