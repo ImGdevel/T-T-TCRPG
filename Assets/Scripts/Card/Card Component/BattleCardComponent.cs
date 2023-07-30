@@ -24,10 +24,11 @@ public class BattleCardComponent : HandCardComponent
     private void OnTriggerEnter2D(Collider2D other) {
         if (isSelected && other.tag == "Character") {
             BattleCharacterComponent target = other.transform.GetComponent<BattleCharacterComponent>();
-            TargetType cardTargetType = ((BattleCard)CardData).Target.Type;
+            Target cardTarget = ((BattleCard)CardData).Target;
 
-            if (cardTargetType == target.CharacterType) {
+            if (cardTarget.Type == target.CharacterType) {
                 Debug.Log("올바른 대상입니다.");
+                BattleCharacterManager.Instance.SelectChracter(target, cardTarget.Range);
                 isUseable = true;
             }
         }
