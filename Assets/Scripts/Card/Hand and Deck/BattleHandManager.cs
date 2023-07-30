@@ -27,10 +27,7 @@ public class BattleHandManager : HandManager
             else {
                 card.DisableCard();
             }
-            
         }
-
-
     }
 
 

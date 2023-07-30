@@ -10,6 +10,9 @@ public class BattleEventManager : MonoBehaviour
     Character CardUser;
     Character Target;
 
+    bool isUserSelected;
+    bool isTargetSelected;
+
     // 싱글톤
     private static BattleEventManager instance;
     public static BattleEventManager Instance { get { return instance; } }
@@ -28,6 +31,9 @@ public class BattleEventManager : MonoBehaviour
 
     private void Start() {
         TurnManager.OnTurnChange += CurrentTurn;
+
+        isUserSelected = false;
+        isTargetSelected = false;
     }
 
     private void OnDestroy() {
@@ -36,14 +42,6 @@ public class BattleEventManager : MonoBehaviour
 
     public void CurrentTurn(bool isPlayerTurn) {
         this.isPlayerTurn = isPlayerTurn;
-    }
-
-    public void SetTarget(BattleCharacterComponent target) {
-
-        if (isPlayerTurn) {
-
-        }
-
     }
 
     public bool IsFriendly(TargetType target) {
@@ -69,12 +67,22 @@ public class BattleEventManager : MonoBehaviour
 
         }
 
+        isUserSelected = true;
+    }
 
+    public void SetCardTarget(BattleCharacterComponent target) {
+
+
+
+
+        isTargetSelected = true;
     }
 
     public void CardUseEvent(BattleCard battleCard) {
-        Debug.Log("카드 이벤트 적용");
-
+        if (!isTargetSelected || !isUserSelected) {
+            Debug.LogWarning(" 타겟이 지정되지 않음");
+            return;
+        }
         // 카드 사용 애니메이션 시행
 
         // 1. 카드 사용시 카드를 카드 사용화면에 출력
@@ -84,10 +92,14 @@ public class BattleEventManager : MonoBehaviour
         // 4. 피격 대상이 적군인 경우 피격 애니메이션 출력
         // -> 애니메에션 출력은 애니메이션 매니저에서? 아니면 효과 출력 단계에서?
         // -> 이후 효과 적용
+        BattleCard card = battleCard;
 
 
+        ApplyCardEffectToCharacter(card.Effects);
 
 
+        isTargetSelected = false;
+        isUserSelected = false;
     }
 
     public void ApplyCardEffectToCharacter(CardEffect[] cardEffects) {
@@ -97,10 +109,7 @@ public class BattleEventManager : MonoBehaviour
             TargetType targetType = target.Type;
             TargetRange targetRange = target.Range;
 
-
-
             List<Character> targetList = new();
-
 
             if (effect is DamageEffect) {
                 DamageEffect ef = (DamageEffect)effect;
