@@ -125,7 +125,6 @@ public class BattleCharacterManager : MonoBehaviour
     }
 
     public void SelectChracter(BattleCharacterComponent selectedTarget, TargetRange rangeType) {
-
         switch (rangeType) {
             case TargetRange.Single:
                 selectedTarget.SetTargetedByEnemy();
@@ -153,6 +152,17 @@ public class BattleCharacterManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void UptateStatus() {
+        foreach (var item in playerCharacterFrameList) {
+            BattleCharacterComponent component = item.transform.GetComponent<BattleCharacterComponent>();
+            component.UpdateStatus();
+        }
+        foreach (var item in enemyCharacterFrameList) {
+            BattleCharacterComponent component = item.transform.GetComponent<BattleCharacterComponent>();
+            component.UpdateStatus();
         }
     }
 

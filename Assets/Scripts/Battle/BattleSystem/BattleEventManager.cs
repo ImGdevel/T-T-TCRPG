@@ -8,7 +8,7 @@ public class BattleEventManager : MonoBehaviour
     List<Character> enemy;
 
     Character CardUser;
-    Character Target;
+    List<Character> Target;
 
     bool isUserSelected;
     bool isTargetSelected;
@@ -72,14 +72,15 @@ public class BattleEventManager : MonoBehaviour
 
     public void SetCardTarget(BattleCharacterComponent target) {
 
-
+        Debug.Log("캐릭터 지정됨");
 
 
         isTargetSelected = true;
     }
 
+
     public void CardUseEvent(BattleCard battleCard) {
-        if (!isTargetSelected || !isUserSelected) {
+        if (!isTargetSelected) {
             Debug.LogWarning(" 타겟이 지정되지 않음");
             return;
         }
@@ -92,10 +93,13 @@ public class BattleEventManager : MonoBehaviour
         // 4. 피격 대상이 적군인 경우 피격 애니메이션 출력
         // -> 애니메에션 출력은 애니메이션 매니저에서? 아니면 효과 출력 단계에서?
         // -> 이후 효과 적용
+
+        Debug.Log("카드 사용됨=>");
         BattleCard card = battleCard;
 
 
         ApplyCardEffectToCharacter(card.Effects);
+
 
 
         isTargetSelected = false;
@@ -123,12 +127,14 @@ public class BattleEventManager : MonoBehaviour
             }
 
         }
+        BattleCharacterManager.Instance.UptateStatus();
     }
 
     private void ApplyDamageEffect(List<Character> characters, int damage) {
         foreach (Character target in characters) {
-            target.TakeDamage(damage);
 
+            target.TakeDamage(damage);
+            Debug.Log("현제 지정된 적의 Hp: " + target.CurrentHealth);
             // 캐릭터 애니메이션 추가
         }
     }

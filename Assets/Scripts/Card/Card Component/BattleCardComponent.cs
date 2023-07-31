@@ -8,6 +8,7 @@ public class BattleCardComponent : HandCardComponent
     //public BattleCard CardData { get { return card; } }
 
     protected override void UseCard() {
+        Debug.Log("Ä«µå »ç¿ëµÊ");
         BattleEventManager.Instance.CardUseEvent((BattleCard)CardData);
         base.UseCard();
     }
