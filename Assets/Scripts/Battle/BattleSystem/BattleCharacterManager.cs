@@ -12,8 +12,8 @@ public class BattleCharacterManager : MonoBehaviour
 
     [SerializeField] GameObject playerField;
     [SerializeField] GameObject enemyField;
-    private List<GameObject> playerCharacterFrameList;
-    private List<GameObject> enemyCharacterFrameList;
+    private List<BattleCharacterComponent> playerCharacterFrameList;
+    private List<BattleCharacterComponent> enemyCharacterFrameList;
 
     [SerializeField] GameObject characterFramePrefab;
     private float characterFrameWidth;
@@ -51,8 +51,8 @@ public class BattleCharacterManager : MonoBehaviour
 
         playerList = new List<Character>();
         enemyList = new List<Character>();
-        playerCharacterFrameList = new List<GameObject>();
-        enemyCharacterFrameList = new List<GameObject>();
+        playerCharacterFrameList = new List<BattleCharacterComponent>();
+        enemyCharacterFrameList = new List<BattleCharacterComponent>();
 
         SetBattleCharacters();
         SetPlayerCharacterPosition();
@@ -102,7 +102,7 @@ public class BattleCharacterManager : MonoBehaviour
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
             characterComponent.SetCharacter(player);
             characterComponent.SetCharacterType(TargetType.Friendly);
-            playerCharacterFrameList.Add(characterFrameObj);
+            playerCharacterFrameList.Add(characterComponent);
             xPos -= characterFrameWidth + positionOffset;
         }
     }
@@ -119,7 +119,7 @@ public class BattleCharacterManager : MonoBehaviour
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
             characterComponent.SetCharacter(enemy);
             characterComponent.SetCharacterType(TargetType.Enemy);
-            enemyCharacterFrameList.Add(characterFrameObj);
+            enemyCharacterFrameList.Add(characterComponent);
             xPos += characterFrameWidth + positionOffset;
         }
     }
@@ -156,12 +156,10 @@ public class BattleCharacterManager : MonoBehaviour
     }
 
     public void UptateStatus() {
-        foreach (var item in playerCharacterFrameList) {
-            BattleCharacterComponent component = item.transform.GetComponent<BattleCharacterComponent>();
+        foreach (var component in playerCharacterFrameList) {
             component.UpdateStatus();
         }
-        foreach (var item in enemyCharacterFrameList) {
-            BattleCharacterComponent component = item.transform.GetComponent<BattleCharacterComponent>();
+        foreach (var component in enemyCharacterFrameList) {
             component.UpdateStatus();
         }
     }
