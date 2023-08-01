@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class BattleEventManager : MonoBehaviour
 {
-    List<Character> friendly;
-    List<Character> enemy;
-
-    Character CardUser;
-    List<Character> Target;
+    Character cardUser;
+    List<Character> cardTarget;
 
     bool isUserSelected;
     bool isTargetSelected;
+
+    public bool isPlayerTurn;
 
     // 싱글톤
     private static BattleEventManager instance;
     public static BattleEventManager Instance { get { return instance; } }
 
-    public bool isPlayerTurn;
+
 
     private void Awake() {
         if (instance != null && instance != this) {
@@ -30,10 +29,11 @@ public class BattleEventManager : MonoBehaviour
     }
 
     private void Start() {
-        TurnManager.OnTurnChange += CurrentTurn;
-
+        cardTarget = new List<Character>();
         isUserSelected = false;
         isTargetSelected = false;
+
+        TurnManager.OnTurnChange += CurrentTurn;
     }
 
     private void OnDestroy() {
@@ -56,28 +56,39 @@ public class BattleEventManager : MonoBehaviour
 
     public void SetCardUser(BattleCharacterComponent user) {
         // 카드를 사용하는 캐릭터 주체를 지정합니다.
-
         // 플레이턴과 적의 턴을 따로 설정해야함
-
         if (isPlayerTurn) {
             // 플레이어 턴인경우
-
             // 해당 사용자에 따라 사용할 수 있는 카드 지정
-            
-
         }
-
         isUserSelected = true;
     }
 
-    public void SetCardTarget(BattleCharacterComponent target) {
+    public void SelectCardTarget(BattleCharacterComponent targetComponent, Target targetInfo) {
+        if (isTargetSelected) {
+            Debug.LogWarning("타겟이 중복 설정됨!");
+            return;
+        }
+        BattleCharacterComponent selectedTarget = targetComponent;
 
-        Debug.Log("캐릭터 지정됨");
+        switch (targetInfo.Range) {
+            case TargetRange.Single:
+                cardTarget.Add(selectedTarget.Character);
+                break;
 
+            case TargetRange.All:
+                cardTarget.AddRange(selectedTarget.GetSiblingCharacters());
+                break;
+
+        }
 
         isTargetSelected = true;
     }
 
+    public void UnselectCardTarget() {
+        cardTarget.Clear();
+        isTargetSelected = false;
+    }
 
     public void CardUseEvent(BattleCard battleCard) {
         if (!isTargetSelected) {
@@ -97,14 +108,14 @@ public class BattleEventManager : MonoBehaviour
         Debug.Log("카드 사용됨=>");
         BattleCard card = battleCard;
 
-
         ApplyCardEffectToCharacter(card.Effects);
 
-
-
-        isTargetSelected = false;
+        UnselectCardTarget();
         isUserSelected = false;
     }
+
+    // 자 보자 캐릭터의 타겟이 지정되고 카드 타겟이 지정되고....
+    // 마지막으로 사용하면
 
     public void ApplyCardEffectToCharacter(CardEffect[] cardEffects) {
         foreach (CardEffect effect in cardEffects) {
@@ -118,12 +129,12 @@ public class BattleEventManager : MonoBehaviour
             if (effect is DamageEffect) {
                 DamageEffect ef = (DamageEffect)effect;
 
-                ApplyDamageEffect(friendly, ef.damageAmount);
+                ApplyDamageEffect(cardTarget, ef.damageAmount);
             }
             else if (effect is BuffEffect) {
                 BuffEffect ef = (BuffEffect)effect;
 
-                ApplyBuffEffect(enemy, ef.buff);
+                ApplyBuffEffect(cardTarget, ef.buff);
             }
 
         }
@@ -134,7 +145,7 @@ public class BattleEventManager : MonoBehaviour
         foreach (Character target in characters) {
 
             target.TakeDamage(damage);
-            Debug.Log("현제 지정된 적의 Hp: " + target.CurrentHealth);
+            Debug.Log("데미지 받음!");
             // 캐릭터 애니메이션 추가
         }
     }

@@ -5,9 +5,12 @@ using UnityEngine;
 public class BattleCharacterComponent : MonoBehaviour
 {
     protected Character character;
+    private BattleCharacterManager componentManager;
     private TargetType characterType;
+    
 
     public TargetType CharacterType { get { return characterType; } }
+    public Character Character { get { return character; } }
 
     [SerializeField] BattleStatusComponent statusComponet;
     [SerializeField] Renderer shader;
@@ -21,6 +24,10 @@ public class BattleCharacterComponent : MonoBehaviour
     public void SetCharacter(Character character) {
         this.character = character;
         UpdateStatus();
+    }
+
+    public void SetManager(BattleCharacterManager manager) {
+        this.componentManager = manager;
     }
 
     public void SetCharacterType(TargetType targetType) {
@@ -78,6 +85,25 @@ public class BattleCharacterComponent : MonoBehaviour
     public void UnsetTargetedByEnemy() {
         shader.enabled = false;
     }
+
+    public List<BattleCharacterComponent> GetSiblingCharacterComponents() {
+        if (characterType == TargetType.Friendly) {
+            return componentManager.GetPlayerCharacterCompnenets();
+        }
+        else {
+            return componentManager.GetEnemyCharacterCompnenets();
+        }
+    }
+
+    public List<Character> GetSiblingCharacters() {
+        if (characterType == TargetType.Friendly) {
+            return componentManager.GetPlayerCharacters();
+        }
+        else {
+            return componentManager.GetEnemyCharacters();
+        }
+    }
+
 }
 
 

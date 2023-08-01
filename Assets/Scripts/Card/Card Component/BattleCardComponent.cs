@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BattleCardComponent : HandCardComponent
 {
-    //protected BattleCard card;
-    //public BattleCard CardData { get { return card; } }
-
     protected override void UseCard() {
         Debug.Log("카드 사용됨");
         BattleEventManager.Instance.CardUseEvent((BattleCard)CardData);
@@ -29,13 +26,14 @@ public class BattleCardComponent : HandCardComponent
 
             if (cardTarget.Type == target.CharacterType) {
                 Debug.Log("올바른 대상입니다.");
-                BattleCharacterManager.Instance.SelectChracter(target, cardTarget.Range);
+                BattleEventManager.Instance.SelectCardTarget(target, cardTarget);
                 isUseable = true;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
+        BattleEventManager.Instance.UnselectCardTarget();
         isUseable = false;
     }
 }

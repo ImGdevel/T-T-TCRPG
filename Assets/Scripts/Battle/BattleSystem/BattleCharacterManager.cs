@@ -100,6 +100,7 @@ public class BattleCharacterManager : MonoBehaviour
             Vector3 position = new Vector3(xPos, yPos, 0f);
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, playerField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
+            characterComponent.SetManager(this);
             characterComponent.SetCharacter(player);
             characterComponent.SetCharacterType(TargetType.Friendly);
             playerCharacterFrameList.Add(characterComponent);
@@ -117,41 +118,11 @@ public class BattleCharacterManager : MonoBehaviour
             Vector3 position = new Vector3(xPos, yPos, 0f);
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, enemyField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
+            characterComponent.SetManager(this);
             characterComponent.SetCharacter(enemy);
             characterComponent.SetCharacterType(TargetType.Enemy);
             enemyCharacterFrameList.Add(characterComponent);
             xPos += characterFrameWidth + positionOffset;
-        }
-    }
-
-    public void SelectChracter(BattleCharacterComponent selectedTarget, TargetRange rangeType) {
-        switch (rangeType) {
-            case TargetRange.Single:
-                selectedTarget.SetTargetedByEnemy();
-                break;
-
-            case TargetRange.All:
-                switch (selectedTarget.CharacterType) {
-                    case TargetType.Friendly:
-                        foreach (var item in playerCharacterFrameList) {
-                            BattleCharacterComponent target = item.GetComponent<BattleCharacterComponent>();
-                            target.SetTargetedByEnemy();
-                        }
-                        break;
-                    case TargetType.Enemy:
-                        foreach (var item in enemyCharacterFrameList) {
-                            BattleCharacterComponent target = item.GetComponent<BattleCharacterComponent>();
-                            target.SetTargetedByEnemy();
-                        }
-                        break;
-                }
-                break;
-            case TargetRange.Multiple:
-                // 카드마다 다름
-                Debug.LogError("This feature is not yet implemented.");
-                break;
-            default:
-                break;
         }
     }
 
@@ -164,28 +135,20 @@ public class BattleCharacterManager : MonoBehaviour
         }
     }
 
-    // 해당 캐릭터에게 적용함수
-    public void ApplyCardEffectToCharacter(BattleCard card) {
-        // 카드 정보를 받고  
-        // 카드의 이펙트를 모두 꺼낸다.
-        // 타겟들에게 이펙트를 모두 적용한다.
-        int cardEffect = card.Effects.Length;
-        /*
-        foreach (CardEffect effect in cardEffect) {
-            Target targeting = effect.target;
-            
-        }
-        */
-    }
-
-    
-
     public List<Character> GetPlayerCharacters() {
         return playerList;
     }
 
     public List<Character> GetEnemyCharacters() {
         return enemyList;
+    }
+
+    public List<BattleCharacterComponent> GetPlayerCharacterCompnenets() {
+        return playerCharacterFrameList;
+    }
+
+    public List<BattleCharacterComponent> GetEnemyCharacterCompnenets() {
+        return enemyCharacterFrameList;
     }
 
 }
