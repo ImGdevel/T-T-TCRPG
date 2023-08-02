@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BattleCharacterComponent : MonoBehaviour
 {
-    protected Character character;
-    private BattleCharacterManager componentManager;
+    private Character character;
     private TargetType characterType;
-    
+    private BattleCharacterManager componentManager;
 
-    public TargetType CharacterType { get { return characterType; } }
     public Character Character { get { return character; } }
+    public TargetType CharacterType { get { return characterType; } }
 
     [SerializeField] BattleStatusComponent statusComponet;
     [SerializeField] Renderer shader;
@@ -26,17 +25,17 @@ public class BattleCharacterComponent : MonoBehaviour
         UpdateStatus();
     }
 
-    public void SetManager(BattleCharacterManager manager) {
-        this.componentManager = manager;
-    }
-
     public void SetCharacterType(TargetType targetType) {
         this.characterType = targetType;
     }
 
+    public void SetManager(BattleCharacterManager manager) {
+        this.componentManager = manager;
+    }
+
     public void UpdateStatus() {
         if (character == null) {
-            Debug.Log("Character not assigned");
+            Debug.LogError("Character not assigned");
             return;
         }
         statusComponet.UpdateStatus(character);
@@ -66,33 +65,21 @@ public class BattleCharacterComponent : MonoBehaviour
         if (other.tag == "Card") {
             HandCardComponent cardComponent = other.transform.GetComponent<HandCardComponent>();
             if (cardComponent.IsSelected) {
-                Debug.Log("캐릭터에게 닿았습니다.");
+                
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        // 충돌이 끝날 때 호출됩니다.
         UnsetTargetedByEnemy();
     }
 
     public void SetTargetedByEnemy() {
-        //캐릭터가 선택된것을 보여줄 UI처리
-        Debug.Log("현 컴포넌트가 선택 중 입니다.");
         shader.enabled = true;
     }
 
     public void UnsetTargetedByEnemy() {
         shader.enabled = false;
-    }
-
-    public List<BattleCharacterComponent> GetSiblingCharacterComponents() {
-        if (characterType == TargetType.Friendly) {
-            return componentManager.GetPlayerCharacterCompnenets();
-        }
-        else {
-            return componentManager.GetEnemyCharacterCompnenets();
-        }
     }
 
     public List<Character> GetSiblingCharacters() {
@@ -104,6 +91,14 @@ public class BattleCharacterComponent : MonoBehaviour
         }
     }
 
+    public List<BattleCharacterComponent> GetSiblingCharacterComponents() {
+        if (characterType == TargetType.Friendly) {
+            return componentManager.GetPlayerCharacterCompnenets();
+        }
+        else {
+            return componentManager.GetEnemyCharacterCompnenets();
+        }
+    }
 }
 
 
