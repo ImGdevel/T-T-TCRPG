@@ -41,18 +41,19 @@ public class BattleCharacterManager : MonoBehaviour
         if (playerField == null) {
             playerField = CreateCharacterField("Player Field");
         }
-
         if (enemyField == null) {
             enemyField = CreateCharacterField("Enemy Field");
         }
-
-        characterFrameWidth = characterFramePrefab.transform.localScale.x;
-        characterFrameHeight = characterFramePrefab.transform.localScale.y;
+        Vector3 originPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        playerField.transform.position = new Vector3(originPos.x - (fieldSpacing / 2), originPos.y + heightAdjustment, originPos.z);
+        enemyField.transform.position = new Vector3(originPos.x + (fieldSpacing / 2), originPos.y + heightAdjustment, originPos.z);
 
         playerList = new List<Character>();
         enemyList = new List<Character>();
         playerCharacterFrameList = new List<BattleCharacterComponent>();
         enemyCharacterFrameList = new List<BattleCharacterComponent>();
+        characterFrameWidth = characterFramePrefab.transform.localScale.x;
+        characterFrameHeight = characterFramePrefab.transform.localScale.y;
 
         SetBattleCharacters();
         SetPlayerCharacterPosition();
@@ -61,13 +62,6 @@ public class BattleCharacterManager : MonoBehaviour
 
     private GameObject CreateCharacterField(string fieldName) {
         GameObject field = new GameObject(fieldName);
-        if (fieldName == "Player Field") {
-            field.transform.position = new Vector3(-(fieldSpacing / 2), heightAdjustment, 0f);
-        }
-        else {
-            field.transform.position = new Vector3((fieldSpacing / 2), heightAdjustment, 0f);
-        }
-
         field.transform.SetParent(transform);
         return field;
     }
@@ -77,7 +71,6 @@ public class BattleCharacterManager : MonoBehaviour
         originalPlayerList = SampleDataGenerator.SAMPLE_CHARACTER;
         originalEnemyList = SampleDataGenerator.SAMPLE_ENEMY;
         // 추후 수정할 것
-
         foreach (Character originalPlayer in originalPlayerList) {
             Character player = originalPlayer.Clone();
             playerList.Add(player);
