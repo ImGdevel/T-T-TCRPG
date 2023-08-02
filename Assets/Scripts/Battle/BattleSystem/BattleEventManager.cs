@@ -9,14 +9,11 @@ public class BattleEventManager : MonoBehaviour
 
     bool isUserSelected;
     bool isTargetSelected;
-
-    public bool isPlayerTurn;
+    private bool isPlayerTurn;
 
     // ΩÃ±€≈Ê
     private static BattleEventManager instance;
     public static BattleEventManager Instance { get { return instance; } }
-
-
 
     private void Awake() {
         if (instance != null && instance != this) {
@@ -79,7 +76,6 @@ public class BattleEventManager : MonoBehaviour
             case TargetRange.All:
                 cardTarget.AddRange(selectedTarget.GetSiblingCharacters());
                 break;
-
         }
 
         isTargetSelected = true;
