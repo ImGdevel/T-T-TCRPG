@@ -33,7 +33,10 @@ public class BattleCardComponent : HandCardComponent
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        BattleEventManager.Instance.UnselectCardTarget();
-        isUseable = false;
+        if (isUseable) {
+            Debug.Log("º±≈√ «Ï¡¶µ ");
+            BattleEventManager.Instance.UnselectCardTarget();
+            isUseable = false;
+        }
     }
 }

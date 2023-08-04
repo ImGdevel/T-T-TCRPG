@@ -40,7 +40,7 @@ public class BattleCharacterComponent : MonoBehaviour
         }
         statusComponet.UpdateStatus(character);
     }
-
+    /*
     private bool isMouseOver = false;
 
     private void OnMouseEnter() {
@@ -60,12 +60,13 @@ public class BattleCharacterComponent : MonoBehaviour
             Debug.Log("캐릭터 상태: " + character.Name + " ( " + character.CurrentHealth + "/" + character.CurrentEnergy + ")");
         }
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Card") {
             HandCardComponent cardComponent = other.transform.GetComponent<HandCardComponent>();
             if (cardComponent.IsSelected) {
-                
+                SetTargetedByEnemy();
             }
         }
     }
