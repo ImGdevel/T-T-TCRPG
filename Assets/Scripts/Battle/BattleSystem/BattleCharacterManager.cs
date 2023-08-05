@@ -128,6 +128,15 @@ public class BattleCharacterManager : MonoBehaviour
         }
     }
 
+    public void clearAllComponentSelections() {
+        foreach (var component in playerCharacterFrameList) {
+            component.UnsetTargetedByEnemy();
+        }
+        foreach (var component in enemyCharacterFrameList) {
+            component.UnsetTargetedByEnemy();
+        }
+    }
+
     public List<Character> GetPlayerCharacters() {
         return playerList;
     }

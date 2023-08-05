@@ -23,10 +23,7 @@ public class BattleCardComponent : HandCardComponent
         if (isSelected && other.tag == "Character") {
             BattleCharacterComponent target = other.transform.GetComponent<BattleCharacterComponent>();
             Target cardTarget = ((BattleCard)CardData).Target;
-
             if (cardTarget.Type == target.CharacterType) {
-                Debug.Log("올바른 대상입니다.");
-                BattleEventManager.Instance.SelectCardTarget(target, cardTarget);
                 isUseable = true;
             }
         }
@@ -34,8 +31,6 @@ public class BattleCardComponent : HandCardComponent
 
     private void OnTriggerExit2D(Collider2D other) {
         if (isUseable) {
-            Debug.Log("선택 헤제됨");
-            BattleEventManager.Instance.UnselectCardTarget();
             isUseable = false;
         }
     }

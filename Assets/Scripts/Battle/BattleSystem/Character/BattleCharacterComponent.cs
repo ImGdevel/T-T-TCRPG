@@ -11,6 +11,8 @@ public class BattleCharacterComponent : MonoBehaviour
     public Character Character { get { return character; } }
     public TargetType CharacterType { get { return characterType; } }
 
+    private bool isComponentSelected;
+
     [SerializeField] BattleStatusComponent statusComponet;
     [SerializeField] Renderer shader;
 
@@ -18,6 +20,7 @@ public class BattleCharacterComponent : MonoBehaviour
         if (statusComponet == null) {
             statusComponet = transform.GetComponentInChildren<BattleStatusComponent>();
         }
+        isComponentSelected = false;
     }
 
     public void SetCharacter(Character character) {
@@ -40,7 +43,7 @@ public class BattleCharacterComponent : MonoBehaviour
         }
         statusComponet.UpdateStatus(character);
     }
-    /*
+    
     private bool isMouseOver = false;
 
     private void OnMouseEnter() {
@@ -60,26 +63,33 @@ public class BattleCharacterComponent : MonoBehaviour
             Debug.Log("캐릭터 상태: " + character.Name + " ( " + character.CurrentHealth + "/" + character.CurrentEnergy + ")");
         }
     }
-    */
+    
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Card") {
-            HandCardComponent cardComponent = other.transform.GetComponent<HandCardComponent>();
+            BattleCardComponent cardComponent = other.transform.GetComponent<BattleCardComponent>();
             if (cardComponent.IsSelected) {
                 SetTargetedByEnemy();
+                BattleCard battleCard = (BattleCard)cardComponent.CardData;
+                BattleEventManager.Instance.SelectCardTarget(this, battleCard.Target);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        UnsetTargetedByEnemy();
+        if (isComponentSelected) {
+            UnsetTargetedByEnemy();
+            BattleEventManager.Instance.UnselectCardTarget();
+        }
     }
 
     public void SetTargetedByEnemy() {
+        isComponentSelected = true;
         shader.enabled = true;
     }
 
     public void UnsetTargetedByEnemy() {
+        isComponentSelected = false;
         shader.enabled = false;
     }
 

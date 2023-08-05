@@ -82,6 +82,7 @@ public class BattleEventManager : MonoBehaviour
     }
 
     public void UnselectCardTarget() {
+        Debug.Log("≈∏∞Ÿ √Îº“µ ");
         cardTarget.Clear();
         isTargetSelected = false;
     }
@@ -105,7 +106,7 @@ public class BattleEventManager : MonoBehaviour
         BattleCard card = battleCard;
 
         ApplyCardEffectToCharacter(card.Effects);
-
+        BattleCharacterManager.Instance.clearAllComponentSelections();
         UnselectCardTarget();
         isUserSelected = false;
     }
@@ -115,13 +116,6 @@ public class BattleEventManager : MonoBehaviour
 
     public void ApplyCardEffectToCharacter(CardEffect[] cardEffects) {
         foreach (CardEffect effect in cardEffects) {
-            Target target = effect.target;
-            
-            TargetType targetType = target.Type;
-            TargetRange targetRange = target.Range;
-
-            List<Character> targetList = new();
-
             if (effect is DamageEffect) {
                 DamageEffect ef = (DamageEffect)effect;
 
