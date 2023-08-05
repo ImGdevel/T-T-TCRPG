@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Magic Eyes
   cardImage: {fileID: 21300000, guid: cdec13907ffc75749ab2ed436bec6b14, type: 3}
-  cardDescription: 
   cardCost: 2
+  cardTarget:
+    targetType: 0
+    targetRange: 2
   effects:
-  - {fileID: 11400000, guid: baad277e0b3aa864ca1ba802ccb007d7, type: 2}
+  - {fileID: 11400000, guid: e310a9b15bac44546ace9e0968821a98, type: 2}

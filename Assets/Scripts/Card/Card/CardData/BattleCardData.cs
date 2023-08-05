@@ -4,5 +4,7 @@ using UnityEngine;
 public class BattleCardData : CardData
 {
     public int cardCost;
+    public Target cardTarget;
     public CardEffect[] effects;
+    
 }

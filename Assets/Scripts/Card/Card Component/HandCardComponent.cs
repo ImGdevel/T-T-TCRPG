@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using DG.Tweening;
-using TMPro;
+
 
 public class HandCardComponent : CardComponent
 {
     private HandManager handManager; // 핸드 메니저
     private PRS originPosition; // 원래 Transform 위치
     private int originSortingLayer; // 원래 카드 번호
-    private bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
-    private bool isSelected = false; // 카드 선택 여부
+
+    protected bool activeHandOverAni = true; // 카드 애니메이션 작동 여부
+    protected bool isSelected = false; // 카드 선택 여부
+    protected bool isUseable = false;
 
     public bool IsSelected { get { return isSelected; } }
+    public bool IsUsable { get { return isUseable; } }
 
     public bool IsCardEnabled {
         set { isMouseClick = value; }
@@ -69,19 +70,16 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 마우스가 카드에 들어갈 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseEnter() {
+    protected override void OnMouseEnter() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
-        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y + 1, -5);
-        PRS prs = new PRS(pos, Quaternion.identity, Vector3.one * 1.3f);
-        MoveTransform(prs, true, 0.1f);
-        SortingCardLayers(100);
+        ZoomCard();
     }
 
     /// <summary>
     /// 마우스가 카드에서 벗어날 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseExit() {
+    protected override void OnMouseExit() {
         if (!isMouseOver || !activeHandOverAni || isSelected) return;
 
         MoveTransform(originPosition, true, 0.1f);
@@ -91,25 +89,41 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 마우스로 카드를 클릭했을 때 호출되는 메서드
     /// </summary>
-    public override void OnMouseDown() {
+    protected override void OnMouseDown() {
         if (!isMouseClick) return;
 
         if (!isSelected && !handManager.isCardSelected) {
-            // 핸드에서 선택 
+            // 핸드에서 선택
             isSelected = true;
             this.transform.localScale = Vector3.one;
             handManager.SelectCard(this.gameObject);
-        }
-        else {
+        } else if(isUseable) {
             // 카드사용
             UseCard();
+        }
+        else {
+            //카드 미사용
+            UnselectCard();
         }
     }
 
     /// <summary>
+    /// 카드를 확대합니다.
+    /// </summary>
+    protected void ZoomCard() {
+        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y + 1, -5);
+        PRS prs = new PRS(pos, Quaternion.identity, Vector3.one * 1.3f);
+        MoveTransform(prs, true, 0.1f);
+        SortingCardLayers(100);
+    }
+
+    
+
+
+    /// <summary>
     /// 카드 선택 해제
     /// </summary>
-    public void UnselectCard() {
+    protected virtual void UnselectCard() {
         isSelected = false;
         handManager.isCardSelected = false;
         MoveTransform(originPosition, true, 0.1f);
@@ -119,7 +133,8 @@ public class HandCardComponent : CardComponent
     /// <summary>
     /// 카드 사용
     /// </summary>
-    public void UseCard() {
+    protected virtual void UseCard() {
+        // 지정된 타겟에게 효과를 부여한다.
         isSelected = false;
         handManager.isCardSelected = false;
         handManager.UseCardRemove(this.gameObject);
@@ -139,25 +154,11 @@ public class HandCardComponent : CardComponent
     public void DisableCard() {
         IsCardEnabled = false;
         // 카드 사용 비 활성화 애니메이션
-    }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (isSelected && other.tag == "Character") {
-            Debug.Log("카드가 닿았습니다.");
-            // 카드를 사용할 캐릭터 지정.
-            // 카드에 저장된 타겟에 따라 적절한 대상인지 판별
-            
-            // if 대상이 맞다면
-            // 타겟 찾음, 타겟 저장해두기
-
-            // 맞지 않다면 아무 일 없음
-
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        // 충돌이 끝날 때 호출됩니다.
-        // TriggerEnter2D에서 했던 모든 상태 초기화 
+        Vector3 pos = new Vector3(transform.position.x, transform.parent.position.y - -0.5f, transform.position.z);
+        PRS prs = new PRS(pos, transform.rotation, transform.localScale);
+        MoveTransform(prs, true, 0.1f);
+        SortingCardLayers(100);
     }
 
 }
