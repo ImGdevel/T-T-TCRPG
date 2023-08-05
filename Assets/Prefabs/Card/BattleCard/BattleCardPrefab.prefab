@@ -109,8 +109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279314755
-  m_fontColor: {r: 0.26415092, g: 0.16174456, b: 0.0682805, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -243,7 +243,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cdec13907ffc75749ab2ed436bec6b14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -266,11 +266,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4237336260213090614}
   - component: {fileID: 4237336260213090617}
-  - component: {fileID: 5084958719279518387}
+  - component: {fileID: 5410351378893979130}
   - component: {fileID: 4818998598823117497}
   m_Layer: 0
-  m_Name: HandCard
-  m_TagString: Untagged
+  m_Name: BattleCardPrefab
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -342001890, guid: 3d1377705347ee74e96ce04678f37adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -346,7 +346,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5084958719279518387
+--- !u!114 &5410351378893979130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4237336260213090619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b2e7f7ddbd0fa4fa7e5be7a00966c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bee0c1eea81f90489496f64b83d5ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frontBackground: {fileID: 4237336260213090617}
@@ -364,12 +364,13 @@ MonoBehaviour:
   cardNameText: {fileID: 4237336259219694156}
   cardDescriptionText: {fileID: 4237336260804321198}
   cardRenderers:
-  - {fileID: 4237336259867220732}
   - {fileID: 4237336260878270850}
   textRenderers:
   - {fileID: 4237336259219694157}
   - {fileID: 4237336260804321199}
   - {fileID: 4237336260347757782}
+  isMouseClick: 1
+  isMouseOver: 1
 --- !u!61 &4818998598823117497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -380,10 +381,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14328569}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -394,7 +395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 2.7965717}
+  m_Size: {x: 1.3, y: 2.6}
   m_EdgeRadius: 0
 --- !u!1 &4237336260347757787
 GameObject:
@@ -812,7 +813,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 274739411
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: -789165332, guid: 3d1377705347ee74e96ce04678f37adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

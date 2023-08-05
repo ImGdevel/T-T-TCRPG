@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDescription : MonoBehaviour
+public abstract class CardDescription
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    protected string comment;
+    
+    public abstract string GetDescription();
+}
+
+public class BattleCardDescription : CardDescription
+{
+    public BattleCardDescription(BattleCardData data) {
+        comment = "~ 카드 내용 ~";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override string GetDescription() {
+        return comment;
     }
 }

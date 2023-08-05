@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Card : MonoBehaviour
+public abstract class Card
 {
     protected CardData cardData;
 
     public string Name { get { return cardData.cardName; } }
     public Sprite Sprite { get { return cardData.cardImage; } }
-    public string Description { get { return cardData.cardDescription; } }
+
+    public Card(CardData data) {
+        this.cardData = data;
+    }
 
     public abstract void UseCard();
     public abstract Card Clone();
@@ -16,46 +19,51 @@ public abstract class Card : MonoBehaviour
 
 public class BattleCard : Card
 {
-    protected new BattleCardData cardData;
-    public int Cost { get { return cardData.cardCost; } }
+    public int Cost { get { return ((BattleCardData)cardData).cardCost; } }
+    public Target Target { get { return ((BattleCardData)cardData).cardTarget; } }
+    public CardEffect[] Effects { get { return ((BattleCardData)cardData).effects; } }
+
+    public BattleCard(BattleCardData data)
+        : base(data) { }
 
     public override void UseCard() {
         // 전투 카드를 사용하는 로직을 작성합니다.
     }
 
     public override Card Clone() {
-        BattleCard clone = new();
-        clone.cardData = this.cardData;
+        BattleCard clone = new BattleCard((BattleCardData)this.cardData);
         return clone;
     }
-
 }
 
 public class ExplorationCard : Card
 {
-    protected new ExplorationCardData cardData;
-    public int Cost { get { return cardData.requiredSteps; } }
+    public int Cost { get { return ((ExplorationCardData)cardData).requiredSteps; } }
+
+    public ExplorationCard(ExplorationCardData data)
+        : base(data) { }
 
     public override void UseCard() {
         // 탐험 카드를 사용하는 로직을 작성합니다.
     }
 
     public override Card Clone() {
-        ExplorationCard clone = new();
-        clone.cardData = this.cardData;
+        ExplorationCard clone = new ExplorationCard((ExplorationCardData)this.cardData);
         return clone;
     }
 }
 
 public class ArtifactCard : Card
 {
+    public ArtifactCard(ArtifactCardData data)
+        : base(data) { }
+
     public override void UseCard() {
         // 아티팩트 카드를 사용하는 로직을 작성합니다.
     }
 
     public override Card Clone() {
-        ArtifactCard clone = new();
-        clone.cardData = this.cardData;
+        ArtifactCard clone = new ArtifactCard((ArtifactCardData)this.cardData);
         return clone;
     }
 }

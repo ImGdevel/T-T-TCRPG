@@ -9,10 +9,12 @@ public class HandManager : MonoBehaviour
     [SerializeField] DeckManager deckManager;
     [SerializeField] Transform deckPoint;
     [SerializeField] Transform handPoint;
-    [SerializeField] List<GameObject> hands;
 
-    // Hand 설정
-    [SerializeField] int maxHandSize; // 최대 손 카드 개수
+    
+    protected List<GameObject> hands;//핸드
+    
+    [SerializeField] 
+    int maxHandSize; // 최대 손 카드 개수
 
     // 선택된 Hand 카드
     private GameObject selectedCard;
@@ -20,7 +22,7 @@ public class HandManager : MonoBehaviour
 
     void Start() {
         handPoint = this.transform;
-        //deck = deckManager.RandomDeck(100); // 덱을 가져옵니다.
+        hands = new();
     }
 
     void Update() {
@@ -41,7 +43,7 @@ public class HandManager : MonoBehaviour
         Card drawCard = deckManager.DrawCard();
         cardComponent.Setup(drawCard);
         cardComponent.SetParent(this);
-        hands.Add(cardInstance);
+        hands.Insert(0, cardInstance);
         SortCards();
     }
 
@@ -52,36 +54,11 @@ public class HandManager : MonoBehaviour
         for (int i = 0; i < hands.Count; i++) {
             HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
             PRS position = CalculateCardPosition(i);
-            cardComponent.MoveTransform(position, true, 0.5f);
+            cardComponent.MoveTransform(position, true, 0.3f);
             cardComponent.SetOriginPosition(position);
             cardComponent.SortingCardLayers(i);
             cardComponent.SetOriginSortingLayer(i);
         }
-    }
-
-    /// <summary>
-    /// 인덱스에 따라 플레이어의 손에 있는 카드의 위치, 회전 및 크기를 계산합니다.
-    /// </summary>
-    /// <param name="index">카드의 인덱스 순서 번호</param>
-    /// <returns>카드의 위치, 회전 및 크기 정보인 PRS(PRS(Position, Rotation, Scale)) 값</returns>
-    PRS CalculateCardPosition(int index) {
-        float gap = 1f;
-        float slope = 1f;
-        float radius = 25f;
-        float count = hands.Count;
-
-        float maxWidth = handPoint.position.x - ((count - 1f) / 2f * gap);
-        float xPos = maxWidth + index * gap;
-        float yPos = transform.position.y + UMath.Base(radius, xPos)
-                     - UMath.Base(radius, maxWidth) - (radius - UMath.Base(radius, maxWidth)) / 2f;
-
-        Quaternion rotation = Quaternion.Slerp(
-            Quaternion.Euler(0f, 0f, count * slope),
-            Quaternion.Euler(0f, 0f, -count * slope),
-            1f / (count * index)
-        );
-
-        return new PRS(new Vector3(xPos, yPos), rotation, Vector3.one);
     }
 
     /// <summary>
@@ -135,5 +112,31 @@ public class HandManager : MonoBehaviour
             HandCardComponent cardComponent = hands[i].GetComponent<HandCardComponent>();
             cardComponent.isMouseClick = false;
         }
+    }
+
+    /// <summary>
+    /// 인덱스에 따라 플레이어의 손에 있는 카드의 위치, 회전 및 크기를 계산합니다.
+    /// </summary>
+    /// <param name="index">카드의 인덱스 순서 번호</param>
+    /// <returns>카드의 위치, 회전 및 크기 정보인 PRS(PRS(Position, Rotation, Scale)) 값</returns>
+    private PRS CalculateCardPosition(int index) {
+        float slope = 1f;
+        float radius = 25f;
+        float count = hands.Count;
+        float gapPoint = Mathf.Log(count) * 2f;
+        float gap = (10f - gapPoint) / 6f;
+
+
+        float maxWidth = handPoint.position.x - ((count - 1f) / 2f * gap);
+        float xPos = maxWidth + index * gap;
+        float yPos = transform.position.y + UMath.Base(radius, xPos)
+                     - UMath.Base(radius, maxWidth) - (radius - UMath.Base(radius, maxWidth)) / 2f;
+
+        Quaternion rotation = Quaternion.Slerp(
+            Quaternion.Euler(0f, 0f, count * slope),
+            Quaternion.Euler(0f, 0f, -count * slope),
+            1f / count * index
+        );
+        return new PRS(new Vector3(xPos, yPos), rotation, Vector3.one);
     }
 }

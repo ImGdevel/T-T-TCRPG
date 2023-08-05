@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0f5d2874c862d439f99e94b63cce13, type: 3}
-  m_Name: Mage-Magic Missile
+  m_Name: Warrior-Strong Hit
   m_EditorClassIdentifier: 
-  cardName: Magic Missile
-  cardImage: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
+  cardName: Strong Hit
+  cardImage: {fileID: 21300000, guid: 3925691c2a021aa429c1dc89712a1253, type: 3}
   cardCost: 1
   cardTarget:
     targetType: 0
