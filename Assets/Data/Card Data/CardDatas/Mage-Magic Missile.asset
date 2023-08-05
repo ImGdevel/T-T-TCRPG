@@ -15,6 +15,8 @@ MonoBehaviour:
   cardName: Magic Missile
   cardImage: {fileID: 21300000, guid: 4029a9cfeb86f134c9c5af05993eaac8, type: 3}
   cardCost: 1
-  cardTarget: 0
+  cardTarget:
+    targetType: 0
+    targetRange: 0
   effects:
   - {fileID: 11400000, guid: 6164390ddb5fad64f8ad6eb74dfa1ad9, type: 2}

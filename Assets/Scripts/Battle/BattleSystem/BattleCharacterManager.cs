@@ -12,8 +12,8 @@ public class BattleCharacterManager : MonoBehaviour
 
     [SerializeField] GameObject playerField;
     [SerializeField] GameObject enemyField;
-    private List<GameObject> playerCharacterFrameList;
-    private List<GameObject> enemyCharacterFrameList;
+    private List<BattleCharacterComponent> playerCharacterFrameList;
+    private List<BattleCharacterComponent> enemyCharacterFrameList;
 
     [SerializeField] GameObject characterFramePrefab;
     private float characterFrameWidth;
@@ -41,18 +41,19 @@ public class BattleCharacterManager : MonoBehaviour
         if (playerField == null) {
             playerField = CreateCharacterField("Player Field");
         }
-
         if (enemyField == null) {
             enemyField = CreateCharacterField("Enemy Field");
         }
-
-        characterFrameWidth = characterFramePrefab.transform.localScale.x;
-        characterFrameHeight = characterFramePrefab.transform.localScale.y;
+        Vector3 originPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        playerField.transform.position = new Vector3(originPos.x - (fieldSpacing / 2), originPos.y + heightAdjustment, originPos.z);
+        enemyField.transform.position = new Vector3(originPos.x + (fieldSpacing / 2), originPos.y + heightAdjustment, originPos.z);
 
         playerList = new List<Character>();
         enemyList = new List<Character>();
-        playerCharacterFrameList = new List<GameObject>();
-        enemyCharacterFrameList = new List<GameObject>();
+        playerCharacterFrameList = new List<BattleCharacterComponent>();
+        enemyCharacterFrameList = new List<BattleCharacterComponent>();
+        characterFrameWidth = characterFramePrefab.transform.localScale.x;
+        characterFrameHeight = characterFramePrefab.transform.localScale.y;
 
         SetBattleCharacters();
         SetPlayerCharacterPosition();
@@ -61,13 +62,6 @@ public class BattleCharacterManager : MonoBehaviour
 
     private GameObject CreateCharacterField(string fieldName) {
         GameObject field = new GameObject(fieldName);
-        if (fieldName == "Player Field") {
-            field.transform.position = new Vector3(-(fieldSpacing / 2), heightAdjustment, 0f);
-        }
-        else {
-            field.transform.position = new Vector3((fieldSpacing / 2), heightAdjustment, 0f);
-        }
-
         field.transform.SetParent(transform);
         return field;
     }
@@ -77,7 +71,6 @@ public class BattleCharacterManager : MonoBehaviour
         originalPlayerList = SampleDataGenerator.SAMPLE_CHARACTER;
         originalEnemyList = SampleDataGenerator.SAMPLE_ENEMY;
         // 추후 수정할 것
-
         foreach (Character originalPlayer in originalPlayerList) {
             Character player = originalPlayer.Clone();
             playerList.Add(player);
@@ -100,8 +93,10 @@ public class BattleCharacterManager : MonoBehaviour
             Vector3 position = new Vector3(xPos, yPos, 0f);
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, playerField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
+            characterComponent.SetManager(this);
             characterComponent.SetCharacter(player);
-            playerCharacterFrameList.Add(characterFrameObj);
+            characterComponent.SetCharacterType(TargetType.Friendly);
+            playerCharacterFrameList.Add(characterComponent);
             xPos -= characterFrameWidth + positionOffset;
         }
     }
@@ -116,24 +111,30 @@ public class BattleCharacterManager : MonoBehaviour
             Vector3 position = new Vector3(xPos, yPos, 0f);
             GameObject characterFrameObj = Instantiate(characterFramePrefab, position, Quaternion.identity, enemyField.transform);
             BattleCharacterComponent characterComponent = characterFrameObj.GetComponent<BattleCharacterComponent>();
+            characterComponent.SetManager(this);
             characterComponent.SetCharacter(enemy);
-            enemyCharacterFrameList.Add(characterFrameObj);
+            characterComponent.SetCharacterType(TargetType.Enemy);
+            enemyCharacterFrameList.Add(characterComponent);
             xPos += characterFrameWidth + positionOffset;
         }
     }
 
-    // 해당 캐릭터에게 적용함수
-    public void ApplyCardEffectToCharacter(BattleCard card) {
-        // 카드 정보를 받고  
-        // 카드의 이펙트를 모두 꺼낸다.
-        // 타겟들에게 이펙트를 모두 적용한다.
-        int cardEffect = card.Effects.Length;
-        /*
-        foreach (CardEffect effect in cardEffect) {
-            Target targeting = effect.target;
-            
+    public void UptateStatus() {
+        foreach (var component in playerCharacterFrameList) {
+            component.UpdateStatus();
         }
-        */
+        foreach (var component in enemyCharacterFrameList) {
+            component.UpdateStatus();
+        }
+    }
+
+    public void clearAllComponentSelections() {
+        foreach (var component in playerCharacterFrameList) {
+            component.UnsetTargetedByEnemy();
+        }
+        foreach (var component in enemyCharacterFrameList) {
+            component.UnsetTargetedByEnemy();
+        }
     }
 
     public List<Character> GetPlayerCharacters() {
@@ -142,6 +143,14 @@ public class BattleCharacterManager : MonoBehaviour
 
     public List<Character> GetEnemyCharacters() {
         return enemyList;
+    }
+
+    public List<BattleCharacterComponent> GetPlayerCharacterCompnenets() {
+        return playerCharacterFrameList;
+    }
+
+    public List<BattleCharacterComponent> GetEnemyCharacterCompnenets() {
+        return enemyCharacterFrameList;
     }
 
 }

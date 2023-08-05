@@ -24,8 +24,9 @@ public class Target
 /// </summary>
 public enum TargetType
 {
-    Friendly, // 아군
-    Enemy // 적
+    Enemy, // 적
+    Friendly // 아군
+    
 }
 
 /// <summary>

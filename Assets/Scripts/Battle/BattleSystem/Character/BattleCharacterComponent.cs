@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class BattleCharacterComponent : MonoBehaviour
 {
-    protected Character character;
-    public Target characterType;
+    private Character character;
+    private TargetType characterType;
+    private BattleCharacterManager componentManager;
+
+    public Character Character { get { return character; } }
+    public TargetType CharacterType { get { return characterType; } }
+
+    private bool isComponentSelected;
 
     [SerializeField] BattleStatusComponent statusComponet;
+    [SerializeField] Renderer shader;
 
     private void Start() {
         if (statusComponet == null) {
             statusComponet = transform.GetComponentInChildren<BattleStatusComponent>();
         }
+        isComponentSelected = false;
     }
 
     public void SetCharacter(Character character) {
@@ -20,14 +28,22 @@ public class BattleCharacterComponent : MonoBehaviour
         UpdateStatus();
     }
 
+    public void SetCharacterType(TargetType targetType) {
+        this.characterType = targetType;
+    }
+
+    public void SetManager(BattleCharacterManager manager) {
+        this.componentManager = manager;
+    }
+
     public void UpdateStatus() {
         if (character == null) {
-            Debug.Log("Character not assigned");
+            Debug.LogError("Character not assigned");
             return;
         }
         statusComponet.UpdateStatus(character);
     }
-
+    
     private bool isMouseOver = false;
 
     private void OnMouseEnter() {
@@ -47,18 +63,52 @@ public class BattleCharacterComponent : MonoBehaviour
             Debug.Log("캐릭터 상태: " + character.Name + " ( " + character.CurrentHealth + "/" + character.CurrentEnergy + ")");
         }
     }
+    
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Card") {
-            HandCardComponent cardComponent = other.transform.GetComponent<HandCardComponent>();
+            BattleCardComponent cardComponent = other.transform.GetComponent<BattleCardComponent>();
             if (cardComponent.IsSelected) {
-                Debug.Log("캐릭터에게 닿았습니다.");
+                SetTargetedByEnemy();
+                BattleCard battleCard = (BattleCard)cardComponent.CardData;
+                BattleEventManager.Instance.SelectCardTarget(this, battleCard.Target);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        // 충돌이 끝날 때 호출됩니다.
+        if (isComponentSelected) {
+            UnsetTargetedByEnemy();
+            BattleEventManager.Instance.UnselectCardTarget();
+        }
+    }
+
+    public void SetTargetedByEnemy() {
+        isComponentSelected = true;
+        shader.enabled = true;
+    }
+
+    public void UnsetTargetedByEnemy() {
+        isComponentSelected = false;
+        shader.enabled = false;
+    }
+
+    public List<Character> GetSiblingCharacters() {
+        if (characterType == TargetType.Friendly) {
+            return componentManager.GetPlayerCharacters();
+        }
+        else {
+            return componentManager.GetEnemyCharacters();
+        }
+    }
+
+    public List<BattleCharacterComponent> GetSiblingCharacterComponents() {
+        if (characterType == TargetType.Friendly) {
+            return componentManager.GetPlayerCharacterCompnenets();
+        }
+        else {
+            return componentManager.GetEnemyCharacterCompnenets();
+        }
     }
 }
 
