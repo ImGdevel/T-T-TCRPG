@@ -102,7 +102,6 @@ public class BattleEventManager : MonoBehaviour
         // -> 애니메에션 출력은 애니메이션 매니저에서? 아니면 효과 출력 단계에서?
         // -> 이후 효과 적용
 
-        Debug.Log("카드 사용됨=>");
         BattleCard card = battleCard;
 
         ApplyCardEffectToCharacter(card.Effects);
@@ -133,10 +132,10 @@ public class BattleEventManager : MonoBehaviour
 
     private void ApplyDamageEffect(List<Character> characters, int damage) {
         foreach (Character target in characters) {
-
             target.TakeDamage(damage);
-            Debug.Log("데미지 받음!");
             // 캐릭터 애니메이션 추가
+
+            // 캐릭터의 체력이 0이 되면 사망 처리
         }
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BattleCardComponent : HandCardComponent
 {
     protected override void UseCard() {
-        Debug.Log("Ä«µå »ç¿ëµÊ");
         BattleEventManager.Instance.CardUseEvent((BattleCard)CardData);
         base.UseCard();
     }
