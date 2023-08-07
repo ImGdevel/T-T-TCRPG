@@ -1,17 +1,26 @@
+using UnityEngine;
+using UnityEngine.Events;
+
 public class Buff
 {
-    public BuffData buffData;
-    public int remainingTurns; // 남은 지속 턴 수
-
-    public string Name { get; }
-    public BuffType Type { get; }
-    public int Duration { set; get; }
+    private BuffData buffData;
+    public BuffType BuffType { get { return buffData.buffType;  } }
+    public BuffDebuffType BuffDebuffType { get { return buffData.buffDebuffType;  } }
+    public int BuffAmount { get { return buffData.BuffAmount; } }
+    public int remainingDuration;
 
     public Buff(BuffData buffData) {
         this.buffData = buffData;
-        remainingTurns = buffData.duration;
+        this.remainingDuration = buffData.duration;
     }
-    public void ApplyBuff(Character target) {
 
+    // 버프가 적용될 때 호출되는 이벤트
+    public void ApplyBuff(Character character) {
+        buffData.onBuffApplied?.Invoke(character);
+    }
+
+    // 버프가 제거될 때 호출되는 이벤트
+    public void RemoveBuff(Character character) {
+        buffData.onBuffRemoved?.Invoke(character);
     }
 }
