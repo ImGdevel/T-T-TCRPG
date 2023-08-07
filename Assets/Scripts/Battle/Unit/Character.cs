@@ -32,6 +32,8 @@ public abstract class Character
     private List<Buff> activeBuffs = new List<Buff>();
     private List<Buff> activeDebuffs = new List<Buff>();
 
+    public List<Buff> buffs = new List<Buff>();
+
     // 버프 효과를 적용하는 메서드
     public void ApplyBuff(BuffData buffData) {
         Buff buffInstance = new Buff(buffData);

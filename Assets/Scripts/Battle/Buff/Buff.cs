@@ -4,8 +4,10 @@ using UnityEngine.Events;
 public class Buff
 {
     private BuffData buffData;
-    public BuffType BuffType { get { return buffData.buffType;  } }
-    public BuffDebuffType BuffDebuffType { get { return buffData.buffDebuffType;  } }
+
+    public BuffType BuffType { get { return buffData.buffType; } }
+    public BuffDebuffType BuffDebuffType { get { return buffData.buffDebuffType; } }
+    public Sprite Sprite {get { return buffData.sprite; } }
     public int BuffAmount { get { return buffData.BuffAmount; } }
     public int remainingDuration;
 

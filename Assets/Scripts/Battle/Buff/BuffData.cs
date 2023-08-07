@@ -13,8 +13,10 @@ public class BuffData : ScriptableObject
 {
     public BuffType buffType;
     public BuffDebuffType buffDebuffType; // 버프인지 디버프인지
+    public Sprite sprite;
     public int BuffAmount; // 버프 량
     public int duration; // 버프 지속 턴 수
+    
 
     public BuffEvent onBuffApplied; // 버프가 적용될 때 호출되는 이벤트
     public BuffEvent onBuffRemoved; // 버프가 제거될 때 호출되는 이벤트

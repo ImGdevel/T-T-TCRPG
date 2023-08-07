@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142095163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7, y: 0, z: 0}
+  m_LocalPosition: {x: -7.51, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -532,8 +532,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473813501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 0.04, z: 0}
-  m_LocalScale: {x: 1.9808, y: 1.9725, z: 1}
+  m_LocalPosition: {x: -0.06, y: -0.05, z: 0}
+  m_LocalScale: {x: 2.0838017, y: 2.0754645, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -693,5 +693,5 @@ MonoBehaviour:
   enemyField: {fileID: 1766849725}
   characterFramePrefab: {fileID: 2328968568459200331, guid: 72ab5bdc741f8da48b6c72e2dcfd06e1, type: 3}
   positionOffset: 1
-  heightAdjustment: -1
+  heightAdjustment: 0
   fieldSpacing: 2.5
