@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class BuffManager
 {
+    /*
     private List<Buff> buffs;
 
     public BuffManager() {
@@ -58,4 +59,5 @@ public class BuffManager
     public void SortBuffs() {
         buffs.Sort((buff1, buff2) => buff1.Type.CompareTo(buff2.Type));
     }
+    */
 }
