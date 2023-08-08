@@ -63,9 +63,7 @@ public abstract class Hero : Character
     /// 영웅이 버프를 받을 때 호출되는 함수입니다.
     /// </summary>
     /// <param name="buff">받는 버프</param>
-    public override void TakeBuff(Buff buff) {
 
-    }
 
     /// <summary>
     /// 영웅이 빈사 상태할 때 호출되는 함수입니다.

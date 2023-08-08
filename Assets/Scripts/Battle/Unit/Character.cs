@@ -24,7 +24,6 @@ public abstract class Character
     public abstract void Attack();
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
-    public abstract void TakeBuff(Buff buff);
     public abstract void Die();
     public abstract Character Clone();
 
@@ -34,9 +33,18 @@ public abstract class Character
 
     public List<Buff> buffs = new List<Buff>();
 
+    public void TakeBuff(BuffData buff) {
+        
+        ApplyBuff(buff);
+
+    }
+
     // 버프 효과를 적용하는 메서드
     public void ApplyBuff(BuffData buffData) {
         Buff buffInstance = new Buff(buffData);
+
+        Debug.Log("버프를 받았습니다.");
+        buffs.Add(buffInstance);
 
         // 버프의 타입에 따라 버프 또는 디버프 리스트에 추가합니다.
         if (buffData.buffDebuffType == BuffDebuffType.Buff) {
@@ -99,5 +107,9 @@ public abstract class Character
                 RemoveBuff(buffInstance);
             }
         }
+    }
+
+    public void Barrier() {
+        Debug.Log("배리어에 관련된 코드 입니다.");
     }
 }
