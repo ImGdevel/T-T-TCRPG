@@ -10,7 +10,7 @@ public abstract class Character
     protected int maxEnergy;
     protected int currentEnergy;
     protected int attackPower;
-    protected BuffList buffList;    
+    protected BuffList buffList;
 
     public string Name { get { return name; } }
     public int MaxHealth { get { return maxHealth; } }
@@ -31,11 +31,15 @@ public abstract class Character
         buffList.AddBuff(buffInstance);
     }
 
+    public void ApplyBuff() {
+        buffList.ApplyBuffs(this);
+    }
+
     /// <summary>
     /// 게임 턴이 시작될 때 호출되는 메서드
     /// </summary>
     public virtual void TurnStart() {
-
+        // 필요한 처리들을 수행합니다.
     }
 
     // 게임 턴이 끝날 때 호출되는 메서드

@@ -143,7 +143,7 @@ public class BattleEventManager : MonoBehaviour
     private void ApplyBuffEffect(List<Character> characters, BuffData buff) {
         foreach (Character target in characters) {
             target.TakeBuff(buff);
-
+            target.ApplyBuff();
             // 캐릭터 애니메이션 추가
         }
     }

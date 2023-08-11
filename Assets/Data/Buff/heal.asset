@@ -17,9 +17,3 @@ MonoBehaviour:
   sprite: {fileID: 1820510823, guid: e62aef62697d30c4da0e38a4b1f096ed, type: 3}
   BuffAmount: 10
   duration: 3
-  onBuffApplied:
-    m_PersistentCalls:
-      m_Calls: []
-  onBuffRemoved:
-    m_PersistentCalls:
-      m_Calls: []

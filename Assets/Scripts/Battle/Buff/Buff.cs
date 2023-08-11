@@ -18,11 +18,12 @@ public class Buff
 
     // 버프가 적용될 때 호출되는 이벤트
     public void ApplyBuff(Character character) {
-        buffData.onBuffApplied?.Invoke(character);
+        Debug.Log("버프테스트");
+
     }
 
     // 버프가 제거될 때 호출되는 이벤트
     public void RemoveBuff(Character character) {
-        buffData.onBuffRemoved?.Invoke(character);
+
     }
 }

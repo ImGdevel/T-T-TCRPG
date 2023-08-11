@@ -37,6 +37,10 @@ public class BuffList : IEnumerable<Buff>
     /// <param name="character">대상 캐릭터</param>
     public void ApplyBuffs(Character character) {
         // TODO: 대상 캐릭터에게 버프효과를 적용하는 로직을 추가하세요.
+
+        foreach (var item in buffs) {
+            item.ApplyBuff(character);
+        }
     }
 
     /// <summary>
