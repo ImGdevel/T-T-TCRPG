@@ -24,7 +24,7 @@ public abstract class Hero : Character
         this.currentEnergy = maxEnergy;
         this.attackPower = attackPower;
         this.isMoribund = false;
-        this.buffManager = new BuffManager();
+        this.buffList = new BuffList();
     }
 
     // 외부 접근자 (get/set)

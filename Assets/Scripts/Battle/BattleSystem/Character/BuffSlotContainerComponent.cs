@@ -51,13 +51,12 @@ public class BuffSlotContainerComponent: MonoBehaviour
 
     public void UpdateStatus(Character character) {
         //캐릭터 상태 업데이트
-        
-        List<Buff> characterbuffs = character.buffs;
+        List<Buff> characterBuffs = new List<Buff>(character.BuffList); // 버프 리스트를 복사하여 가져오기
 
         for (int index = 0; index < buffSlots.Count; index++) {
-            if( index < characterbuffs.Count) {
+            if( index < characterBuffs.Count) {
                 buffSlots[index].SlotUnactive();
-                buffSlots[index].UpdateStatus(characterbuffs[index]);
+                buffSlots[index].UpdateStatus(characterBuffs[index]);
             }
             else {
                 buffSlots[index].SlotUnactive();

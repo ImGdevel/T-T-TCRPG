@@ -21,7 +21,7 @@ public class Enemy : Character
         this.maxEnergy = maxEnergy;
         this.currentEnergy = maxEnergy;
         this.attackPower = attackPower;
-        buffManager = new BuffManager();
+        buffList = new BuffList();
     }
 
     public EnemyClassType EnemyClassType { get { return enemyClassType; } }

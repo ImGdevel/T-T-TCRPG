@@ -10,8 +10,7 @@ public abstract class Character
     protected int maxEnergy;
     protected int currentEnergy;
     protected int attackPower;
-    protected BuffManager buffManager;
-    
+    protected BuffList buffList;    
 
     public string Name { get { return name; } }
     public int MaxHealth { get { return maxHealth; } }
@@ -19,7 +18,7 @@ public abstract class Character
     public int MaxEnergy { get { return maxEnergy; } }
     public int CurrentEnergy { get { return currentEnergy; } }
     public int AttackPower { get { return attackPower; } }
-    public BuffManager BuffManager { get { return buffManager; } }
+    public BuffList BuffList { get { return buffList; } }
 
     public abstract void Attack();
     public abstract void Defend();
@@ -27,53 +26,9 @@ public abstract class Character
     public abstract void Die();
     public abstract Character Clone();
 
-
-    private List<Buff> activeBuffs = new List<Buff>();
-    private List<Buff> activeDebuffs = new List<Buff>();
-
-    public List<Buff> buffs = new List<Buff>();
-
     public void TakeBuff(BuffData buff) {
-        
-        ApplyBuff(buff);
-
-    }
-
-    // 버프 효과를 적용하는 메서드
-    public void ApplyBuff(BuffData buffData) {
-        Buff buffInstance = new Buff(buffData);
-
-        Debug.Log("버프를 받았습니다.");
-        buffs.Add(buffInstance);
-
-        // 버프의 타입에 따라 버프 또는 디버프 리스트에 추가합니다.
-        if (buffData.buffDebuffType == BuffDebuffType.Buff) {
-            // 버프 리스트에 추가
-            activeBuffs.Add(buffInstance);
-        }
-        else if (buffData.buffDebuffType == BuffDebuffType.Debuff) {
-            // 디버프 리스트에 추가
-            activeDebuffs.Add(buffInstance);
-        }
-
-        // 버프를 캐릭터에 적용합니다.
-        buffInstance.ApplyBuff(this);
-    }
-
-    // 버프 효과를 제거하는 메서드
-    public void RemoveBuff(Buff buffInstance) {
-        // 버프의 타입에 따라 버프 또는 디버프 리스트에서 제거합니다.
-        if (buffInstance.BuffDebuffType == BuffDebuffType.Buff) {
-            // 버프 리스트에서 제거
-            activeBuffs.Remove(buffInstance);
-        }
-        else if (buffInstance.BuffDebuffType == BuffDebuffType.Debuff) {
-            // 디버프 리스트에서 제거
-            activeDebuffs.Remove(buffInstance);
-        }
-
-        // 버프를 캐릭터에서 제거합니다.
-        buffInstance.RemoveBuff(this);
+        Buff buffInstance = new Buff(buff);
+        buffList.AddBuff(buffInstance);
     }
 
     /// <summary>
@@ -86,30 +41,7 @@ public abstract class Character
     // 게임 턴이 끝날 때 호출되는 메서드
     public virtual void EndTurn() {
         // 버프 및 디버프의 지속 턴 수를 감소시키고, 만료된 경우 제거합니다.
-        UpdateBuffs();
+        buffList.UpdateBuffs();
         // 다음 턴에 필요한 처리들을 수행합니다.
-    }
-
-    // 버프 및 디버프의 지속 턴 수를 업데이트하고 만료된 경우 제거합니다.
-    private void UpdateBuffs() {
-        UpdateBuffList(activeBuffs);
-        UpdateBuffList(activeDebuffs);
-    }
-
-    // 버프 리스트를 업데이트하고 만료된 경우 제거합니다.
-    private void UpdateBuffList(List<Buff> buffList) {
-        for (int i = buffList.Count - 1; i >= 0; i--) {
-            Buff buffInstance = buffList[i];
-            buffInstance.remainingDuration--;
-            if (buffInstance.remainingDuration <= 0) {
-                // 버프의 지속 턴 수가 0 이하면 제거합니다.
-                buffList.RemoveAt(i);
-                RemoveBuff(buffInstance);
-            }
-        }
-    }
-
-    public void Barrier() {
-        Debug.Log("배리어에 관련된 코드 입니다.");
     }
 }
