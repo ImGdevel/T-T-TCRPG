@@ -20,12 +20,16 @@ public abstract class Character
     public int AttackPower { get { return attackPower; } }
     public BuffList BuffList { get { return buffList; } }
 
+    private bool isSturn = false;
+
+
     public abstract void Attack();
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
     public abstract void Die();
     public abstract Character Clone();
 
+    
     public void TakeBuff(BuffData buff) {
         Buff buffInstance = new Buff(buff);
         buffList.AddBuff(buffInstance);
@@ -36,16 +40,32 @@ public abstract class Character
     }
 
     /// <summary>
-    /// 게임 턴이 시작될 때 호출되는 메서드
+    /// 턴이 시작될 때 캐릭터 행동
     /// </summary>
     public virtual void TurnStart() {
-        // 필요한 처리들을 수행합니다.
+        // Todo: 필요한 처리들을 수행합니다.
+        
+        RecoverEnergyOnTurnStart(); // 에너지 회복
+        
+
     }
 
-    // 게임 턴이 끝날 때 호출되는 메서드
+    /// <summary>
+    /// 턴이 종료될 때 캐릭터 행동
+    /// </summary>
     public virtual void EndTurn() {
         // 버프 및 디버프의 지속 턴 수를 감소시키고, 만료된 경우 제거합니다.
         buffList.UpdateBuffs();
         // 다음 턴에 필요한 처리들을 수행합니다.
+    }
+
+    private void RecoverEnergyOnTurnStart() {
+        int energyRecoveryAmount = 1;
+        // Todo : 에너지 회복양이 1이상인 경우 로직 작성
+
+        currentEnergy += energyRecoveryAmount;
+        if (currentEnergy > maxEnergy) {
+            currentEnergy = maxEnergy;
+        }
     }
 }
