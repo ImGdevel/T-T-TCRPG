@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BattleStatusComponent : MonoBehaviour
 {
-    [SerializeField] EnergysComponent energysComponet;
     [SerializeField] HpBarComponent hpBarComponent;
+    [SerializeField] EnergysComponent energysComponet;
+    [SerializeField] BuffSlotContainerComponent buffSlotContainerComponent;
 
     private void Start() {
-        if (energysComponet == null) {
-            energysComponet = transform.GetComponentInChildren<EnergysComponent>();
-        }
         if (hpBarComponent == null) {
-            hpBarComponent = transform.GetComponentInChildren<HpBarComponent>();
+            Debug.LogError("필수 컴포넌트가 없습니다: HpBarComponent");
+        }
+        if (energysComponet == null) {
+            Debug.LogError("필수 컴포넌트가 없습니다: EnergysComponent");
+        }
+        if (buffSlotContainerComponent == null) {
+            Debug.LogError("필수 컴포넌트가 없습니다: BuffSlotContainerComponent ");
         }
     }
 
@@ -24,6 +28,7 @@ public class BattleStatusComponent : MonoBehaviour
         //캐릭터 상태 업데이트
         hpBarComponent.UpdateStatus(character.MaxHealth, character.CurrentHealth);
         energysComponet.UpdateStatus(character.MaxEnergy, character.CurrentEnergy);
+        buffSlotContainerComponent.UpdateStatus(character);
         DisplayStatus();
     }
 
@@ -33,5 +38,6 @@ public class BattleStatusComponent : MonoBehaviour
     public void DisplayStatus() {
         hpBarComponent.DisplayStatus();
         energysComponet.DisplayStatus();
+        buffSlotContainerComponent.DisplayStatus();
     }
 }

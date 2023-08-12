@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ab535e2a626934f86b1d85543fcf85, type: 3}
-  m_Name: New Buff Effect
+  m_Script: {fileID: 11500000, guid: 01a8aeb0d5cd7e8458e49eaae40f2508, type: 3}
+  m_Name: heal
   m_EditorClassIdentifier: 
-  target:
-    targetType: 0
-  buffAmount: 0
+  buffType: 3
+  buffDebuffType: 2
+  sprite: {fileID: 1820510823, guid: e62aef62697d30c4da0e38a4b1f096ed, type: 3}
+  BuffAmount: 10
+  duration: 3

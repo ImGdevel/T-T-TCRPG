@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ab535e2a626934f86b1d85543fcf85, type: 3}
+  m_Name: Self Barrier
+  m_EditorClassIdentifier: 
+  target:
+    targetType: 0
+    targetRange: 0
+  buffAmount: 10
+  buff: {fileID: 11400000, guid: 1d8a25013502c0c46bc4fc82cfb7075f, type: 2}
