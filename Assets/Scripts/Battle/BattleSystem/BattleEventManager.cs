@@ -105,6 +105,7 @@ public class BattleEventManager : MonoBehaviour
         BattleCard card = battleCard;
 
         ApplyCardEffectToCharacter(card.Effects);
+        BattleCharacterManager.Instance.UptateStatus();
         BattleCharacterManager.Instance.clearAllComponentSelections();
         UnselectCardTarget();
         isUserSelected = false;
@@ -127,7 +128,7 @@ public class BattleEventManager : MonoBehaviour
             }
 
         }
-        BattleCharacterManager.Instance.UptateStatus();
+        
     }
 
     private void ApplyDamageEffect(List<Character> characters, int damage) {
@@ -139,10 +140,10 @@ public class BattleEventManager : MonoBehaviour
         }
     }
 
-    private void ApplyBuffEffect(List<Character> characters, Buff buff) {
+    private void ApplyBuffEffect(List<Character> characters, BuffData buff) {
         foreach (Character target in characters) {
             target.TakeBuff(buff);
-
+            target.ApplyBuff();
             // 캐릭터 애니메이션 추가
         }
     }

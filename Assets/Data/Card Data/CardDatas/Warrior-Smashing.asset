@@ -20,3 +20,4 @@ MonoBehaviour:
     targetRange: 0
   effects:
   - {fileID: 11400000, guid: 6164390ddb5fad64f8ad6eb74dfa1ad9, type: 2}
+  - {fileID: 11400000, guid: dd6fe22a73055aa4a8bfe18860226816, type: 2}

@@ -21,7 +21,7 @@ public class Enemy : Character
         this.maxEnergy = maxEnergy;
         this.currentEnergy = maxEnergy;
         this.attackPower = attackPower;
-        buffManager = new BuffManager();
+        buffList = new BuffList();
     }
 
     public EnemyClassType EnemyClassType { get { return enemyClassType; } }
@@ -50,9 +50,7 @@ public class Enemy : Character
     /// 적이 버프를 받을 때 호출되는 함수입니다.
     /// </summary>
     /// <param name="buff">받는 버프</param>
-    public override void TakeBuff(Buff buff) {
 
-    }
 
     /// <summary>
     /// 적이 사망할 때 호출되는 함수입니다.
