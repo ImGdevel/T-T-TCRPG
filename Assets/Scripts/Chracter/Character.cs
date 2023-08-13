@@ -18,18 +18,12 @@ public abstract class Character
     public int CurrentHealth { get { return currentHealth; } }
     public int CurrentEnergy { get { return currentEnergy; } }
     public int ShieldPoint { get { return shieldPoint; } }
+    public int AttackPower { get { return stats.GetStat(StatsType.AttackPower); } }
 
     protected BuffList buffList;
     public BuffList BuffList { get { return buffList; } }
     
     private bool isSturn = false;
-
-    /*
-    public int CurrentHealth { get { return currentHealth; } }
-    public int CurrentEnergy { get { return currentEnergy; } }
-    public int ShieldPoint { get { return shieldPoint; } }
-    public int AttackPower { get { return attackPower; } }
-    */
 
     protected Character(string name, CharacterStats characterStats) {
         this.name = name;
