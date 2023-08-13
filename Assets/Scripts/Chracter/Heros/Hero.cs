@@ -14,6 +14,18 @@ public abstract class Hero : Character
     protected int level; // 영웅의 레벨
     protected bool isMoribund; // 빈사 상태 여부
 
+    public HeroClassType ClassType { get { return classType; } }
+    public int Level { get { return level; } }
+    public bool IsMoribund { get { return isMoribund; } }
+
+    protected Equipment equippedWeapon;
+    protected Equipment equippedArmor;
+    protected Equipment equippedAccessory;
+
+    public Equipment EquippedWeapon { get { return equippedWeapon; } }
+    public Equipment EquippedArmor { get { return equippedArmor; } }
+    public Equipment EquippedAccessory { get { return equippedAccessory; } }
+
     public Hero(string name, HeroClassType classType, int level, Stats stats)
         : base(name, stats) {
         this.classType = classType;
@@ -28,15 +40,57 @@ public abstract class Hero : Character
         this.isMoribund = false;
     }
 
-    // 외부 접근자 (get/set)
-    public HeroClassType ClassType { get { return classType; } }
-    public int Level { get { return level; } }
-    public bool IsMoribund { get { return isMoribund; } }
+
 
     public void LevelUp() {
         level++;
         // Todo: 레벨 업에 따른 추가적인 처리
-        
+    }
+
+    public void Equip(Equipment equipment) {
+
+        switch (equipment.Type) {
+            case EquipmentType.Weapon:
+                equippedWeapon = equipment;
+                break;
+            case EquipmentType.Armor:
+                equippedArmor = equipment;
+                break;
+            case EquipmentType.Accessory:
+                equippedAccessory = equipment;
+                break;
+        }
+
+        // 장비 스탯을 캐릭터 스탯에 반영
+        stats.ModifyStat(StatsType.Health, equipment.Stats.GetStat(StatsType.Health));
+        stats.ModifyStat(StatsType.AttackPower, equipment.Stats.GetStat(StatsType.AttackPower));
+        // ... (다른 스탯도 마찬가지로 반영)
+    }
+
+    public void Unequip(EquipmentType type) {
+        Equipment equipment = null;
+
+        switch (type) {
+            case EquipmentType.Weapon:
+                equipment = equippedWeapon;
+                equippedWeapon = null;
+                break;
+            case EquipmentType.Armor:
+                equipment = equippedArmor;
+                equippedArmor = null;
+                break;
+            case EquipmentType.Accessory:
+                equipment = equippedAccessory;
+                equippedAccessory = null;
+                break;
+        }
+
+        if (equipment != null) {
+            // 장비 스탯을 캐릭터 스탯에서 제거
+            stats.ModifyStat(StatsType.Health, -equipment.Stats.GetStat(StatsType.Health));
+            stats.ModifyStat(StatsType.AttackPower, -equipment.Stats.GetStat(StatsType.AttackPower));
+            // ... (다른 스탯도 마찬가지로 제거)
+        }
     }
 
     // 메서드

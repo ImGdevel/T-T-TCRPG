@@ -22,6 +22,11 @@ public class Stats
         // 여기에 추가적인 스탯들을 초기화해주세요.
     }
 
+    // Clone 생성자
+    private Stats(Dictionary<StatsType, int> stats) {
+        this.stats = stats;
+    }
+
     public int GetStat(StatsType type) {
         if (stats.ContainsKey(type)) {
             return stats[type];
@@ -39,5 +44,9 @@ public class Stats
         else {
             Debug.LogError($"StatsType {type} not found.");
         }
+    }
+
+    public Stats Clone() {
+        return new Stats(stats);
     }
 }

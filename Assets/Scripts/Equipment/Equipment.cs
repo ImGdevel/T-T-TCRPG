@@ -9,11 +9,12 @@ public enum EquipmentType
     Accessory
 }
 
-public class Equipment
+[CreateAssetMenu(fileName = "New Equipment", menuName = "Equipment/Equipment")]
+public class Equipment : ScriptableObject
 {
-    public string Name { get; }
-    public EquipmentType Type { get; }
-    public Stats Stats { get; }
+    public string Name { get; private set; }
+    public EquipmentType Type { get; private set; }
+    public Stats Stats { get; private set; }
 
     public Equipment(string name, EquipmentType type, Stats stats) {
         Name = name;

@@ -7,6 +7,7 @@ public abstract class Character
     protected string name;
     public string Name { get { return name; } }
 
+    private Stats originStats;
     protected Stats stats;
 
     protected int currentHealth;
@@ -27,7 +28,8 @@ public abstract class Character
 
     protected Character(string name, Stats characterStats) {
         this.name = name;
-        this.stats = characterStats;
+        this.stats = characterStats.Clone();
+        this.originStats = characterStats.Clone();
         this.currentHealth = stats.GetStat(StatsType.Health);
         this.currentEnergy = stats.GetStat(StatsType.Energy);
         this.buffList = new BuffList();
@@ -36,6 +38,7 @@ public abstract class Character
     protected Character(string name, int maxHealth, int maxEnergy, int attackPower) {
         this.name = name;
         this.stats = new Stats(maxHealth, maxEnergy, attackPower);
+        this.originStats = stats.Clone();
         this.currentHealth = maxHealth;
         this.currentEnergy = maxEnergy;
         this.buffList = new BuffList();
@@ -46,6 +49,7 @@ public abstract class Character
     public abstract void TakeDamage(int damage);
     public abstract void Die();
     public abstract Character Clone();
+
 
     public virtual void TurnStart() {
         // Todo: 필요한 처리들을 수행합니다.
