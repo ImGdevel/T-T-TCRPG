@@ -26,21 +26,12 @@ public abstract class Hero : Character
     public Equipment EquippedArmor { get { return equippedArmor; } }
     public Equipment EquippedAccessory { get { return equippedAccessory; } }
 
-    public Hero(string name, HeroClassType classType, int level, Stats stats)
+    public Hero(string name, Stats stats, HeroClassType classType, int level)
         : base(name, stats) {
         this.classType = classType;
         this.level = level;
         this.isMoribund = false;
     }
-
-    public Hero(string name, HeroClassType classType, int level, int maxHealth, int maxEnergy, int attackPower)
-        : base(name, maxHealth, maxEnergy, attackPower) {
-        this.classType = classType;
-        this.level = level;
-        this.isMoribund = false;
-    }
-
-
 
     public void LevelUp() {
         level++;
@@ -136,8 +127,6 @@ public abstract class Hero : Character
         // 사망에 대한 동작 처리
         // 예: 메시지 출력, 리스폰 처리 등
     }
-
-    
 
     public abstract override Character Clone();
 }

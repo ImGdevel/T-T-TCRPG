@@ -13,13 +13,8 @@ public class Enemy : Character
 {
     private EnemyClassType enemyClassType;
 
-    public Enemy(string name, EnemyClassType enemyClassType, Stats stats)
+    public Enemy(string name, Stats stats, EnemyClassType enemyClassType)
         :base(name, stats) {
-        this.enemyClassType = enemyClassType;
-    }
-
-    public Enemy(string name, EnemyClassType enemyClassType, int maxHealth, int maxEnergy, int attackPower)
-        : base(name, maxHealth, maxEnergy, attackPower) {
         this.enemyClassType = enemyClassType;
     }
 
@@ -59,6 +54,6 @@ public class Enemy : Character
     }
 
     public override Character Clone() {
-        return new Enemy(name, enemyClassType, stats);
+        return new Enemy(name, stats, enemyClassType);
     }
 }
