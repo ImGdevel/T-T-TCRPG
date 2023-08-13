@@ -14,17 +14,18 @@ public abstract class Hero : Character
     protected int level; // 영웅의 레벨
     protected bool isMoribund; // 빈사 상태 여부
 
-    public Hero(string name, HeroClassType classType, int level, int maxHealth, int maxEnergy, int attackPower) {
-        this.name = name;
+    public Hero(string name, HeroClassType classType, int level, CharacterStats characterStats)
+        : base(name, characterStats) {
         this.classType = classType;
         this.level = level;
-        this.maxHealth = maxHealth;
-        this.currentHealth = maxHealth;
-        this.maxEnergy = maxEnergy;
-        this.currentEnergy = maxEnergy;
-        this.attackPower = attackPower;
         this.isMoribund = false;
-        this.buffList = new BuffList();
+    }
+
+    public Hero(string name, HeroClassType classType, int level, int maxHealth, int maxEnergy, int attackPower)
+        : base(name, maxHealth, maxEnergy, attackPower) {
+        this.classType = classType;
+        this.level = level;
+        this.isMoribund = false;
     }
 
     // 외부 접근자 (get/set)
@@ -34,7 +35,8 @@ public abstract class Hero : Character
 
     public void LevelUp() {
         level++;
-        // 레벨 업에 따른 추가적인 처리
+        // Todo: 레벨 업에 따른 추가적인 처리
+        
     }
 
     // 메서드
