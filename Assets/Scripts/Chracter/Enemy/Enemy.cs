@@ -12,13 +12,14 @@ public enum EnemyClassType
 public class Enemy : Character
 {
     private EnemyClassType enemyClassType;
+    public EnemyClassType EnemyClassType { get { return enemyClassType; } }
 
     public Enemy(string name, Stats stats, EnemyClassType enemyClassType)
         :base(name, stats) {
         this.enemyClassType = enemyClassType;
     }
 
-    public EnemyClassType EnemyClassType { get { return enemyClassType; } }
+    
 
     public override void Attack() {
         // 공격 로직 구현
@@ -39,12 +40,6 @@ public class Enemy : Character
             Die();
         }
     }
-
-    /// <summary>
-    /// 적이 버프를 받을 때 호출되는 함수입니다.
-    /// </summary>
-    /// <param name="buff">받는 버프</param>
-
 
     /// <summary>
     /// 적이 사망할 때 호출되는 함수입니다.
