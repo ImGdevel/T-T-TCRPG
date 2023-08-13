@@ -11,11 +11,11 @@ public enum StatsType
     // 여기에 추가적인 스탯들을 나열해주세요.
 }
 
-public class CharacterStats
+public class Stats
 {
     private Dictionary<StatsType, int> stats = new Dictionary<StatsType, int>();
 
-    public CharacterStats(int health, int energy, int attackPower) {
+    public Stats(int health, int energy, int attackPower) {
         stats.Add(StatsType.Health, health);
         stats.Add(StatsType.Energy, energy);
         stats.Add(StatsType.AttackPower, attackPower);

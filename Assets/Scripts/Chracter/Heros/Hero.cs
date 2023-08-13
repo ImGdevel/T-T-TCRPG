@@ -14,8 +14,8 @@ public abstract class Hero : Character
     protected int level; // 영웅의 레벨
     protected bool isMoribund; // 빈사 상태 여부
 
-    public Hero(string name, HeroClassType classType, int level, CharacterStats characterStats)
-        : base(name, characterStats) {
+    public Hero(string name, HeroClassType classType, int level, Stats stats)
+        : base(name, stats) {
         this.classType = classType;
         this.level = level;
         this.isMoribund = false;

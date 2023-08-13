@@ -13,7 +13,7 @@ public class Enemy : Character
 {
     private EnemyClassType enemyClassType;
 
-    public Enemy(string name, EnemyClassType enemyClassType, CharacterStats stats)
+    public Enemy(string name, EnemyClassType enemyClassType, Stats stats)
         :base(name, stats) {
         this.enemyClassType = enemyClassType;
     }

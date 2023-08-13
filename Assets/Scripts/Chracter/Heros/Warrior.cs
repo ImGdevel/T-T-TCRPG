@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Warrior : Hero
 {
-    public Warrior(string name, int level, CharacterStats stats)
+    public Warrior(string name, int level, Stats stats)
         :base(name, HeroClassType.Warrior, level, stats) {
     }
 

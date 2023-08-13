@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mage : Hero
 {
-    public Mage(string name, int level, CharacterStats characterStats)
-        : base(name, HeroClassType.Mage, level, characterStats) {
+    public Mage(string name, int level, Stats stats)
+        : base(name, HeroClassType.Mage, level, stats) {
     }
 
     public Mage(string name, int level, int maxHealth, int maxEnergy, int attackPower)

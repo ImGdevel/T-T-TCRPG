@@ -7,7 +7,7 @@ public abstract class Character
     protected string name;
     public string Name { get { return name; } }
 
-    protected CharacterStats stats;
+    protected Stats stats;
 
     protected int currentHealth;
     protected int currentEnergy;
@@ -25,7 +25,7 @@ public abstract class Character
     
     private bool isSturn = false;
 
-    protected Character(string name, CharacterStats characterStats) {
+    protected Character(string name, Stats characterStats) {
         this.name = name;
         this.stats = characterStats;
         this.currentHealth = stats.GetStat(StatsType.Health);
@@ -35,7 +35,7 @@ public abstract class Character
 
     protected Character(string name, int maxHealth, int maxEnergy, int attackPower) {
         this.name = name;
-        this.stats = new CharacterStats(maxHealth, maxEnergy, attackPower);
+        this.stats = new Stats(maxHealth, maxEnergy, attackPower);
         this.currentHealth = maxHealth;
         this.currentEnergy = maxEnergy;
         this.buffList = new BuffList();
