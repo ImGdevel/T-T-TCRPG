@@ -35,6 +35,15 @@ public abstract class Character
         this.buffList = new BuffList();
     }
 
+    protected Character(string name, int maxHealth, int maxEnergy, int attackPower) {
+        this.name = name;
+        this.stats = new Stats(maxHealth, maxEnergy, attackPower);
+        this.originStats = stats.Clone();
+        this.currentHealth = maxHealth;
+        this.currentEnergy = maxEnergy;
+        this.buffList = new BuffList();
+    }
+
     public abstract void Attack();
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
@@ -56,7 +65,7 @@ public abstract class Character
     private void RecoverEnergyOnTurnStart() {
         int energyRecoveryAmount = 1;
         // Todo: 에너지 회복양이 1이상인 경우 로직 작성
-        // stats.ModifyStat(StatsType.Energy, energyRecoveryAmount);
+        stats.ModifyStat(StatsType.Energy, energyRecoveryAmount);
 
         // 현재 에너지 변경 부분
         // if (CurrentEnergy > MaxEnergy)

@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f842d3848c6a1404fb194cc84b4c5f29, type: 3}
   m_Name: new Equipment
   m_EditorClassIdentifier: 
+  equipmentName: 
+  type: 0
+  description: 
+  stats:
+    Health: 10
+    Energy: 0
+    ShieldPoint: 0
+    AttackPower: 0
+    Speed: 0
