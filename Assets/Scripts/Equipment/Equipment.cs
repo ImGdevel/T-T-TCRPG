@@ -22,10 +22,4 @@ public class Equipment : ScriptableObject
     public string Description { get {return description; } }
     public Stats Stats { get { return stats; } }
     
-    public Equipment(string name, EquipmentType type, Stats stats, string description = "") {
-        this.equipmentName = name;
-        this.type = type;
-        this.stats = stats;
-        this.description = description;
-    }
 }
