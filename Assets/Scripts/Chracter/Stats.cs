@@ -38,22 +38,6 @@ public class Stats
         Speed = speed;
     }
 
-    public Stats(int health, int energy, int attackPower) {
-        Health = health;
-        Energy = energy;
-        ShieldPoint = 0;
-        AttackPower = attackPower;
-        Speed = 1;
-        /*
-        stats.Add(StatsType.Health, health);
-        stats.Add(StatsType.Energy, energy);
-        stats.Add(StatsType.AttackPower, attackPower);
-        stats.Add(StatsType.ShieldPoint, 0);
-        stats.Add(StatsType.Speed, attackPower);
-        */
-        // 여기에 추가적인 스탯들을 초기화해주세요.
-    }
-
     public int GetStat(StatsType type) {
         switch (type) {
             case StatsType.Health:

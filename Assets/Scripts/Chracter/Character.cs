@@ -35,15 +35,6 @@ public abstract class Character
         this.buffList = new BuffList();
     }
 
-    protected Character(string name, int maxHealth, int maxEnergy, int attackPower) {
-        this.name = name;
-        this.stats = new Stats(maxHealth, maxEnergy, attackPower);
-        this.originStats = stats.Clone();
-        this.currentHealth = maxHealth;
-        this.currentEnergy = maxEnergy;
-        this.buffList = new BuffList();
-    }
-
     public abstract void Attack();
     public abstract void Defend();
     public abstract void TakeDamage(int damage);
