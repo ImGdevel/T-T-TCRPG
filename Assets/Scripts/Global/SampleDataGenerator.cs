@@ -32,4 +32,17 @@ public class SampleDataGenerator
         }
     }
 
+    public static void Equi_SAMPLE_EQUIPMENT(Hero hero) {
+        List<Equipment> SAMPLE_EQUIPMENT = new();
+        Equipment sample1 = new Equipment("Amo", EquipmentType.Armor, new Stats(7,-1,5,-1));
+        Equipment sample2 = new Equipment("Wpn", EquipmentType.Weapon, new Stats(0, 0, 10, 0));
+
+        SAMPLE_EQUIPMENT.Add(sample1);
+        SAMPLE_EQUIPMENT.Add(sample2);
+
+        foreach (var item in SAMPLE_EQUIPMENT) {
+            hero.Equip(item);
+        }
+    }
+
 }
