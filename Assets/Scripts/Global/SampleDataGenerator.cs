@@ -10,8 +10,8 @@ public class SampleDataGenerator
         get {
             List<Character> sample = new();
 
-            Hero hero1 = new Warrior("Tain", new Stats(30, 5, 10,10));
-            Hero hero2 = new Mage("Rora", new Stats(30, 5, 10,10));
+            Hero hero1 = new Warrior("Tain", new Stats(30, 4, 10,10));
+            Hero hero2 = new Mage("Rora", new Stats(30, 4, 10,10));
             sample.Add(hero1);
             sample.Add(hero2);
             
@@ -26,8 +26,8 @@ public class SampleDataGenerator
         get {
             List<Character> sample = new();
 
-            sample.Add(new Enemy("Gole", new Stats(30, 5, 10,10), EnemyClassType.Undead));
-            sample.Add(new Enemy("Ghoul", new Stats(30, 5, 10, 10), EnemyClassType.Undead));
+            sample.Add(new Enemy("Gole", new Stats(30, 4, 10,10), EnemyClassType.Undead));
+            sample.Add(new Enemy("Ghoul", new Stats(30, 4, 10, 10), EnemyClassType.Undead));
 
             return sample;
         }

@@ -55,6 +55,8 @@ public abstract class Hero : Character
         // 장비 스탯을 캐릭터 스탯에 반영
         stats.ModifyStat(StatsType.Health, equipment.Stats.GetStat(StatsType.Health));
         stats.ModifyStat(StatsType.AttackPower, equipment.Stats.GetStat(StatsType.AttackPower));
+        stats.ModifyStat(StatsType.Energy, equipment.Stats.GetStat(StatsType.Energy));
+        stats.ModifyStat(StatsType.Speed, equipment.Stats.GetStat(StatsType.Speed));
         // ... (다른 스탯도 마찬가지로 반영)
     }
 
@@ -80,6 +82,8 @@ public abstract class Hero : Character
             // 장비 스탯을 캐릭터 스탯에서 제거
             stats.ModifyStat(StatsType.Health, -equipment.Stats.GetStat(StatsType.Health));
             stats.ModifyStat(StatsType.AttackPower, -equipment.Stats.GetStat(StatsType.AttackPower));
+            stats.ModifyStat(StatsType.Energy, -equipment.Stats.GetStat(StatsType.Energy));
+            stats.ModifyStat(StatsType.Speed, -equipment.Stats.GetStat(StatsType.Speed));
             // ... (다른 스탯도 마찬가지로 제거)
         }
     }
