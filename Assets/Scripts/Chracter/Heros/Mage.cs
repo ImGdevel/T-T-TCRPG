@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Mage : Hero
 {
-    public Mage(string name, int level, int maxHealth, int maxEnergy, int attackPower)
-        : base(name, HeroClassType.Mage, level, maxHealth, maxEnergy, attackPower) {
-        // 추가적인 초기화 코드
+    public Mage(string name, Stats stats, int level = 1)
+        : base(name, stats, HeroClassType.Mage, level) {
     }
 
     public override void Attack() {
@@ -20,6 +19,6 @@ public class Mage : Hero
     }
 
      public override Character Clone() {
-        return new Mage(name, level, maxHealth, maxEnergy, attackPower);
+        return new Mage(name, stats, level);
     }
 }
