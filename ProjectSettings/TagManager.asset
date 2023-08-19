@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Card
   - Character
+  - Chracter
+  - shadow
+  - background
   layers:
   - Default
   - TransparentFX
@@ -13,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Background
+  - Hero
   - 
   - 
   - 
@@ -57,4 +60,7 @@ TagManager:
     locked: 0
   - name: card
     uniqueID: 274739411
+    locked: 0
+  - name: Hero
+    uniqueID: 3485187077
     locked: 0
