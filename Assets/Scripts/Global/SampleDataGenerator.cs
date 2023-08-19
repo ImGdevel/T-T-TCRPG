@@ -11,10 +11,13 @@ public class SampleDataGenerator
             List<Character> sample = new();
 
             Hero hero1 = new Warrior("Tain", new Stats(30, 4, 10,10));
-            Hero hero2 = new Mage("Rora", new Stats(30, 4, 10,10));
+            Hero hero2 = new Rogue("Rosi", new Stats(30,4,10,10));
+            Hero hero3 = new Mage("Rora", new Stats(30, 4, 10,10));
+            
             sample.Add(hero1);
             sample.Add(hero2);
-            
+            sample.Add(hero3);
+
             Equi_SAMPLE_EQUIPMENT(hero1);
             Equi_SAMPLE_EQUIPMENT(hero2);
 
