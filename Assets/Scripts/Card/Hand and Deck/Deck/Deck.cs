@@ -51,7 +51,7 @@ public class Deck
     /// <returns> 리스트 선입 카드 </returns>
     public Card PopCard() {
         if (cards.Count == 0) {
-            Debug.LogWarning("덱에 더 이상 카드가 없습니다!");
+            //Debug.LogWarning("덱에 더 이상 카드가 없습니다!");
             return null;
         }
 

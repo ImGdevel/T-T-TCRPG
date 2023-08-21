@@ -29,7 +29,6 @@ public class BattleEventManager : MonoBehaviour
         cardTarget = new List<Character>();
         isUserSelected = false;
         isTargetSelected = false;
-
         TurnManager.OnTurnChange += CurrentTurn;
     }
 
@@ -37,10 +36,19 @@ public class BattleEventManager : MonoBehaviour
         TurnManager.OnTurnChange -= CurrentTurn;
     }
 
+    /// <summary>
+    /// 턴 변경시 호출
+    /// </summary>
+    /// <param name="isPlayerTurn"></param>
     public void CurrentTurn(bool isPlayerTurn) {
         this.isPlayerTurn = isPlayerTurn;
     }
 
+    /// <summary>
+    /// 아군 설정
+    /// </summary>
+    /// <param name="target"></param>
+    /// <returns></returns>
     public bool IsFriendly(TargetType target) {
         if (isPlayerTurn) {
             return (TargetType.Friendly == target);
@@ -50,7 +58,10 @@ public class BattleEventManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 카드 사용자 지정
+    /// </summary>
+    /// <param name="user"></param>
     public void SetCardUser(BattleCharacterComponent user) {
         // 카드를 사용하는 캐릭터 주체를 지정합니다.
         // 플레이턴과 적의 턴을 따로 설정해야함
@@ -61,6 +72,11 @@ public class BattleEventManager : MonoBehaviour
         isUserSelected = true;
     }
 
+    /// <summary>
+    /// 카드를 사용할 타겟 지정
+    /// </summary>
+    /// <param name="targetComponent"></param>
+    /// <param name="targetInfo"></param>
     public void SelectCardTarget(BattleCharacterComponent targetComponent, Target targetInfo) {
         if (isTargetSelected) {
             Debug.LogWarning("타겟이 중복 설정됨!");
@@ -81,12 +97,19 @@ public class BattleEventManager : MonoBehaviour
         isTargetSelected = true;
     }
 
+    /// <summary>
+    /// 타겟 지정 취소됨
+    /// </summary>
     public void UnselectCardTarget() {
         Debug.Log("타겟 취소됨");
         cardTarget.Clear();
         isTargetSelected = false;
     }
 
+    /// <summary>
+    /// 카드 이벤트
+    /// </summary>
+    /// <param name="battleCard"></param>
     public void CardUseEvent(BattleCard battleCard) {
         if (!isTargetSelected) {
             Debug.LogWarning(" 타겟이 지정되지 않음");

@@ -17,6 +17,21 @@ public class Target
     {
         get { return targetRange; }
     }
+
+    public bool RequiresTarget
+    {
+        get {
+            switch (targetRange) {
+                case TargetRange.Single:
+                case TargetRange.Multiple:
+                    return true;
+                case TargetRange.Self:
+                case TargetRange.All:
+                default:
+                    return false;
+            }
+        }
+    }
 }
 
 /// <summary>
@@ -35,6 +50,7 @@ public enum TargetType
 public enum TargetRange
 {
     Single, // ´ÜÀÏ Å¸°Ù
+    Self,// ÀÚ½ÅÀÌ Å¸°Ù
     Multiple, // ´ÙÁß Å¸°Ù
     All // Å¸°Ù ÀüÃ¼
 }
