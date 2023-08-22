@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class BattleCharacterComponent : MonoBehaviour
 {
+
     private Character character;
     private TargetType characterType;
     private BattleCharacterManager componentManager;
 
     public Character Character { get { return character; } }
     public TargetType CharacterType { get { return characterType; } }
+     
 
     private bool isComponentSelected;
 
+    [SerializeField] Animator chracterAnimator;
     [SerializeField] BattleStatusComponent statusComponet;
-    [SerializeField] Renderer shader;
+    [SerializeField] TargetIndicator targetIndicator;
 
     private void Start() {
         if (statusComponet == null) {
             statusComponet = transform.GetComponentInChildren<BattleStatusComponent>();
+        }
+        if (targetIndicator == null) {
+            targetIndicator = transform.GetComponentInChildren<TargetIndicator>();
+        }
+        if (chracterAnimator == null) {
+            chracterAnimator = transform.GetComponentInChildren<Animator>();
         }
         isComponentSelected = false;
     }
@@ -85,13 +94,15 @@ public class BattleCharacterComponent : MonoBehaviour
 
     public void SetTargetedByEnemy() {
         isComponentSelected = true;
-        shader.enabled = true;
+        targetIndicator.ShowIndicator();
     }
 
     public void UnsetTargetedByEnemy() {
         isComponentSelected = false;
-        shader.enabled = false;
+        targetIndicator.HideIndicator();
     }
+
+
 
     public List<Character> GetSiblingCharacters() {
         if (characterType == TargetType.Friendly) {
