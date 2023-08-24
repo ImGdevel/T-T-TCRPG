@@ -18,7 +18,6 @@ public class Buff
 
     // 버프가 적용될 때 호출되는 이벤트
     public void ApplyBuff(Character character) {
-        Debug.Log("버프테스트");
 
     }
 

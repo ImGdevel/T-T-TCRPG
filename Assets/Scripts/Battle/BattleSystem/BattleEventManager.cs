@@ -101,7 +101,6 @@ public class BattleEventManager : MonoBehaviour
     /// ≈∏∞Ÿ ¡ˆ¡§ √Îº“µ 
     /// </summary>
     public void UnselectCardTarget() {
-        Debug.Log("≈∏∞Ÿ √Îº“µ ");
         cardTarget.Clear();
         isTargetSelected = false;
     }
