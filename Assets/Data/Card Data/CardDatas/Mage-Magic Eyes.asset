@@ -17,6 +17,6 @@ MonoBehaviour:
   cardCost: 2
   cardTarget:
     targetType: 0
-    targetRange: 2
+    targetRange: 3
   effects:
   - {fileID: 11400000, guid: e310a9b15bac44546ace9e0968821a98, type: 2}

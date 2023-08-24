@@ -114,6 +114,10 @@ public class BattleEventManager : MonoBehaviour
             Debug.LogWarning(" 타겟이 지정되지 않음");
             return;
         }
+        if (cardTarget.Count >= 2 ) {
+            Debug.LogError("타겟이 잘못 설정됨!");
+        }
+
         // 카드 사용 애니메이션 시행
 
         // 1. 카드 사용시 카드를 카드 사용화면에 출력
@@ -127,8 +131,8 @@ public class BattleEventManager : MonoBehaviour
         BattleCard card = battleCard;
 
         ApplyCardEffectToCharacter(card.Effects);
-        BattleCharacterManager.Instance.UptateStatus();
         BattleCharacterManager.Instance.clearAllComponentSelections();
+        BattleCharacterManager.Instance.UptateStatus();
         UnselectCardTarget();
         isUserSelected = false;
     }
