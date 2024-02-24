@@ -1,2 +1,4 @@
-Assets/Font/* linguist-detectable=false
-Assets/Pakage/* linguist-detectable=false
+Assets/Font/* linguist-vendored
+Assets/Font/** linguist-vendored
+Assets/Pakage/* linguist-vendored
+Assets/Pakage/** linguist-detectable=false
