@@ -1,4 +1,4 @@
-/Assets/Font/* linguist-vendored
-/Assets/Font/** linguist-vendored
-/Assets/Pakage/* linguist-vendored
-/Assets/Pakage/** linguist-vendored
+Assets/Font/* .cs linguist-vendored
+Assets/Font/** .cs linguist-vendored
+Assets/Pakage/* .cs linguist-vendored
+Assets/Pakage/** .cs linguist-vendored
