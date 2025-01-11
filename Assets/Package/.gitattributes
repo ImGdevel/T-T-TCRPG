@@ -1,1 +1,3 @@
 *.cs linguist-detectable=false
+*.meta linguist-detectable=false
+*.png linguist-detectable=false
